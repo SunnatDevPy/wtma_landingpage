@@ -1,73 +1,104 @@
-# Docker & Yangi Domenga O'rnatish Qo'llanmasi
+# `landing.okaposai.uz` — Serverga O'rnatish Qo'llanmasi
 
-Ushbu loyihani serverdagi mavjud boshqa loyihalarga xalaqit bermagan holda alohida portda va yangi domenda ishga tushirish yo'riqnomasi.
-
----
-
-## 1. Arxitektura qanday ishlaydi?
-
-```
-[Foydalanuvchi] 
-       ↓ (yangi-domen.uz : 80/443)
-[Serverdagi Asosiy Nginx (Reverse Proxy)]
-       ↓ (proxy_pass: http://127.0.0.1:8088)
-[Docker Konteyneri (wtma_landing_app : 8088)]
-```
-
-Serveringizdagi mavjud loyihalar 80/443 portlarda ishlashda davom etadi. Bu yangi landing page esa izolyatsiyalangan holda (masalan, `8088` portda) ishlaydi va asosiy Nginx orqali yangi domenga yo'naltiriladi.
+Ushbu qo'llanma orqali WTMA landing sahifasini serverdagi mavjud boshqa loyihalarga ta'sir qilmagan holda **`landing.okaposai.uz`** domeniga ulaysiz.
 
 ---
 
-## 2. Serverda Loyihani Ishga Tushirish
+## 0. DNS Sozlamasi (Eng birinchi qilinadigan ish)
 
-1. Loyiha fayllarini serverga yuklang (masalan, `/var/www/wtma_landing` papkasiga).
-2. Papkaga kiring va Docker orqali ishga tushiring:
+Domeningiz boshqaruv panelida (masalan, Cloudflare yoki domen sotib olgan joyingizda):
+- **Type**: `A`
+- **Name / Host**: `landing` (yoki to'liq `landing.okaposai.uz`)
+- **Value / IPv4**: Serveringizning IP manzili (masalan `185.xxx.xxx.xxx`)
+- **Proxy status**: Agar Cloudflare bo'lsa DNS Only yoki Proxied
+
+---
+
+## 1. Arxitektura sxemasi
+
+```
+Foydalanuvchi (brauzer)
+       ↓ https://landing.okaposai.uz (443-port)
+Serveringizdagi Asosiy Nginx (Reverse Proxy)
+       ↓ proxy_pass: http://127.0.0.1:8088
+Docker Konteyneri (wtma_landing_app : 8088-port)
+```
+
+Serveringizdagi mavjud asosiy saytlar (masalan `okaposai.uz` yoki boshqa portdagi loyihalar) 80 va 443 portlarda ishlashda davom etaveradi.
+
+---
+
+## 2. Serverda Loyihani Docker orqali Ishga Tushirish
+
+1. Serverga SSH orqali kiring:
+   ```bash
+   ssh root@SERVER_IP
+   ```
+
+2. Loyihani yuklab oling (Git orqali):
+   ```bash
+   cd /var/www
+   git clone https://github.com/SunnatDevPy/wtma_landingpage.git landing_wtma
+   cd landing_wtma
+   ```
+
+3. Docker konteynerini ishga tushiring:
    ```bash
    docker compose up -d --build
    ```
-3. Konteyner ishlayotganini tekshiring:
+
+4. Konteyner holatini tekshiring:
    ```bash
    docker ps
    ```
-   Endi sayt `http://SERVER_IP:8088` manzilida ishlayotgan bo'ladi.
-
-*(Eslatma: Agar `8088` porti band bo'lsa, `docker-compose.yml` faylidagi `"8088:80"` qatoridagi `8088` sonini istalgan bo'sh portga, masalan `"8085:80"` ga o'zgartirishingiz mumkin).*
+   Sizda `wtma_landing_app` nomli konteyner `0.0.0.0:8088->80/tcp` portida ishlab turgan bo'ladi.
 
 ---
 
-## 3. Serverdagi Asosiy Nginx-ga Yangi Domenni Ulash
+## 3. Serverdagi Asosiy Nginx-ni Sozlash
 
-Serveringizdagi Nginx konfiguratsiyasiga (masalan `/etc/nginx/sites-available/yangi-domen.uz` fayliga) quyidagilarni yozasiz:
+1. Yangi konfiguratsiya faylini oching:
+   ```bash
+   sudo nano /etc/nginx/sites-available/landing.okaposai.uz
+   ```
 
-```nginx
-server {
-    listen 80;
-    server_name yangi-domen.uz www.yangi-domen.uz;
+2. Ichiga loyihadagi `server_nginx/landing.okaposai.uz.conf` fayli mazmunini yozing:
+   ```nginx
+   server {
+       listen 80;
+       server_name landing.okaposai.uz;
 
-    location / {
-        proxy_pass http://127.0.0.1:8088;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-}
-```
+       client_max_body_size 20M;
 
-Konfiguratsiyani faollashtiring va Nginx-ni qayta yuklang:
-```bash
-sudo ln -s /etc/nginx/sites-available/yangi-domen.uz /etc/nginx/sites-enabled/
-sudo nginx -t
-sudo systemctl reload nginx
-```
+       location / {
+           proxy_pass http://127.0.0.1:8088;
+           proxy_http_version 1.1;
+           proxy_set_header Upgrade $http_upgrade;
+           proxy_set_header Connection 'upgrade';
+           proxy_set_header Host $host;
+           proxy_set_header X-Real-IP $remote_addr;
+           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+           proxy_set_header X-Forwarded-Proto $scheme;
+           proxy_cache_bypass $http_upgrade;
+       }
+   }
+   ```
+   *(Ctrl + O, Enter, Ctrl + X bilan saqlab chiqing)*
+
+3. Konfiguratsiyani faollashtiring va Nginx-ni qayta yuklang:
+   ```bash
+   sudo ln -s /etc/nginx/sites-available/landing.okaposai.uz /etc/nginx/sites-enabled/
+   sudo nginx -t
+   sudo systemctl reload nginx
+   ```
 
 ---
 
-## 4. Bepul SSL Sertifikat (HTTPS) O'rnatish
+## 4. Bepul SSL (HTTPS) Sertifikatini O'rnatish
 
-Certbot orqali 1 daqiqada bepul HTTPS o'rnating:
+Certbot yordamida avtomatik HTTPS yoqing:
 ```bash
-sudo certbot --nginx -d yangi-domen.uz -d www.yangi-domen.uz
+sudo certbot --nginx -d landing.okaposai.uz
 ```
 
-Tamom! Sayt endi `https://yangi-domen.uz` manzilida xavfsiz va boshqa loyihalarga ta'sir qilmagan holda ishlaydi.
+Muvaffaqiyatli tugagandan so'ng, brauzeringizda **`https://landing.okaposai.uz`** manzilini oching — sayt to'liq xavfsiz (yashil qulf) bilan ishlaydi!
