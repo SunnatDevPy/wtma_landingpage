@@ -1,0 +1,9 @@
+.git
+.agents
+.cursor
+*.log
+scratch/
+landing_page_demo.jpg
+Dockerfile
+docker-compose.yml
+.dockerignore

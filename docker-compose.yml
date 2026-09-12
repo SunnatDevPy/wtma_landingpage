@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  wtma-landing:
+    build: .
+    container_name: wtma_landing_app
+    restart: unless-stopped
+    ports:
+      # Serveringizdagi bo'sh port : konteyner porti
+      # Masalan 8088 porti orqali tashqariga chiqariladi. Xohlagan portingizga (masalan 8085, 3050 va h.k.) o'zgartirishingiz mumkin.
+      - "8088:80"
+    environment:
+      - TZ=Asia/Tashkent

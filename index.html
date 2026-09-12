@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WTMA — World Textile Marketing Agency | Люди. Рынки. Возможности.</title>
+  <meta name="description" content="WTMA — международное маркетинговое агентство, которое помогает текстильным компаниям расти, выходить на новые рынки и создавать устойчивое будущее в глобальной индустрии.">
+  <meta name="keywords" content="WTMA, World Textile Marketing Agency, текстильный маркетинг, экспорт текстиля, легкая промышленность, аналитика текстильного рынка">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-weight='bold' fill='%23111827'>W</text></svg>">
+
+  <!-- Google Fonts: Cormorant Garamond (Editorial Luxury Serif) & Plus Jakarta Sans (Clean Modern Geometric Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==================== HEADER / NAVIGATION ==================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-container">
+      <!-- Logo -->
+      <a href="#hero" class="brand-logo" aria-label="WTMA Главная">
+        <span class="logo-mark">WTMA</span>
+        <span class="logo-details">
+          <span class="logo-line">WORLD TEXTILE</span>
+          <span class="logo-line">MARKETING AGENCY</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="main-nav" id="mainNav" aria-label="Основная навигация">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#about" class="nav-link active">
+              О нас
+              <span class="nav-dot"></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#expertise" class="nav-link">
+              Экспертиза
+              <span class="nav-dot"></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#history" class="nav-link">
+              Проекты
+              <span class="nav-dot"></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#mission" class="nav-link">
+              Каталог
+              <span class="nav-dot"></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#approach" class="nav-link">
+              Медиа
+              <span class="nav-dot"></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#team" class="nav-link">
+              Контакты
+              <span class="nav-dot"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="header-actions">
+        <!-- Search Button -->
+        <button class="action-btn search-trigger" aria-label="Поиск по сайту" id="searchBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <!-- Language Selector -->
+        <div class="lang-selector" id="langSelector">
+          <button class="lang-btn" aria-haspopup="true" aria-expanded="false" id="langToggle">
+            <span>RU</span>
+            <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <a href="#" class="lang-option active">RU (Русский)</a>
+            <a href="#" class="lang-option">EN (English)</a>
+            <a href="#" class="lang-option">UZ (O'zbekcha)</a>
+          </div>
+        </div>
+
+        <!-- Contact CTA Button -->
+        <button class="btn-contact-pill open-contact-modal" id="headerContactBtn">
+          <span>Связаться</span>
+          <span class="arrow">→</span>
+        </button>
+
+        <!-- Mobile Burger Menu Toggle -->
+        <button class="burger-toggle" id="burgerToggle" aria-label="Открыть мобильное меню">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <ul class="mobile-nav-list">
+        <li><a href="#about" class="mobile-nav-link">О нас</a></li>
+        <li><a href="#expertise" class="mobile-nav-link">Экспертиза</a></li>
+        <li><a href="#history" class="mobile-nav-link">История & Проекты</a></li>
+        <li><a href="#mission" class="mobile-nav-link">Наша миссия</a></li>
+        <li><a href="#approach" class="mobile-nav-link">Наш подход</a></li>
+        <li><a href="#team" class="mobile-nav-link">Наша команда</a></li>
+      </ul>
+      <div class="mobile-drawer-footer">
+        <button class="btn-contact-pill w-full open-contact-modal">
+          <span>Связаться с WTMA</span>
+          <span class="arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg-container">
+        <img src="Header.png" alt="WTMA Headquarters architectural view with flying silk fabric" class="hero-bg-image" loading="eager">
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="site-container hero-inner">
+        <div class="hero-content">
+          <div class="hero-kicker reveal-item">
+            <span>ТЕКСТИЛЬ ОБЪЕДИНЯЕТ МИР</span>
+          </div>
+
+          <h1 class="hero-title reveal-item">
+            Люди.<br>
+            Рынки.<br>
+            Возможности.
+          </h1>
+
+          <p class="hero-desc reveal-item">
+            WTMA — международное маркетинговое агентство, которое помогает текстильным компаниям расти, выходить на новые рынки и создавать устойчивое будущее в глобальной индустрии.
+          </p>
+
+          <div class="hero-actions reveal-item">
+            <a href="#about" class="btn-hero-primary">
+              <span>Узнать о WTMA</span>
+              <span class="arrow">→</span>
+            </a>
+          </div>
+
+          <!-- Hero Metrics Bar -->
+          <div class="hero-metrics-grid reveal-item">
+            <div class="metric-item">
+              <div class="metric-number" data-target="10" data-suffix="+">0+</div>
+              <div class="metric-label">стран</div>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <div class="metric-number" data-target="50" data-suffix="+">0+</div>
+              <div class="metric-label">проектов</div>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <div class="metric-number" data-target="100" data-suffix="+">0+</div>
+              <div class="metric-label">партнёров</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 01 — КТО МЫ ==================== -->
+    <section class="block-section section-about light-theme" id="about">
+      <div class="site-container">
+        <div class="about-grid">
+          <!-- Left Column: Number & Titles -->
+          <div class="section-badge-col reveal-item">
+            <span class="section-idx">01 —</span>
+            <h2 class="section-title">Кто мы</h2>
+            <div class="section-sub-kicker">
+              ЭКСПЕРТИЗА. МЕЖДУНАРОДНЫЕ СВЯЗИ. РЕАЛЬНЫЕ РЕЗУЛЬТАТЫ.
+            </div>
+          </div>
+
+          <!-- Middle Column: Description & Link -->
+          <div class="about-text-col reveal-item">
+            <p class="section-paragraph">
+              WTMA — международное маркетинговое агентство, специализирующееся на текстильной индустрии. Мы работаем с производителями, брендами, инвесторами и торговыми компаниями, помогая им выходить на новые рынки, усиливать позиции и достигать устойчивого роста.
+            </p>
+            <a href="#expertise" class="inline-arrow-link">
+              <span>Узнать больше</span>
+              <span class="arrow">→</span>
+            </a>
+          </div>
+
+          <!-- Right Column: Visual Photo -->
+          <div class="about-image-col reveal-item">
+            <div class="image-frame">
+              <img src="2_block.png" alt="Производственные бобины и современные прядильные станки" class="cover-image" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 02 — ИСТОРИЯ ==================== -->
+    <section class="block-section section-history dark-theme" id="history">
+      <div class="history-bg-layer">
+        <img src="3_block.png" alt="Ночной земной шар и траектории глобальных связей" class="history-bg-image" loading="lazy">
+        <div class="history-glow-radial"></div>
+      </div>
+
+      <div class="site-container history-container">
+        <div class="history-header reveal-item">
+          <div class="section-badge-col">
+            <span class="section-idx text-gold">02 —</span>
+            <h2 class="section-title text-white">История</h2>
+            <div class="section-sub-kicker text-muted-gold">
+              ПУТЬ, ОСНОВАННЫЙ НА ЗНАНИЯХ, ДОВЕРИИ И ЛЮДЯХ.
+            </div>
+          </div>
+        </div>
+
+        <!-- Horizontal Timeline -->
+        <div class="timeline-wrapper reveal-item">
+          <div class="timeline-track-line"></div>
+          
+          <div class="timeline-points-row" id="timelineRow">
+            <!-- 2019 -->
+            <div class="timeline-node" data-year="2019">
+              <div class="node-year">2019</div>
+              <div class="node-bullet-wrap">
+                <div class="node-bullet"></div>
+              </div>
+              <div class="node-desc">Основание WTMA и первые проекты</div>
+            </div>
+
+            <!-- 2020 -->
+            <div class="timeline-node" data-year="2020">
+              <div class="node-year">2020</div>
+              <div class="node-bullet-wrap">
+                <div class="node-bullet"></div>
+              </div>
+              <div class="node-desc">Формирование команды и ключевых партнёрств</div>
+            </div>
+
+            <!-- 2021 -->
+            <div class="timeline-node" data-year="2021">
+              <div class="node-year">2021</div>
+              <div class="node-bullet-wrap">
+                <div class="node-bullet"></div>
+              </div>
+              <div class="node-desc">Расширение географии и запуск международных проектов</div>
+            </div>
+
+            <!-- 2022 -->
+            <div class="timeline-node" data-year="2022">
+              <div class="node-year">2022</div>
+              <div class="node-bullet-wrap">
+                <div class="node-bullet"></div>
+              </div>
+              <div class="node-desc">Укрепление экспертизы и развитие направлений</div>
+            </div>
+
+            <!-- 2023 -->
+            <div class="timeline-node" data-year="2023">
+              <div class="node-year">2023</div>
+              <div class="node-bullet-wrap">
+                <div class="node-bullet"></div>
+              </div>
+              <div class="node-desc">Выход на новые рынки и крупные проекты</div>
+            </div>
+
+            <!-- 2024 -->
+            <div class="timeline-node active" data-year="2024">
+              <div class="node-year">2024</div>
+              <div class="node-bullet-wrap">
+                <div class="node-bullet"></div>
+              </div>
+              <div class="node-desc">Рост портфеля клиентов и стратегические партнёрства</div>
+            </div>
+
+            <!-- 2025+ -->
+            <div class="timeline-node" data-year="2025">
+              <div class="node-year">2025+</div>
+              <div class="node-bullet-wrap">
+                <div class="node-bullet"></div>
+              </div>
+              <div class="node-desc">Больше возможностей для индустрии</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 03 — НАША МИССИЯ ==================== -->
+    <section class="block-section section-mission light-theme" id="mission">
+      <div class="mission-bg-layer">
+        <img src="4_block.png" alt="Цветущее хлопковое поле на фоне горных вершин" class="mission-bg-image" loading="lazy">
+        <div class="mission-overlay-soft"></div>
+      </div>
+
+      <div class="site-container mission-container">
+        <div class="mission-grid">
+          <!-- Left Column -->
+          <div class="section-badge-col reveal-item">
+            <span class="section-idx">03 —</span>
+            <h2 class="section-title">Наша миссия</h2>
+            <div class="section-sub-kicker">
+              СОЗДАВАТЬ ЦЕННОСТЬ ДЛЯ ТЕКСТИЛЬНОЙ И FASHION-ИНДУСТРИИ.
+            </div>
+          </div>
+
+          <!-- Center Column: Editorial Serif Italic Quote -->
+          <div class="mission-quote-col reveal-item">
+            <blockquote class="mission-quote">
+              Создавать возможности,<br>
+              которые меняют индустрию.
+            </blockquote>
+          </div>
+
+          <!-- Right Column: Description & Action -->
+          <div class="mission-text-col reveal-item">
+            <p class="section-paragraph">
+              Мы верим, что текстиль объединяет людей, страны и идеи. Наша миссия — помогать компаниям быть конкурентоспособными, устойчивыми и успешными на глобальном рынке.
+            </p>
+            <a href="#approach" class="inline-arrow-link">
+              <span>Узнать больше</span>
+              <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 04 — НАШ ПОДХОД ==================== -->
+    <section class="block-section section-approach dark-theme" id="approach">
+      <div class="approach-bg-layer">
+        <img src="7_block.png" alt="Макротекстура рельефной графитовой ткани и волн волокон" class="approach-bg-image" loading="lazy">
+        <div class="approach-dark-overlay"></div>
+      </div>
+
+      <div class="site-container approach-container">
+        <div class="approach-grid">
+          <!-- Left Column -->
+          <div class="section-badge-col reveal-item">
+            <span class="section-idx text-gold">04 —</span>
+            <h2 class="section-title text-white">Наш подход</h2>
+            <div class="section-sub-kicker text-muted-gold">
+              КАК МЫ ОБЪЕДИНЯЕМ АНАЛИТИКУ, МАРКЕТИНГ, ПРОДАКШН, DIGITAL И БИЗНЕС-РАЗВИТИЕ.
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="approach-content-col reveal-item">
+            <p class="section-paragraph text-light">
+              Мы соединяем данные, креатив и глубокое понимание индустрии, чтобы превращать идеи в решения — от исследования рынка до выхода на новые рынки и долгосрочного роста.
+            </p>
+            <button class="btn-pill-outline open-contact-modal" data-subject="Консультация по подходу">
+              <span>Как мы работаем</span>
+              <span class="arrow">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 05 — НАША ЭКСПЕРТИЗА ==================== -->
+    <section class="block-section section-expertise light-theme" id="expertise">
+      <div class="site-container">
+        <!-- Section Header -->
+        <div class="expertise-header reveal-item">
+          <div class="section-badge-col">
+            <span class="section-idx">05 —</span>
+            <h2 class="section-title">Наша экспертиза</h2>
+            <div class="section-sub-kicker">
+              ГЛУБОКОЕ ПОНИМАНИЕ ИНДУСТРИИ. ПРАКТИЧЕСКИЙ ОПЫТ. ИЗМЕРИМЫЕ РЕЗУЛЬТАТЫ.
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 Cards + 1 Action Circle Card -->
+        <div class="expertise-grid reveal-item">
+          <!-- Card 1: Аналитика рынков -->
+          <article class="expertise-card" data-title="Аналитика рынков">
+            <div class="card-media">
+              <img src="6_block_ekspertiza/file_00000000f5cc821183277bae993a7e52.png" alt="3D графики и анализ текстильных рынков" loading="lazy">
+              <div class="card-shine"></div>
+            </div>
+            <div class="card-footer">
+              <h3 class="card-title">Аналитика рынков</h3>
+            </div>
+          </article>
+
+          <!-- Card 2: Маркетинг и брендинг -->
+          <article class="expertise-card" data-title="Маркетинг и брендинг">
+            <div class="card-media">
+              <img src="6_block_ekspertiza/file_000000000e0c8211b1e13d3f59234cf5.png" alt="Премиальная текстильная драпировка и брендинг" loading="lazy">
+              <div class="card-shine"></div>
+            </div>
+            <div class="card-footer">
+              <h3 class="card-title">Маркетинг и брендинг</h3>
+            </div>
+          </article>
+
+          <!-- Card 3: Продакшн и продукт -->
+          <article class="expertise-card" data-title="Продакшн и продукт">
+            <div class="card-media">
+              <img src="6_block_ekspertiza/file_00000000d790820c9395ff389bc4fc6b.png" alt="Прядильное производство и продуктовая разработка" loading="lazy">
+              <div class="card-shine"></div>
+            </div>
+            <div class="card-footer">
+              <h3 class="card-title">Продакшн и продукт</h3>
+            </div>
+          </article>
+
+          <!-- Card 4: Digital решения -->
+          <article class="expertise-card" data-title="Digital решения">
+            <div class="card-media">
+              <img src="6_block_ekspertiza/file_00000000008481f5addc1993b3c03ae0.png" alt="Цифровые платформы, аналитика и интерфейсы" loading="lazy">
+              <div class="card-shine"></div>
+            </div>
+            <div class="card-footer">
+              <h3 class="card-title">Digital решения</h3>
+            </div>
+          </article>
+
+          <!-- Card 5: Развитие бизнеса -->
+          <article class="expertise-card" data-title="Развитие бизнеса">
+            <div class="card-media">
+              <img src="6_block_ekspertiza/file_000000001780821084507fe0404b654b.png" alt="Глобальная сеть контактов и масштабирование экспорта" loading="lazy">
+              <div class="card-shine"></div>
+            </div>
+            <div class="card-footer">
+              <h3 class="card-title">Развитие бизнеса</h3>
+            </div>
+          </article>
+
+          <!-- Card 6: Все направления CTA Card -->
+          <div class="expertise-action-card open-contact-modal" data-subject="Все направления экспертизы">
+            <div class="circle-arrow-btn">
+              <span class="circle-icon">→</span>
+            </div>
+            <span class="circle-label">Все направления</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 06 — НАША КОМАНДА ==================== -->
+    <section class="block-section section-team dark-theme" id="team">
+      <div class="site-container">
+        <!-- Team Header -->
+        <div class="team-header reveal-item">
+          <div class="section-badge-col">
+            <span class="section-idx text-gold">06 —</span>
+            <h2 class="section-title text-white">Наша команда</h2>
+            <div class="section-sub-kicker text-muted-gold">
+              ЛЮДИ, КОТОРЫЕ ДВИГАЮТ ИНДУСТРИЮ ВПЕРЕД.
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Row & CTA Button -->
+        <div class="team-layout-row reveal-item">
+          <div class="team-cards-grid">
+            <!-- Member 1: Стратегия -->
+            <div class="team-member-card">
+              <div class="member-photo-wrap">
+                <img src="images/team_strategy.png" alt="Эксперт по стратегии WTMA" loading="lazy">
+                <div class="member-gradient-overlay"></div>
+                <div class="member-role-tag">СТРАТЕГИЯ</div>
+              </div>
+            </div>
+
+            <!-- Member 2: Маркетинг -->
+            <div class="team-member-card">
+              <div class="member-photo-wrap">
+                <img src="images/team_marketing.png" alt="Руководитель маркетинга WTMA" loading="lazy">
+                <div class="member-gradient-overlay"></div>
+                <div class="member-role-tag">МАРКЕТИНГ</div>
+              </div>
+            </div>
+
+            <!-- Member 3: Аналитика -->
+            <div class="team-member-card">
+              <div class="member-photo-wrap">
+                <img src="images/team_analytics.png" alt="Главный аналитик рынков WTMA" loading="lazy">
+                <div class="member-gradient-overlay"></div>
+                <div class="member-role-tag">АНАЛИТИКА</div>
+              </div>
+            </div>
+
+            <!-- Member 4: Проекты -->
+            <div class="team-member-card">
+              <div class="member-photo-wrap">
+                <img src="images/team_projects.png" alt="Директор международных проектов WTMA" loading="lazy">
+                <div class="member-gradient-overlay"></div>
+                <div class="member-role-tag">ПРОЕКТЫ</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Team Link Button on Right -->
+          <div class="team-action-col">
+            <a href="#team" class="team-more-link open-contact-modal" data-subject="Знакомство с командой">
+              <span>Наша команда</span>
+              <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="site-container footer-inner">
+      <!-- Left: Logo -->
+      <div class="footer-left">
+        <a href="#hero" class="brand-logo footer-logo">
+          <span class="logo-mark">WTMA</span>
+          <span class="logo-details">
+            <span class="logo-line">WORLD TEXTILE</span>
+            <span class="logo-line">MARKETING AGENCY</span>
+          </span>
+        </a>
+      </div>
+
+      <!-- Center: Slogan -->
+      <div class="footer-center">
+        <p class="footer-slogan">
+          ТЕКСТИЛЬ СЕГОДНЯ. БОЛЬШЕ ВОЗМОЖНОСТЕЙ ЗАВТРА.
+        </p>
+      </div>
+
+      <!-- Right: Social Media Icons -->
+      <div class="footer-right">
+        <div class="social-links" aria-label="Социальные сети">
+          <!-- LinkedIn -->
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+
+          <!-- YouTube -->
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="YouTube">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+
+          <!-- Telegram -->
+          <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Telegram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .26z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright Sub-bar -->
+    <div class="footer-bottom-bar">
+      <div class="site-container footer-bottom-inner">
+        <span>© 2026 WTMA. Все права защищены.</span>
+        <span>Политика конфиденциальности</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== INTERACTIVE CONTACT MODAL ==================== -->
+  <div class="modal-backdrop" id="contactModal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Закрыть окно">✕</button>
+      
+      <div class="modal-header">
+        <span class="modal-kicker">СВЯЗАТЬСЯ С WTMA</span>
+        <h3 class="modal-title" id="modalTitle">Обсудить ваш текстильный проект</h3>
+        <p class="modal-subtitle">Оставьте ваши контакты, и наши эксперты свяжутся с вами в течение 2 часов.</p>
+      </div>
+
+      <form class="modal-form" id="contactForm">
+        <div class="form-group">
+          <label for="userName">Ваше имя *</label>
+          <input type="text" id="userName" name="name" required placeholder="Константин Смирнов">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="userEmail">Email *</label>
+            <input type="email" id="userEmail" name="email" required placeholder="info@company.com">
+          </div>
+          <div class="form-group">
+            <label for="userPhone">Телефон *</label>
+            <input type="tel" id="userPhone" name="phone" required placeholder="+998 90 123 45 67">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="userDirection">Интересующее направление</label>
+          <select id="userDirection" name="direction">
+            <option value="Аналитика рынков">Аналитика рынков и экспорт</option>
+            <option value="Маркетинг и брендинг">Маркетинг и брендинг</option>
+            <option value="Продакшн и продукт">Продакшн и продукт</option>
+            <option value="Digital решения">Digital решения и e-commerce</option>
+            <option value="Развитие бизнеса">Развитие бизнеса и партнёрства</option>
+            <option value="Другое">Комплексное сотрудничество</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="userMessage">Краткое описание задачи</label>
+          <textarea id="userMessage" name="message" rows="3" placeholder="Расскажите о вашей компании и целях..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit-form" id="submitBtn">
+          <span>Отправить запрос</span>
+          <span class="arrow">→</span>
+        </button>
+
+        <div class="form-success-notice" id="formSuccess">
+          ✓ Спасибо! Ваша заявка успешно отправлена. Эксперт WTMA свяжется с вами в ближайшее время.
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="js/main.js"></script>
+</body>
+</html>
