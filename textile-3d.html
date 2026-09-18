@@ -3,27 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WTMA — Ipdan to Tayyor Kiyimgacha (3D Textile Metamorphosis)</title>
-  <meta name="description" content="Tola va ipakdan to tayyor libosgacha bo'lgan to'liq 3D metamorfoza: Apple uslubidagi interaktiv to'qimachilik evolyutsiyasi.">
+  <title>WTMA — Blender 3D Fashion Animation (Apple Style Canvas Scroll)</title>
+  <meta name="description" content="Blender 5.1 render kadrlari asosidagi interaktiv 3D to'qimachilik metamorfozasi.">
 
-  <!-- Google Fonts: Plus Jakarta Sans & Cormorant Garamond -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
-
-  <!-- Three.js (r128) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --bg-dark: #07090e;
       --brand-red: #e04434;
       --brand-red-glow: rgba(224, 68, 52, 0.45);
-      --silk-gold: #f59e0b;
       --text-white: #ffffff;
       --text-muted: #94a3b8;
       --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
-      --font-serif: 'Cormorant Garamond', Georgia, serif;
     }
 
     * {
@@ -38,18 +33,30 @@
       color: var(--text-white);
       font-family: var(--font-sans);
       overflow-x: hidden;
-      min-height: 320vh;
+      min-height: 300vh;
     }
 
-    /* Fixed WebGL Canvas Container */
-    #webgl-container {
+    /* Fixed Canvas Player (Apple Keynote Style) */
+    #canvas-container {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
       z-index: 1;
-      pointer-events: all;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    canvas {
+      max-width: 90vh;
+      max-height: 90vh;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.8));
     }
 
     /* Top Navigation Bar */
@@ -141,53 +148,6 @@
       box-shadow: 0 0 16px var(--brand-red-glow);
     }
 
-    /* Interactive Fabric Color Switcher */
-    .color-atelier {
-      position: fixed;
-      top: 90px;
-      right: 36px;
-      z-index: 45;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      background: rgba(13, 17, 26, 0.75);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(16px);
-      padding: 12px 16px;
-      border-radius: 16px;
-      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
-    }
-
-    .atelier-title {
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-muted);
-    }
-
-    .color-options {
-      display: flex;
-      gap: 10px;
-      margin-top: 4px;
-    }
-
-    .color-dot-btn {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      cursor: pointer;
-      transition: all 0.2s ease;
-      position: relative;
-    }
-
-    .color-dot-btn:hover, .color-dot-btn.active {
-      transform: scale(1.2);
-      border-color: #ffffff;
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
-    }
-
     /* Floating Apple HUD Controller */
     .luxury-hud {
       position: fixed;
@@ -240,10 +200,6 @@
       transition: transform 0.15s ease;
     }
 
-    .hud-slider::-webkit-slider-thumb:hover {
-      transform: scale(1.25);
-    }
-
     .hud-percentage {
       font-size: 0.82rem;
       font-weight: 700;
@@ -251,7 +207,7 @@
       min-width: 42px;
     }
 
-    /* Natural Scroll Story Sections */
+    /* Story Track for Scroll */
     .story-track {
       position: relative;
       z-index: 10;
@@ -262,13 +218,13 @@
       height: 100vh;
       display: flex;
       align-items: center;
-      padding: 0 7vw;
+      padding: 0 8vw;
       pointer-events: none;
     }
 
     .story-card {
       max-width: 520px;
-      background: rgba(8, 12, 20, 0.65);
+      background: rgba(8, 12, 20, 0.7);
       border: 1px solid rgba(255, 255, 255, 0.09);
       backdrop-filter: blur(18px);
       padding: 38px 44px;
@@ -334,7 +290,6 @@
       color: #e2e8f0;
     }
 
-    /* Right & Center alignments */
     .story-section:nth-child(2) {
       justify-content: flex-end;
     }
@@ -350,89 +305,71 @@
       justify-content: center;
     }
 
-    /* Interactive Orbit Hint */
-    .orbit-hint {
+    /* Loading Overlay */
+    #loading-overlay {
       position: fixed;
-      bottom: 86px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 40;
-      font-size: 0.76rem;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      background: rgba(0, 0, 0, 0.55);
-      padding: 6px 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
+      inset: 0;
+      z-index: 100;
+      background: var(--bg-dark);
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 10px;
-      pointer-events: none;
+      justify-content: center;
+      gap: 16px;
       transition: opacity 0.5s ease;
     }
 
-    .orbit-dot {
-      width: 7px;
-      height: 7px;
+    .spinner {
+      width: 44px;
+      height: 44px;
+      border: 3px solid rgba(255, 255, 255, 0.1);
+      border-top-color: var(--brand-red);
       border-radius: 50%;
-      background: var(--brand-red);
-      box-shadow: 0 0 8px var(--brand-red);
-      animation: pulse 1.5s infinite;
+      animation: spin 0.8s linear infinite;
     }
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.6); opacity: 0.6; }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
 
-  <!-- WebGL 3D Canvas -->
-  <div id="webgl-container"></div>
+  <!-- Loading Screen -->
+  <div id="loading-overlay">
+    <div class="spinner"></div>
+    <div style="font-size: 0.85rem; color: #94a3b8;" id="load-text">Blender 5.1 kadrlar yuklanmoqda (0/60)...</div>
+  </div>
+
+  <!-- Apple Keynote Canvas Container -->
+  <div id="canvas-container">
+    <canvas id="sequence-canvas" width="960" height="960"></canvas>
+  </div>
 
   <!-- Header -->
   <header class="luxury-header">
     <div class="brand-wrap">
       <span class="brand-badge">WTMA</span>
       <div class="brand-sub">
-        <span class="brand-title">From Thread to Garment</span>
-        <span class="brand-tag">Ipak va toladan to tayyor kiyim metamorfozasi</span>
+        <span class="brand-title">Blender 5.1 Pipeline</span>
+        <span class="brand-tag">Apple uslubidagi kadrma-kadr to'qimachilik renderi</span>
       </div>
     </div>
 
     <!-- Quick Stage Jumper -->
     <div class="stage-pills">
       <button class="pill-btn active" onclick="jumpTo(0.0)">01 Tola va Iplar</button>
-      <button class="pill-btn" onclick="jumpTo(0.48)">02 To'quv & Gazlama</button>
-      <button class="pill-btn" onclick="jumpTo(1.0)">03 Tayyor Kiyim (Haute Couture)</button>
+      <button class="pill-btn" onclick="jumpTo(0.5)">02 To'quv & Gazlama</button>
+      <button class="pill-btn" onclick="jumpTo(1.0)">03 Tayyor Libos</button>
     </div>
   </header>
 
-  <!-- Fabric Color Switcher -->
-  <div class="color-atelier">
-    <span class="atelier-title">Mato rangini tanlang</span>
-    <div class="color-options">
-      <button class="color-dot-btn active" style="background: #181c24;" onclick="changeFabricColor(0x181c24, this)" title="Klassik Qora (Obsidian Black)"></button>
-      <button class="color-dot-btn" style="background: #b91c1c;" onclick="changeFabricColor(0xb91c1c, this)" title="WTMA Qizil (Royal Crimson)"></button>
-      <button class="color-dot-btn" style="background: #f1f5f9;" onclick="changeFabricColor(0xf1f5f9, this)" title="Ipak Oq (Pure Ivory)"></button>
-      <button class="color-dot-btn" style="background: #1e3a8a;" onclick="changeFabricColor(0x1e3a8a, this)" title="To'q Ko'k (Midnight Navy)"></button>
-    </div>
-  </div>
-
-  <!-- Interactive Orbit Hint -->
-  <div class="orbit-hint" id="orbitHint">
-    <span class="orbit-dot"></span>
-    <span>Sichqoncha bilan 3D kiyimni 360° aylantiring yoki pastga scroll qilib metamorfozani tomosha qiling</span>
-  </div>
-
   <!-- Floating HUD Scrubber -->
   <div class="luxury-hud">
-    <span class="hud-caption">Metamorfoza jarayoni:</span>
+    <span class="hud-caption">Kadr:</span>
     <div class="hud-scrubber-wrap">
-      <input type="range" min="0" max="100" value="0" class="hud-slider" id="scrubberSlider">
-      <span class="hud-percentage" id="scrubberPercent">0%</span>
+      <input type="range" min="1" max="60" value="1" class="hud-slider" id="scrubberSlider">
+      <span class="hud-percentage" id="scrubberPercent">1 / 60</span>
     </div>
   </div>
 
@@ -444,12 +381,11 @@
         <div class="story-badge">01. XOMASHYO VA TOLALAR</div>
         <h2 class="story-heading">Har bir buyuk libos bitta nozik toladan boshlanadi</h2>
         <p class="story-desc">
-          O'zbekistonning tabiiy ipak va paxta tolalari havoda mayin suzadi. Ushbu iplar yuqori sifat, chidamlilik va tabiiy to'qimachilik an'analarining poydevoridir.
+          O'zbekistonning tabiiy ipak va paxta tolalari havoda erkin suzadi. Ushbu iplar yuqori sifat va an'anaviy to'qimachilik san'atining poydevoridir.
         </p>
         <div class="story-pills">
           <span class="story-pill">Tabiiy Paxta</span>
           <span class="story-pill">Ipak Tolasi</span>
-          <span class="story-pill">Xomashyo Saralash</span>
           <span class="story-pill">Laboratoriya Tahlili</span>
         </div>
       </div>
@@ -459,15 +395,14 @@
     <section class="story-section" id="story2">
       <div class="story-card">
         <div class="story-badge">02. TO'QUV VA GAZLAMA</div>
-        <h2 class="story-heading">Iplar o'zaro to'qilib, nafis gazlama matosiga aylanadi</h2>
+        <h2 class="story-heading">Iplar o'zaro to'qilib, mustahkam matoga aylanadi</h2>
         <p class="story-desc">
-          O'rish va arqoq iplari birlashib, tekis, mayin va jiloli to'qimachilik matosini (matoni) shakllantiradi. Zamonaviy dastgohlarda mato mustahkamlik va elastiklik kasb etadi.
+          Iplar o'ralib, zich to'quv va mayin jiloli gazlama matosini shakllantiradi. Zamonaviy dastgohlarda to'qilgan mato xalqaro eksport standartlariga tayyorlanadi.
         </p>
         <div class="story-pills">
           <span class="story-pill">Zich To'quv</span>
           <span class="story-pill">Atlas & Shoyi</span>
           <span class="story-pill">Kostyumbob Gazlama</span>
-          <span class="story-pill">Xalqaro Standartlar</span>
         </div>
       </div>
     </section>
@@ -476,547 +411,110 @@
     <section class="story-section" id="story3">
       <div class="story-card">
         <div class="story-badge">03. BICHUV VA TAYYOR LIBOS</div>
-        <h2 class="story-heading">Mato qomatga moslanib, eksportbop premium kostyumga aylanadi</h2>
+        <h2 class="story-heading">Mato qomatga moslanib, tayyor brend libosiga aylanadi</h2>
         <p class="story-desc">
-          Lenta va gazlama mukammal choklar, yoqa (lapel), tugmalar va WTMA brend yorlig‘i bilan bezatilgan tayyor kiyimga aylanadi. Bu O'zbekiston tekstilining jahon modasidagi ifodasidir.
+          Maneken ustida shakllangan kostyum, qizil ipak astar, oltin tugmalar va WTMA brend yorlig'i bilan to'liq tayyor bo'ladi.
         </p>
         <div class="story-pills">
-          <span class="story-pill">Haute Couture Tikuv</span>
-          <span class="story-pill">Mukammal Qolip</span>
-          <span class="story-pill">WTMA Dizayn Brendi</span>
-          <span class="story-pill">Global Eksport</span>
+          <span class="story-pill">Haute Couture</span>
+          <span class="story-pill">WTMA Dizayn</span>
+          <span class="story-pill">Jahon Eksporti</span>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ==================== THREE.JS SCRIPT ==================== -->
+  <!-- ==================== SCRIPT ==================== -->
   <script>
-    // --- 1. Scene, Camera, Renderer ---
-    const container = document.getElementById('webgl-container');
-    const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x07090e, 0.022);
+    const canvas = document.getElementById('sequence-canvas');
+    const ctx = canvas.getContext('2d');
+    const totalFrames = 60;
+    const images = [];
+    let loadedCount = 0;
 
-    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(0, 0.5, 14);
+    const loadingOverlay = document.getElementById('loading-overlay');
+    const loadText = document.getElementById('load-text');
+    const slider = document.getElementById('scrubberSlider');
+    const percentText = document.getElementById('scrubberPercent');
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.35;
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    container.appendChild(renderer.domElement);
-
-    const mainGroup = new THREE.Group();
-    scene.add(mainGroup);
-
-    // --- 2. Cinematic Studio Runway Lighting ---
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
-    scene.add(ambientLight);
-
-    // Overhead Key Spotlight (Fashion Studio Look)
-    const keySpot = new THREE.SpotLight(0xfffaed, 3.5);
-    keySpot.position.set(4, 12, 10);
-    keySpot.angle = Math.PI / 5;
-    keySpot.penumbra = 0.6;
-    keySpot.castShadow = true;
-    scene.add(keySpot);
-
-    // WTMA Brand Red Rim Light (Dramatically outlines the silhouette)
-    const rimRed = new THREE.DirectionalLight(0xe04434, 2.8);
-    rimRed.position.set(-8, 3, -6);
-    scene.add(rimRed);
-
-    // Cool Fill Light from Right
-    const fillLight = new THREE.DirectionalLight(0x94a3b8, 1.4);
-    fillLight.position.set(10, -2, 6);
-    scene.add(fillLight);
-
-    // Warm Gold Underlight (highlights threads & buttons)
-    const goldGlow = new THREE.PointLight(0xf59e0b, 1.6, 25);
-    goldGlow.position.set(0, -6, 5);
-    scene.add(goldGlow);
-
-    // --- 3. Procedural Fabric Woven Texture Generator ---
-    // Creates a realistic micro-weave texture for cloth shine & bump!
-    function createWovenFabricTexture() {
-      const canvas = document.createElement('canvas');
-      canvas.width = 512;
-      canvas.height = 512;
-      const ctx = canvas.getContext('2d');
-
-      ctx.fillStyle = '#222730';
-      ctx.fillRect(0, 0, 512, 512);
-
-      // Weave twill threads pattern
-      const step = 8;
-      for (let x = 0; x < 512; x += step) {
-        for (let y = 0; y < 512; y += step) {
-          const isWeft = ((x / step) + (y / step)) % 2 === 0;
-          ctx.fillStyle = isWeft ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.22)';
-          ctx.fillRect(x, y, step, step);
-
-          // Subtle thread highlight line
-          ctx.strokeStyle = isWeft ? 'rgba(255,255,255,0.18)' : 'rgba(0,0,0,0.1)';
-          ctx.lineWidth = 1;
-          ctx.strokeRect(x, y, step, step);
+    // Preload all 60 frames rendered by Blender 5.1
+    for (let i = 1; i <= totalFrames; i++) {
+      const img = new Image();
+      const frameNum = String(i).padStart(3, '0');
+      img.src = `images/blender-sequence/frame_${frameNum}.png`;
+      img.onload = () => {
+        loadedCount++;
+        loadText.textContent = `Blender 5.1 kadrlar yuklanmoqda (${loadedCount}/${totalFrames})...`;
+        if (loadedCount === totalFrames) {
+          loadingOverlay.style.opacity = '0';
+          setTimeout(() => loadingOverlay.style.display = 'none', 500);
+          drawFrame(1);
         }
-      }
-
-      const tex = new THREE.CanvasTexture(canvas);
-      tex.wrapS = THREE.RepeatWrapping;
-      tex.wrapT = THREE.RepeatWrapping;
-      tex.repeat.set(14, 14);
-      return tex;
+      };
+      images.push(img);
     }
 
-    const fabricNormalMap = createWovenFabricTexture();
+    let currentFrame = 1;
 
-    // Fabric Material with high-end clearcoat, anisotropic sheen and luxury cloth softness
-    let currentFabricColor = 0x181c24; // Classic Black
-    const fabricMaterial = new THREE.MeshPhysicalMaterial({
-      color: currentFabricColor,
-      roughness: 0.45,
-      metalness: 0.1,
-      clearcoat: 0.5,
-      clearcoatRoughness: 0.25,
-      bumpMap: fabricNormalMap,
-      bumpScale: 0.04,
-      side: THREE.DoubleSide
-    });
-
-    // --- 4. The Metamorphic Garment Mesh (From Sheet/Threads to Jacket) ---
-    // A high-resolution parametric grid that dynamically morphs between:
-    // State 1: Flowing Threads
-    // State 2: Wavy Fabric Sheet
-    // State 3: Tailored Garment / Jacket Torso
-    const gridCols = 54;
-    const gridRows = 54;
-    const vertexCount = (gridCols + 1) * (gridRows + 1);
-
-    const morphGeo = new THREE.PlaneGeometry(6.0, 7.0, gridCols, gridRows);
-    const morphMesh = new THREE.Mesh(morphGeo, fabricMaterial);
-    morphMesh.castShadow = true;
-    morphMesh.receiveShadow = true;
-    mainGroup.add(morphMesh);
-
-    // Arrays to store 3D coordinates for all 3 states
-    const posThreads = new Float32Array(vertexCount * 3);
-    const posFabric = new Float32Array(vertexCount * 3);
-    const posGarment = new Float32Array(vertexCount * 3);
-
-    // Compute coordinates for each vertex in the 3 states
-    let vIndex = 0;
-    for (let r = 0; r <= gridRows; r++) {
-      const v = r / gridRows; // 0 (top/neck) to 1 (bottom/hem)
-      for (let c = 0; c <= gridCols; c++) {
-        const u = c / gridCols; // 0 (left) to 1 (right)
-        const i3 = vIndex * 3;
-
-        // --- STATE 1: Unraveled Swirling Threads in Space ---
-        const thetaThread = (u * Math.PI * 6) + (v * 4.0);
-        const threadSpiralR = 2.0 + Math.sin(v * 8.0) * 2.8;
-        posThreads[i3]     = Math.cos(thetaThread) * threadSpiralR + (Math.sin(u * 12) * 1.5);
-        posThreads[i3 + 1] = (0.5 - v) * 12.0 + Math.cos(u * 6.0) * 1.5;
-        posThreads[i3 + 2] = Math.sin(thetaThread) * threadSpiralR + (Math.cos(v * 10) * 2.0);
-
-        // --- STATE 2: Wavy, Flowing Textile Fabric Sheet ---
-        const fabricWidth = 6.8;
-        const fabricHeight = 7.4;
-        const fX = (u - 0.5) * fabricWidth;
-        const fY = (0.5 - v) * fabricHeight;
-        const fZ = Math.sin(u * Math.PI * 3.0) * 0.9 + Math.cos(v * Math.PI * 2.5) * 0.6;
-        posFabric[i3]     = fX;
-        posFabric[i3 + 1] = fY;
-        posFabric[i3 + 2] = fZ;
-
-        // --- STATE 3: Sculptural 3D Tailored Jacket on Mannequin ---
-        // We calculate an authentic cylindrical torso with waist, chest curve, shoulders & collar!
-        const yGarment = (0.5 - v) * 5.2; // vertical position (-2.6 to +2.6)
-
-        // Torso radius contour: wide shoulders at top (v ~ 0.15), chest (v ~ 0.35), narrow waist (v ~ 0.65), hips (v ~ 0.9)
-        let torsoR = 1.35;
-        if (v < 0.25) {
-          torsoR = 1.35 + (0.25 - v) * 2.8; // broad shoulders
-        } else if (v < 0.5) {
-          torsoR = 1.45 + Math.sin((v - 0.25) * Math.PI * 4) * 0.25; // chest volume
-        } else if (v < 0.75) {
-          torsoR = 1.25; // tapered waist
-        } else {
-          torsoR = 1.45; // jacket hem flair
-        }
-
-        // Horizontal angle wrapping around body (leaving open front lapel cut)
-        const wrapAngle = (u - 0.5) * Math.PI * 1.75;
-        let gX = Math.sin(wrapAngle) * torsoR;
-        let gZ = Math.cos(wrapAngle) * torsoR * 0.85; // elliptical depth
-
-        // Front lapel fold-over effect for jacket opening
-        if (Math.abs(u - 0.5) < 0.12 && v < 0.55) {
-          // Lapels fold forward outwards
-          gZ += 0.35 + (0.55 - v) * 0.5;
-        }
-
-        posGarment[i3]     = gX;
-        posGarment[i3 + 1] = yGarment;
-        posGarment[i3 + 2] = gZ;
-
-        vIndex++;
+    function drawFrame(frameIndex) {
+      const idx = Math.min(Math.max(Math.round(frameIndex), 1), totalFrames);
+      const img = images[idx - 1];
+      if (img && img.complete) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        slider.value = idx;
+        percentText.textContent = `${idx} / ${totalFrames}`;
+        updateStory(idx / totalFrames);
       }
     }
 
-    // --- 5. Volumetric Loose Silk Threads (Flying in from space) ---
-    const threadCount = 28;
-    const looseThreadsGroup = new THREE.Group();
-    mainGroup.add(looseThreadsGroup);
-
-    const looseThreadsData = [];
-
-    for (let t = 0; t < threadCount; t++) {
-      const isRed = (t % 3 === 0);
-      const isGold = (t % 3 === 1);
-      const tColor = isRed ? 0xe04434 : (isGold ? 0xf59e0b : 0xe2e8f0);
-
-      const numControlPts = 8;
-      const tScatter = [];
-      const tWrap = [];
-
-      const phi = (t / threadCount) * Math.PI * 2;
-
-      for (let p = 0; p < numControlPts; p++) {
-        const frac = p / (numControlPts - 1);
-
-        // Swirling freely in space
-        const sx = Math.cos(phi + frac * 4) * (6.5 + Math.sin(frac * 6) * 3);
-        const sy = (frac - 0.5) * 14 + Math.cos(phi * 2) * 2;
-        const sz = Math.sin(phi + frac * 4) * (6.5 + Math.cos(frac * 6) * 3);
-        tScatter.push(new THREE.Vector3(sx, sy, sz));
-
-        // Wrapped around jacket waist, shoulders & lapels like designer basting stitches!
-        const wRadius = 1.5 + (t % 4) * 0.15;
-        const wAngle = phi + (frac * Math.PI * 2);
-        const wx = Math.cos(wAngle) * wRadius;
-        const wy = (frac - 0.5) * 4.6;
-        const wz = Math.sin(wAngle) * wRadius * 0.9;
-        tWrap.push(new THREE.Vector3(wx, wy, wz));
-      }
-
-      const initialCurve = new THREE.CatmullRomCurve3(tScatter, true);
-      const tubeGeometry = new THREE.TubeGeometry(initialCurve, 64, 0.038, 6, false);
-      const tubeMaterial = new THREE.MeshPhysicalMaterial({
-        color: tColor,
-        roughness: 0.25,
-        clearcoat: 0.8,
-        emissive: tColor,
-        emissiveIntensity: isRed ? 0.35 : 0.15
-      });
-
-      const tubeMesh = new THREE.Mesh(tubeGeometry, tubeMaterial);
-      looseThreadsGroup.add(tubeMesh);
-
-      looseThreadsData.push({
-        mesh: tubeMesh,
-        scatter: tScatter,
-        wrap: tWrap,
-        radius: 0.038
-      });
-    }
-
-    // --- 6. Haute Couture Garment Details (Mannequin, Buttons, Lapel, Brand Tag) ---
-    const detailsGroup = new THREE.Group();
-    mainGroup.add(detailsGroup);
-
-    // Elegant Inner Mannequin Neck / Torso Stand (Matt Charcoal)
-    const neckGeo = new THREE.CylinderGeometry(0.55, 0.65, 1.8, 32);
-    const standMat = new THREE.MeshStandardMaterial({
-      color: 0x0e131d,
-      roughness: 0.8,
-      metalness: 0.2
-    });
-    const neckMesh = new THREE.Mesh(neckGeo, standMat);
-    neckMesh.position.set(0, 2.5, -0.2);
-    detailsGroup.add(neckMesh);
-
-    // High Fashion Metallic Gold / Horn Buttons on the Jacket
-    const buttonGeo = new THREE.CylinderGeometry(0.12, 0.12, 0.04, 24);
-    const buttonMat = new THREE.MeshStandardMaterial({
-      color: 0xd4af37, // Polished Gold
-      metalness: 0.85,
-      roughness: 0.2
-    });
-
-    const buttonPositions = [
-      new THREE.Vector3(0.0, 0.4, 1.45),
-      new THREE.Vector3(0.0, -0.4, 1.38),
-      new THREE.Vector3(0.0, -1.2, 1.32)
-    ];
-
-    buttonPositions.forEach(bPos => {
-      const bMesh = new THREE.Mesh(buttonGeo, buttonMat);
-      bMesh.rotation.x = Math.PI / 2;
-      bMesh.position.copy(bPos);
-      detailsGroup.add(bMesh);
-    });
-
-    // WTMA Designer Fabric Tag on Lapel
-    const tagCanvas = document.createElement('canvas');
-    tagCanvas.width = 380;
-    tagCanvas.height = 140;
-    const tCtx = tagCanvas.getContext('2d');
-    tCtx.fillStyle = '#0f172a';
-    tCtx.fillRect(0, 0, 380, 140);
-    tCtx.strokeStyle = '#e04434';
-    tCtx.lineWidth = 6;
-    tCtx.strokeRect(6, 6, 368, 128);
-    tCtx.fillStyle = '#e04434';
-    tCtx.font = 'bold 36px "Plus Jakarta Sans", sans-serif';
-    tCtx.fillText('WTMA', 30, 60);
-    tCtx.fillStyle = '#ffffff';
-    tCtx.font = '500 20px "Plus Jakarta Sans", sans-serif';
-    tCtx.fillText('100% NATURAL SILK & COTTON', 30, 95);
-    tCtx.fillStyle = '#94a3b8';
-    tCtx.font = '500 16px "Plus Jakarta Sans", sans-serif';
-    tCtx.fillText('MADE IN UZBEKISTAN • GLOBAL BRAND', 30, 120);
-
-    const tagTex = new THREE.CanvasTexture(tagCanvas);
-    const tagGeo = new THREE.PlaneGeometry(1.0, 0.42);
-    const tagMat = new THREE.MeshBasicMaterial({ map: tagTex, side: THREE.DoubleSide });
-    const tagMesh = new THREE.Mesh(tagGeo, tagMat);
-    tagMesh.position.set(0.78, 1.2, 1.42);
-    tagMesh.rotation.set(-0.1, -0.3, 0.08);
-    detailsGroup.add(tagMesh);
-
-    // Floating Textile Dust / Fiber Particles
-    const dustCount = 450;
-    const dustGeo = new THREE.BufferGeometry();
-    const dustPositions = new Float32Array(dustCount * 3);
-    for (let i = 0; i < dustCount * 3; i += 3) {
-      dustPositions[i] = (Math.random() - 0.5) * 25;
-      dustPositions[i + 1] = (Math.random() - 0.5) * 20;
-      dustPositions[i + 2] = (Math.random() - 0.5) * 20;
-    }
-    dustGeo.setAttribute('position', new THREE.BufferAttribute(dustPositions, 3));
-    const dustMat = new THREE.PointsMaterial({
-      color: 0xe04434,
-      size: 0.07,
-      transparent: true,
-      opacity: 0.4,
-      blending: THREE.AdditiveBlending
-    });
-    const dustPoints = new THREE.Points(dustGeo, dustMat);
-    scene.add(dustPoints);
-
-    // --- 7. Metamorphosis Interpolation System ---
-    let currentProgress = 0;
-    let targetProgress = 0;
-
-    function updateMetamorphosis(p) {
-      // 1. Interpolate the Main Garment Mesh
-      // Phase 1 (0.0 -> 0.48): Threads -> Fabric Sheet
-      // Phase 2 (0.48 -> 1.0): Fabric Sheet -> Tailored Garment
-      const positions = morphGeo.attributes.position.array;
-
-      for (let i = 0; i < vertexCount; i++) {
-        const i3 = i * 3;
-        let curX, curY, curZ;
-
-        if (p < 0.48) {
-          const t1 = p / 0.48;
-          curX = THREE.MathUtils.lerp(posThreads[i3], posFabric[i3], t1);
-          curY = THREE.MathUtils.lerp(posThreads[i3 + 1], posFabric[i3 + 1], t1);
-          curZ = THREE.MathUtils.lerp(posThreads[i3 + 2], posFabric[i3 + 2], t1);
-        } else {
-          const t2 = (p - 0.48) / 0.52;
-          curX = THREE.MathUtils.lerp(posFabric[i3], posGarment[i3], t2);
-          curY = THREE.MathUtils.lerp(posFabric[i3 + 1], posGarment[i3 + 1], t2);
-          curZ = THREE.MathUtils.lerp(posFabric[i3 + 2], posGarment[i3 + 2], t2);
-        }
-
-        positions[i3]     = curX;
-        positions[i3 + 1] = curY;
-        positions[i3 + 2] = curZ;
-      }
-
-      morphGeo.attributes.position.needsUpdate = true;
-      morphGeo.computeVertexNormals();
-
-      // 2. Interpolate the Loose Flying Silk Threads
-      looseThreadsData.forEach(item => {
-        const curControlPts = [];
-        for (let j = 0; j < item.scatter.length; j++) {
-          const s = item.scatter[j];
-          const w = item.wrap[j];
-          curControlPts.push(new THREE.Vector3(
-            THREE.MathUtils.lerp(s.x, w.x, p),
-            THREE.MathUtils.lerp(s.y, w.y, p),
-            THREE.MathUtils.lerp(s.z, w.z, p)
-          ));
-        }
-
-        const newCurve = new THREE.CatmullRomCurve3(curControlPts, true);
-        const newGeo = new THREE.TubeGeometry(newCurve, 64, item.radius, 6, false);
-        item.mesh.geometry.dispose();
-        item.mesh.geometry = newGeo;
-
-        // In final garment phase, loose threads blend softly as decorative contrast stitching
-        item.mesh.material.opacity = p > 0.85 ? 0.75 : 0.95;
-      });
-
-      // 3. Garment Details Visibility (Buttons, Tag, Mannequin)
-      // Fade in smoothly as garment forms (p > 0.65)
-      const detailOpacity = Math.max(0, (p - 0.6) / 0.4);
-      detailsGroup.position.y = THREE.MathUtils.lerp(-1.5, 0, detailOpacity);
-      detailsGroup.traverse(child => {
-        if (child.material) {
-          child.material.transparent = true;
-          child.material.opacity = detailOpacity;
-        }
-      });
-
-      // 4. Update Story Cards & HUD
-      updateStoryCards(p);
-    }
-
-    function updateStoryCards(p) {
+    function updateStory(progress) {
       const s1 = document.querySelector('#story1 .story-card');
       const s2 = document.querySelector('#story2 .story-card');
       const s3 = document.querySelector('#story3 .story-card');
 
       if (s1 && s2 && s3) {
-        s1.classList.toggle('active', p < 0.35);
-        s2.classList.toggle('active', p >= 0.35 && p < 0.75);
-        s3.classList.toggle('active', p >= 0.75);
+        s1.classList.toggle('active', progress < 0.35);
+        s2.classList.toggle('active', progress >= 0.35 && progress < 0.75);
+        s3.classList.toggle('active', progress >= 0.75);
       }
 
-      // Nav Pills
       const pills = document.querySelectorAll('.pill-btn');
       pills.forEach((btn, idx) => {
-        if (idx === 0) btn.classList.toggle('active', p < 0.35);
-        if (idx === 1) btn.classList.toggle('active', p >= 0.35 && p < 0.75);
-        if (idx === 2) btn.classList.toggle('active', p >= 0.75);
+        if (idx === 0) btn.classList.toggle('active', progress < 0.35);
+        if (idx === 1) btn.classList.toggle('active', progress >= 0.35 && progress < 0.75);
+        if (idx === 2) btn.classList.toggle('active', progress >= 0.75);
       });
-
-      // HUD Sliders
-      const slider = document.getElementById('scrubberSlider');
-      const pct = document.getElementById('scrubberPercent');
-      if (slider && pct) {
-        slider.value = Math.round(p * 100);
-        pct.textContent = `${Math.round(p * 100)}%`;
-      }
     }
 
-    // Color switcher handler
-    window.changeFabricColor = function(hexColor, btnElement) {
-      currentFabricColor = hexColor;
-      fabricMaterial.color.setHex(hexColor);
-
-      // If light color (Ivory), adjust roughness & clearcoat for silk shine
-      if (hexColor === 0xf1f5f9) {
-        fabricMaterial.clearcoat = 0.9;
-        fabricMaterial.roughness = 0.3;
-      } else {
-        fabricMaterial.clearcoat = 0.5;
-        fabricMaterial.roughness = 0.45;
-      }
-
-      document.querySelectorAll('.color-dot-btn').forEach(b => b.classList.remove('active'));
-      if (btnElement) btnElement.classList.add('active');
-    };
-
-    // --- 8. Mouse / Touch Orbit Interaction ---
-    let isDragging = false;
-    let prevMouseX = 0, prevMouseY = 0;
-    let mouseX = 0, mouseY = 0;
-
-    window.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      prevMouseX = e.clientX;
-      prevMouseY = e.clientY;
-      document.getElementById('orbitHint').style.opacity = '0';
-    });
-
-    window.addEventListener('mousemove', (e) => {
-      mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-      mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
-
-      if (isDragging) {
-        const deltaX = e.clientX - prevMouseX;
-        const deltaY = e.clientY - prevMouseY;
-        mainGroup.rotation.y += deltaX * 0.006;
-        mainGroup.rotation.x += deltaY * 0.006;
-        prevMouseX = e.clientX;
-        prevMouseY = e.clientY;
+    // Scroll scrubbing (Apple style)
+    window.addEventListener('scroll', () => {
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      if (maxScroll > 0) {
+        const scrollFraction = Math.min(Math.max(window.scrollY / maxScroll, 0), 1);
+        const targetFrame = 1 + scrollFraction * (totalFrames - 1);
+        drawFrame(targetFrame);
       }
     });
 
-    window.addEventListener('mouseup', () => { isDragging = false; });
-
-    // Scrubber slider listener
-    document.getElementById('scrubberSlider').addEventListener('input', (e) => {
-      targetProgress = parseFloat(e.target.value) / 100;
+    // Slider scrubber
+    slider.addEventListener('input', (e) => {
+      const frame = parseInt(e.target.value, 10);
+      drawFrame(frame);
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
       window.scrollTo({
-        top: targetProgress * (document.body.scrollHeight - window.innerHeight),
+        top: ((frame - 1) / (totalFrames - 1)) * maxScroll,
         behavior: 'smooth'
       });
-    });
-
-    // Window scroll sync (Apple style scrubbing)
-    window.addEventListener('scroll', () => {
-      const maxS = document.body.scrollHeight - window.innerHeight;
-      if (maxS > 0) {
-        targetProgress = Math.min(Math.max(window.scrollY / maxS, 0), 1);
-      }
     });
 
     window.jumpTo = function(val) {
-      targetProgress = val;
-      const maxS = document.body.scrollHeight - window.innerHeight;
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
       window.scrollTo({
-        top: val * maxS,
+        top: val * maxScroll,
         behavior: 'smooth'
       });
     };
-
-    // --- 9. Main Render Loop (60 FPS) ---
-    const clock = new THREE.Clock();
-
-    function animate() {
-      requestAnimationFrame(animate);
-      const delta = clock.getDelta();
-
-      // Smooth progress interpolation
-      currentProgress += (targetProgress - currentProgress) * 0.085;
-      updateMetamorphosis(currentProgress);
-
-      // Idle Rotation (Slow Fashion Runway spin)
-      if (!isDragging) {
-        mainGroup.rotation.y += 0.0025;
-      }
-
-      // Parallax Camera Response
-      if (!isDragging) {
-        camera.position.x += (mouseX * 1.2 - camera.position.x) * 0.04;
-        camera.position.y += (mouseY * 0.8 + 0.5 - camera.position.y) * 0.04;
-        camera.lookAt(0, 0, 0);
-      }
-
-      // Dust Floating
-      dustPoints.rotation.y += 0.0004;
-
-      renderer.render(scene, camera);
-    }
-
-    animate();
-
-    // Resize Handler
-    window.addEventListener('resize', () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    });
   </script>
 </body>
 </html>
