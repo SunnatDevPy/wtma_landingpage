@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uz">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WTMA — Photorealistic 3D Textile Earth & Global Vision</title>
-  <meta name="description" content="Фотореалистичный 3D глобус и шелковые ленты в стиле Apple: объединение текстильных нитей, услуг WTMA и глобальных рынков.">
+  <title>WTMA — Ipdan to Tayyor Kiyimgacha (3D Textile Metamorphosis)</title>
+  <meta name="description" content="Tola va ipakdan to tayyor libosgacha bo'lgan to'liq 3D metamorfoza: Apple uslubidagi interaktiv to'qimachilik evolyutsiyasi.">
 
   <!-- Google Fonts: Plus Jakarta Sans & Cormorant Garamond -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,9 +16,9 @@
 
   <style>
     :root {
-      --bg-dark: #05070a;
+      --bg-dark: #07090e;
       --brand-red: #e04434;
-      --brand-red-glow: rgba(224, 68, 52, 0.5);
+      --brand-red-glow: rgba(224, 68, 52, 0.45);
       --silk-gold: #f59e0b;
       --text-white: #ffffff;
       --text-muted: #94a3b8;
@@ -38,7 +38,7 @@
       color: var(--text-white);
       font-family: var(--font-sans);
       overflow-x: hidden;
-      min-height: 300vh;
+      min-height: 320vh;
     }
 
     /* Fixed WebGL Canvas Container */
@@ -59,12 +59,12 @@
       left: 0;
       right: 0;
       z-index: 50;
-      padding: 24px 40px;
+      padding: 22px 36px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       backdrop-filter: blur(20px);
-      background: linear-gradient(180deg, rgba(5, 7, 10, 0.92) 0%, rgba(5, 7, 10, 0) 100%);
+      background: linear-gradient(180deg, rgba(7, 9, 14, 0.94) 0%, rgba(7, 9, 14, 0) 100%);
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
@@ -141,63 +141,51 @@
       box-shadow: 0 0 16px var(--brand-red-glow);
     }
 
-    /* City Quick-Flight Selector */
-    .city-bar {
+    /* Interactive Fabric Color Switcher */
+    .color-atelier {
       position: fixed;
       top: 90px;
-      right: 40px;
+      right: 36px;
       z-index: 45;
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      background: rgba(10, 15, 24, 0.7);
+      gap: 8px;
+      background: rgba(13, 17, 26, 0.75);
       border: 1px solid rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(16px);
-      padding: 10px 14px;
-      border-radius: 14px;
+      padding: 12px 16px;
+      border-radius: 16px;
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
     }
 
-    .city-bar-title {
+    .atelier-title {
       font-size: 0.65rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--text-muted);
-      margin-bottom: 4px;
     }
 
-    .city-btn {
-      background: transparent;
-      border: none;
-      color: #cbd5e1;
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-align: left;
-      padding: 5px 8px;
-      border-radius: 6px;
-      cursor: pointer;
+    .color-options {
       display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s ease;
+      gap: 10px;
+      margin-top: 4px;
     }
 
-    .city-btn::before {
-      content: '';
-      width: 6px;
-      height: 6px;
+    .color-dot-btn {
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
-      background: var(--text-muted);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
     }
 
-    .city-btn:hover, .city-btn.active {
-      background: rgba(224, 68, 52, 0.18);
-      color: #fff;
-    }
-
-    .city-btn:hover::before, .city-btn.active::before {
-      background: var(--brand-red);
-      box-shadow: 0 0 8px var(--brand-red);
+    .color-dot-btn:hover, .color-dot-btn.active {
+      transform: scale(1.2);
+      border-color: #ffffff;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
     }
 
     /* Floating Apple HUD Controller */
@@ -207,7 +195,7 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 50;
-      background: rgba(10, 15, 25, 0.85);
+      background: rgba(11, 16, 26, 0.85);
       border: 1px solid rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(24px);
       padding: 14px 28px;
@@ -233,7 +221,7 @@
 
     .hud-slider {
       appearance: none;
-      width: 180px;
+      width: 190px;
       height: 4px;
       background: rgba(255, 255, 255, 0.2);
       border-radius: 2px;
@@ -397,39 +385,6 @@
       0%, 100% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.6); opacity: 0.6; }
     }
-
-    /* Card Details Tooltip on 3D Hover */
-    #card-tooltip {
-      position: fixed;
-      z-index: 60;
-      pointer-events: none;
-      background: rgba(13, 17, 26, 0.9);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(14px);
-      padding: 10px 16px;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-      opacity: 0;
-      transform: translate(-50%, -120%);
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-
-    #card-tooltip.visible {
-      opacity: 1;
-    }
-
-    .tooltip-num {
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--brand-red);
-      text-transform: uppercase;
-    }
-
-    .tooltip-name {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: #fff;
-    }
   </style>
 </head>
 <body>
@@ -442,568 +397,485 @@
     <div class="brand-wrap">
       <span class="brand-badge">WTMA</span>
       <div class="brand-sub">
-        <span class="brand-title">Global Textile Vision</span>
-        <span class="brand-tag">Реалистичная 3D модель Земли & Шелковые ленты</span>
+        <span class="brand-title">From Thread to Garment</span>
+        <span class="brand-tag">Ipak va toladan to tayyor kiyim metamorfozasi</span>
       </div>
     </div>
 
     <!-- Quick Stage Jumper -->
     <div class="stage-pills">
-      <button class="pill-btn active" onclick="jumpTo(0.0)">01 Шелковые ленты</button>
-      <button class="pill-btn" onclick="jumpTo(0.5)">02 Слияние в орбиту</button>
-      <button class="pill-btn" onclick="jumpTo(1.0)">03 Фотореалистичный Глобус</button>
+      <button class="pill-btn active" onclick="jumpTo(0.0)">01 Tola va Iplar</button>
+      <button class="pill-btn" onclick="jumpTo(0.48)">02 To'quv & Gazlama</button>
+      <button class="pill-btn" onclick="jumpTo(1.0)">03 Tayyor Kiyim (Haute Couture)</button>
     </div>
   </header>
 
-  <!-- City Flight Quick Nav -->
-  <div class="city-bar">
-    <span class="city-bar-title">Текстильные центры</span>
-    <button class="city-btn active" onclick="flyToCity('tashkent')">Ташкент (Узбекистан)</button>
-    <button class="city-btn" onclick="flyToCity('milan')">Милан (Италия)</button>
-    <button class="city-btn" onclick="flyToCity('paris')">Париж (Франция)</button>
-    <button class="city-btn" onclick="flyToCity('newyork')">Нью-Йорк (США)</button>
-    <button class="city-btn" onclick="flyToCity('istanbul')">Стамбул (Турция)</button>
-    <button class="city-btn" onclick="flyToCity('shanghai')">Шанхай (Китай)</button>
+  <!-- Fabric Color Switcher -->
+  <div class="color-atelier">
+    <span class="atelier-title">Mato rangini tanlang</span>
+    <div class="color-options">
+      <button class="color-dot-btn active" style="background: #181c24;" onclick="changeFabricColor(0x181c24, this)" title="Klassik Qora (Obsidian Black)"></button>
+      <button class="color-dot-btn" style="background: #b91c1c;" onclick="changeFabricColor(0xb91c1c, this)" title="WTMA Qizil (Royal Crimson)"></button>
+      <button class="color-dot-btn" style="background: #f1f5f9;" onclick="changeFabricColor(0xf1f5f9, this)" title="Ipak Oq (Pure Ivory)"></button>
+      <button class="color-dot-btn" style="background: #1e3a8a;" onclick="changeFabricColor(0x1e3a8a, this)" title="To'q Ko'k (Midnight Navy)"></button>
+    </div>
   </div>
 
   <!-- Interactive Orbit Hint -->
   <div class="orbit-hint" id="orbitHint">
     <span class="orbit-dot"></span>
-    <span>Крутите колесо мыши для скролла или перетаскивайте мышью для 360° обзора глобуса</span>
+    <span>Sichqoncha bilan 3D kiyimni 360° aylantiring yoki pastga scroll qilib metamorfozani tomosha qiling</span>
   </div>
 
   <!-- Floating HUD Scrubber -->
   <div class="luxury-hud">
-    <span class="hud-caption">Трансформация в глобус:</span>
+    <span class="hud-caption">Metamorfoza jarayoni:</span>
     <div class="hud-scrubber-wrap">
       <input type="range" min="0" max="100" value="0" class="hud-slider" id="scrubberSlider">
       <span class="hud-percentage" id="scrubberPercent">0%</span>
     </div>
   </div>
 
-  <!-- 3D Card Hover Tooltip -->
-  <div id="card-tooltip">
-    <div class="tooltip-num" id="tooltipNum">01 WTMA</div>
-    <div class="tooltip-name" id="tooltipName">Направление</div>
-  </div>
-
   <!-- Natural Scroll-driven Story Tracks -->
   <main class="story-track">
-    <!-- Step 1: Silk Ribbons & Services -->
+    <!-- Step 1: Raw Fibers & Threads -->
     <section class="story-section" id="story1">
       <div class="story-card active">
-        <div class="story-badge">Истоки Индустрии</div>
-        <h2 class="story-heading">Каждое великое полотно рождается из нити</h2>
+        <div class="story-badge">01. XOMASHYO VA TOLALAR</div>
+        <h2 class="story-heading">Har bir buyuk libos bitta nozik toladan boshlanadi</h2>
         <p class="story-desc">
-          Шелковые и хлопковые волокна грациозно парят в пространстве. Рядом с ними формируются ключевые услуги агентства WTMA: стратегия, исследования, аналитика и визуальный контент.
+          O'zbekistonning tabiiy ipak va paxta tolalari havoda mayin suzadi. Ushbu iplar yuqori sifat, chidamlilik va tabiiy to'qimachilik an'analarining poydevoridir.
         </p>
         <div class="story-pills">
-          <span class="story-pill">Натуральный шелк</span>
-          <span class="story-pill">Хлопковое волокно</span>
-          <span class="story-pill">01 Маркетинг</span>
-          <span class="story-pill">02 Аналитика</span>
-          <span class="story-pill">03 Продакшн</span>
+          <span class="story-pill">Tabiiy Paxta</span>
+          <span class="story-pill">Ipak Tolasi</span>
+          <span class="story-pill">Xomashyo Saralash</span>
+          <span class="story-pill">Laboratoriya Tahlili</span>
         </div>
       </div>
     </section>
 
-    <!-- Step 2: Winding & Weaving into Orbit -->
+    <!-- Step 2: Weaving the Textile Fabric -->
     <section class="story-section" id="story2">
       <div class="story-card">
-        <div class="story-badge">Синергия и Плетение</div>
-        <h2 class="story-heading">Нити закручиваются в меридианы и параллели</h2>
+        <div class="story-badge">02. TO'QUV VA GAZLAMA</div>
+        <h2 class="story-heading">Iplar o'zaro to'qilib, nafis gazlama matosiga aylanadi</h2>
         <p class="story-desc">
-          Объемные атласные ленты с реалистичным блеском окутывают зарождающийся земной шар. Карточки услуг и фотосъемок встают на стабильную орбиту международного масштаба.
+          O'rish va arqoq iplari birlashib, tekis, mayin va jiloli to'qimachilik matosini (matoni) shakllantiradi. Zamonaviy dastgohlarda mato mustahkamlik va elastiklik kasb etadi.
         </p>
         <div class="story-pills">
-          <span class="story-pill">Атласное сияние</span>
-          <span class="story-pill">Глобальная сеть</span>
-          <span class="story-pill">Экспортные коридоры</span>
-          <span class="story-pill">04 Digital</span>
-          <span class="story-pill">05 Бизнес</span>
+          <span class="story-pill">Zich To'quv</span>
+          <span class="story-pill">Atlas & Shoyi</span>
+          <span class="story-pill">Kostyumbob Gazlama</span>
+          <span class="story-pill">Xalqaro Standartlar</span>
         </div>
       </div>
     </section>
 
-    <!-- Step 3: Photorealistic Earth & Active Trade Routes -->
+    <!-- Step 3: Tailored Haute Couture Garment -->
     <section class="story-section" id="story3">
       <div class="story-card">
-        <div class="story-badge">Мировой Масштаб</div>
-        <h2 class="story-heading">WTMA: От локальной фабрики — к мировым столицам моды</h2>
+        <div class="story-badge">03. BICHUV VA TAYYOR LIBOS</div>
+        <h2 class="story-heading">Mato qomatga moslanib, eksportbop premium kostyumga aylanadi</h2>
         <p class="story-desc">
-          Фотореалистичный 3D глобус с ночными огнями мегаполисов, рельефом континентов и сиянием океанов. Из Ташкента в Милан, Париж и Нью-Йорк пульсируют световые экспортные арки.
+          Lenta va gazlama mukammal choklar, yoqa (lapel), tugmalar va WTMA brend yorlig‘i bilan bezatilgan tayyor kiyimga aylanadi. Bu O'zbekiston tekstilining jahon modasidagi ifodasidir.
         </p>
         <div class="story-pills">
-          <span class="story-pill">Ночные огни городов</span>
-          <span class="story-pill">Блики океанов</span>
-          <span class="story-pill">Атмосферный ореол</span>
-          <span class="story-pill">Прямые торговые пути</span>
+          <span class="story-pill">Haute Couture Tikuv</span>
+          <span class="story-pill">Mukammal Qolip</span>
+          <span class="story-pill">WTMA Dizayn Brendi</span>
+          <span class="story-pill">Global Eksport</span>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ==================== THREE.JS ENGINE SCRIPT ==================== -->
+  <!-- ==================== THREE.JS SCRIPT ==================== -->
   <script>
     // --- 1. Scene, Camera, Renderer ---
     const container = document.getElementById('webgl-container');
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x05070a, 0.025);
+    scene.fog = new THREE.FogExp2(0x07090e, 0.022);
 
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(0, 0, 16);
+    camera.position.set(0, 0.5, 14);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.35;
-    renderer.outputEncoding = THREE.sRGBEncoding;
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     container.appendChild(renderer.domElement);
 
-    const mainWorldGroup = new THREE.Group();
-    scene.add(mainWorldGroup);
+    const mainGroup = new THREE.Group();
+    scene.add(mainGroup);
 
-    // --- 2. Cinematic Lighting ---
-    // Ambient soft fill
-    const ambientLight = new THREE.AmbientLight(0x0d1525, 1.4);
+    // --- 2. Cinematic Studio Runway Lighting ---
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
     scene.add(ambientLight);
 
-    // Key Sun Light (strikes Earth from top right, casting realistic ocean specular highlights)
-    const sunLight = new THREE.DirectionalLight(0xfffaed, 2.6);
-    sunLight.position.set(15, 10, 14);
-    scene.add(sunLight);
+    // Overhead Key Spotlight (Fashion Studio Look)
+    const keySpot = new THREE.SpotLight(0xfffaed, 3.5);
+    keySpot.position.set(4, 12, 10);
+    keySpot.angle = Math.PI / 5;
+    keySpot.penumbra = 0.6;
+    keySpot.castShadow = true;
+    scene.add(keySpot);
 
-    // Dramatic WTMA Brand Red Rim Light (from behind left)
-    const rimRedLight = new THREE.DirectionalLight(0xe04434, 3.2);
-    rimRedLight.position.set(-18, -8, -10);
-    scene.add(rimRedLight);
+    // WTMA Brand Red Rim Light (Dramatically outlines the silhouette)
+    const rimRed = new THREE.DirectionalLight(0xe04434, 2.8);
+    rimRed.position.set(-8, 3, -6);
+    scene.add(rimRed);
 
-    // Warm Silk Light
-    const goldAccentLight = new THREE.PointLight(0xf59e0b, 1.8, 40);
-    goldAccentLight.position.set(8, -8, 10);
-    scene.add(goldAccentLight);
+    // Cool Fill Light from Right
+    const fillLight = new THREE.DirectionalLight(0x94a3b8, 1.4);
+    fillLight.position.set(10, -2, 6);
+    scene.add(fillLight);
 
-    // Texture Loader
-    const textureLoader = new THREE.TextureLoader();
+    // Warm Gold Underlight (highlights threads & buttons)
+    const goldGlow = new THREE.PointLight(0xf59e0b, 1.6, 25);
+    goldGlow.position.set(0, -6, 5);
+    scene.add(goldGlow);
 
-    // --- 3. Photorealistic Earth Sphere ---
-    const earthRadius = 4.0;
-    const earthGroup = new THREE.Group();
-    mainWorldGroup.add(earthGroup);
+    // --- 3. Procedural Fabric Woven Texture Generator ---
+    // Creates a realistic micro-weave texture for cloth shine & bump!
+    function createWovenFabricTexture() {
+      const canvas = document.createElement('canvas');
+      canvas.width = 512;
+      canvas.height = 512;
+      const ctx = canvas.getContext('2d');
 
-    // Load Local Earth Textures
-    const earthDayMap = textureLoader.load('images/earth/earth_atmos.jpg');
-    const earthNormalMap = textureLoader.load('images/earth/earth_normal.jpg');
-    const earthSpecMap = textureLoader.load('images/earth/earth_specular.jpg');
-    const earthLightsMap = textureLoader.load('images/earth/earth_lights.png');
-    const earthCloudsMap = textureLoader.load('images/earth/earth_clouds.png');
+      ctx.fillStyle = '#222730';
+      ctx.fillRect(0, 0, 512, 512);
 
-    // Earth Physical Surface Material (High realism with roughness, specular reflections and night lights)
-    const earthMat = new THREE.MeshStandardMaterial({
-      map: earthDayMap,
-      normalMap: earthNormalMap,
-      normalScale: new THREE.Vector2(0.85, 0.85),
-      roughnessMap: earthSpecMap,
-      roughness: 0.65,
-      metalness: 0.15,
-      emissiveMap: earthLightsMap,
-      emissive: new THREE.Color(0xffdb99),
-      emissiveIntensity: 1.4
-    });
+      // Weave twill threads pattern
+      const step = 8;
+      for (let x = 0; x < 512; x += step) {
+        for (let y = 0; y < 512; y += step) {
+          const isWeft = ((x / step) + (y / step)) % 2 === 0;
+          ctx.fillStyle = isWeft ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.22)';
+          ctx.fillRect(x, y, step, step);
 
-    const earthGeo = new THREE.SphereGeometry(earthRadius, 64, 64);
-    const earthMesh = new THREE.Mesh(earthGeo, earthMat);
-    earthGroup.add(earthMesh);
-
-    // Realistic Clouds Layer (semi-transparent with slight radius offset)
-    const cloudsMat = new THREE.MeshStandardMaterial({
-      map: earthCloudsMap,
-      transparent: true,
-      opacity: 0.38,
-      blending: THREE.AdditiveBlending,
-      depthWrite: false
-    });
-    const cloudsGeo = new THREE.SphereGeometry(earthRadius + 0.05, 64, 64);
-    const cloudsMesh = new THREE.Mesh(cloudsGeo, cloudsMat);
-    earthGroup.add(cloudsMesh);
-
-    // Atmospheric Fresnel Halo Glow (Apple style rim lighting)
-    const atmosphereVertexShader = `
-      varying vec3 vNormal;
-      varying vec3 vPosition;
-      void main() {
-        vNormal = normalize(normalMatrix * normal);
-        vPosition = (modelViewMatrix * vec4(position, 1.0)).xyz;
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-      }
-    `;
-
-    const atmosphereFragmentShader = `
-      varying vec3 vNormal;
-      varying vec3 vPosition;
-      uniform vec3 uColor;
-      void main() {
-        vec3 viewDir = normalize(-vPosition);
-        float fresnel = pow(1.0 - max(dot(vNormal, viewDir), 0.0), 3.2);
-        gl_FragColor = vec4(uColor, fresnel * 0.85);
-      }
-    `;
-
-    const atmosphereMat = new THREE.ShaderMaterial({
-      vertexShader: atmosphereVertexShader,
-      fragmentShader: atmosphereFragmentShader,
-      uniforms: {
-        uColor: { value: new THREE.Color(0x38bdf8) } // atmospheric cyan/blue glow
-      },
-      blending: THREE.AdditiveBlending,
-      side: THREE.BackSide,
-      transparent: true
-    });
-
-    const atmosphereGeo = new THREE.SphereGeometry(earthRadius + 0.38, 64, 64);
-    const atmosphereMesh = new THREE.Mesh(atmosphereGeo, atmosphereMat);
-    earthGroup.add(atmosphereMesh);
-
-    // Second Red Rim Halo for WTMA Brand Identity
-    const brandHaloMat = new THREE.ShaderMaterial({
-      vertexShader: atmosphereVertexShader,
-      fragmentShader: atmosphereFragmentShader,
-      uniforms: {
-        uColor: { value: new THREE.Color(0xe04434) }
-      },
-      blending: THREE.AdditiveBlending,
-      side: THREE.BackSide,
-      transparent: true
-    });
-    const brandHaloMesh = new THREE.Mesh(new THREE.SphereGeometry(earthRadius + 0.48, 64, 64), brandHaloMat);
-    earthGroup.add(brandHaloMesh);
-
-    // --- 4. Volumetric 3D Silk Ribbons (Ipak va Gazlama Tasmalar) ---
-    // Real 3D Tubes with thickness, sheen, and realistic cloth curves!
-    const ribbonGroup = new THREE.Group();
-    mainWorldGroup.add(ribbonGroup);
-
-    const ribbonConfigs = [
-      { color: 0xe04434, radius: 0.07, phiOffset: 0, lat: 0.25 },
-      { color: 0xf59e0b, radius: 0.055, phiOffset: Math.PI * 0.4, lat: -0.35 },
-      { color: 0xffffff, radius: 0.05, phiOffset: Math.PI * 0.8, lat: 0.65 },
-      { color: 0xe04434, radius: 0.065, phiOffset: Math.PI * 1.2, lat: -0.65 },
-      { color: 0xf59e0b, radius: 0.06, phiOffset: Math.PI * 1.6, lat: 0.0 }
-    ];
-
-    const ribbonsData = [];
-
-    ribbonConfigs.forEach((cfg, idx) => {
-      const numPts = 10;
-      const scatteredPts = [];
-      const globePts = [];
-
-      for (let j = 0; j < numPts; j++) {
-        const t = j / (numPts - 1);
-        const theta = t * Math.PI * 2;
-
-        // Scattered: Flying, undulating silk ribbons sweeping through 3D space
-        const sX = Math.cos(theta + cfg.phiOffset) * (8.5 + Math.sin(t * 5 + idx) * 3.5);
-        const sY = (t - 0.5) * 18 + Math.cos(theta * 2) * 3.0;
-        const sZ = Math.sin(theta + cfg.phiOffset) * (7.5 + Math.cos(t * 4 + idx) * 3.0);
-        scatteredPts.push(new THREE.Vector3(sX, sY, sZ));
-
-        // Globe: Coiled smoothly around Earth equator, tropics, and meridian
-        const gRadius = earthRadius + 0.18 + (idx * 0.06);
-        const latAngle = cfg.lat * (Math.PI / 2);
-        const ringR = Math.cos(latAngle) * gRadius;
-        const gY = Math.sin(latAngle) * gRadius;
-        const gX = Math.cos(theta + cfg.phiOffset) * ringR;
-        const gZ = Math.sin(theta + cfg.phiOffset) * ringR;
-        globePts.push(new THREE.Vector3(gX, gY, gZ));
+          // Subtle thread highlight line
+          ctx.strokeStyle = isWeft ? 'rgba(255,255,255,0.18)' : 'rgba(0,0,0,0.1)';
+          ctx.lineWidth = 1;
+          ctx.strokeRect(x, y, step, step);
+        }
       }
 
-      // Initial Catmull curve
-      const curve = new THREE.CatmullRomCurve3(scatteredPts, true);
-      const tubeGeo = new THREE.TubeGeometry(curve, 90, cfg.radius, 8, true);
-
-      // Luxurious Silk Material with High Anisotropic Specular Clearcoat
-      const silkMat = new THREE.MeshPhysicalMaterial({
-        color: cfg.color,
-        roughness: 0.3,
-        metalness: 0.15,
-        clearcoat: 0.9,
-        clearcoatRoughness: 0.1,
-        emissive: cfg.color,
-        emissiveIntensity: 0.25,
-        transparent: true,
-        opacity: 0.92
-      });
-
-      const ribbonMesh = new THREE.Mesh(tubeGeo, silkMat);
-      ribbonGroup.add(ribbonMesh);
-
-      ribbonsData.push({
-        mesh: ribbonMesh,
-        scatteredPts,
-        globePts,
-        radius: cfg.radius,
-        color: cfg.color
-      });
-    });
-
-    // --- 5. City Hub Beacons & Pulsing Radar Waves ---
-    const cities = {
-      tashkent: { name: 'Ташкент', country: 'Узбекистан', lat: 41.311, lon: 69.279, hub: 'Текстильный Центр', color: 0xe04434 },
-      milan:    { name: 'Милан', country: 'Италия', lat: 45.464, lon: 9.190, hub: 'Столица Моды', color: 0xf59e0b },
-      paris:    { name: 'Париж', country: 'Франция', lat: 48.856, lon: 2.352, hub: 'Haute Couture', color: 0xffffff },
-      newyork:  { name: 'Нью-Йорк', country: 'США', lat: 40.712, lon: -74.006, hub: 'Мировой Финансовый Рынок', color: 0x38bdf8 },
-      istanbul: { name: 'Стамбул', country: 'Турция', lat: 41.008, lon: 28.978, hub: 'Евразийский Текстильный Мост', color: 0xf59e0b },
-      shanghai: { name: 'Шанхай', country: 'Китай', lat: 31.230, lon: 121.473, hub: 'Глобальная Логистика', color: 0xe04434 }
-    };
-
-    function latLonToVector(lat, lon, r) {
-      const phi = (90 - lat) * (Math.PI / 180);
-      const theta = (lon + 180) * (Math.PI / 180);
-      return new THREE.Vector3(
-        -(r * Math.sin(phi) * Math.cos(theta)),
-        r * Math.cos(phi),
-        r * Math.sin(phi) * Math.sin(theta)
-      );
+      const tex = new THREE.CanvasTexture(canvas);
+      tex.wrapS = THREE.RepeatWrapping;
+      tex.wrapT = THREE.RepeatWrapping;
+      tex.repeat.set(14, 14);
+      return tex;
     }
 
-    const beaconGroup = new THREE.Group();
-    earthGroup.add(beaconGroup);
+    const fabricNormalMap = createWovenFabricTexture();
 
-    const radarRings = [];
-
-    Object.keys(cities).forEach(key => {
-      const c = cities[key];
-      const pos = latLonToVector(c.lat, c.lon, earthRadius + 0.02);
-
-      // Glowing Pillar
-      const pillarGeo = new THREE.CylinderGeometry(0.025, 0.025, 0.35, 12);
-      const pillarMat = new THREE.MeshBasicMaterial({ color: c.color });
-      const pillar = new THREE.Mesh(pillarGeo, pillarMat);
-
-      pillar.position.copy(pos);
-      pillar.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), pos.clone().normalize());
-      beaconGroup.add(pillar);
-
-      // Glowing Pinpoint Head
-      const pinHeadGeo = new THREE.SphereGeometry(0.065, 16, 16);
-      const pinHeadMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
-      const pinHead = new THREE.Mesh(pinHeadGeo, pinHeadMat);
-      pinHead.position.copy(pos.clone().add(pos.clone().normalize().multiplyScalar(0.2)));
-      beaconGroup.add(pinHead);
-
-      // Expanding Radar Pulse Wave
-      const ringGeo = new THREE.RingGeometry(0.05, 0.12, 24);
-      const ringMat = new THREE.MeshBasicMaterial({
-        color: c.color,
-        side: THREE.DoubleSide,
-        transparent: true,
-        opacity: 0.8
-      });
-      const ring = new THREE.Mesh(ringGeo, ringMat);
-      ring.position.copy(pos);
-      ring.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), pos.clone().normalize());
-      beaconGroup.add(ring);
-
-      radarRings.push({ ring, scale: 1, baseOpacity: 0.8 });
+    // Fabric Material with high-end clearcoat, anisotropic sheen and luxury cloth softness
+    let currentFabricColor = 0x181c24; // Classic Black
+    const fabricMaterial = new THREE.MeshPhysicalMaterial({
+      color: currentFabricColor,
+      roughness: 0.45,
+      metalness: 0.1,
+      clearcoat: 0.5,
+      clearcoatRoughness: 0.25,
+      bumpMap: fabricNormalMap,
+      bumpScale: 0.04,
+      side: THREE.DoubleSide
     });
 
-    // --- 6. Glowing Photonic Trade Route Arcs ---
-    const arcsGroup = new THREE.Group();
-    earthGroup.add(arcsGroup);
+    // --- 4. The Metamorphic Garment Mesh (From Sheet/Threads to Jacket) ---
+    // A high-resolution parametric grid that dynamically morphs between:
+    // State 1: Flowing Threads
+    // State 2: Wavy Fabric Sheet
+    // State 3: Tailored Garment / Jacket Torso
+    const gridCols = 54;
+    const gridRows = 54;
+    const vertexCount = (gridCols + 1) * (gridRows + 1);
 
-    const tradeRoutes = [
-      { from: cities.tashkent, to: cities.milan, color: 0xe04434 },
-      { from: cities.tashkent, to: cities.paris, color: 0xf59e0b },
-      { from: cities.tashkent, to: cities.newyork, color: 0x38bdf8 },
-      { from: cities.tashkent, to: cities.istanbul, color: 0xffffff },
-      { from: cities.tashkent, to: cities.shanghai, color: 0xe04434 }
+    const morphGeo = new THREE.PlaneGeometry(6.0, 7.0, gridCols, gridRows);
+    const morphMesh = new THREE.Mesh(morphGeo, fabricMaterial);
+    morphMesh.castShadow = true;
+    morphMesh.receiveShadow = true;
+    mainGroup.add(morphMesh);
+
+    // Arrays to store 3D coordinates for all 3 states
+    const posThreads = new Float32Array(vertexCount * 3);
+    const posFabric = new Float32Array(vertexCount * 3);
+    const posGarment = new Float32Array(vertexCount * 3);
+
+    // Compute coordinates for each vertex in the 3 states
+    let vIndex = 0;
+    for (let r = 0; r <= gridRows; r++) {
+      const v = r / gridRows; // 0 (top/neck) to 1 (bottom/hem)
+      for (let c = 0; c <= gridCols; c++) {
+        const u = c / gridCols; // 0 (left) to 1 (right)
+        const i3 = vIndex * 3;
+
+        // --- STATE 1: Unraveled Swirling Threads in Space ---
+        const thetaThread = (u * Math.PI * 6) + (v * 4.0);
+        const threadSpiralR = 2.0 + Math.sin(v * 8.0) * 2.8;
+        posThreads[i3]     = Math.cos(thetaThread) * threadSpiralR + (Math.sin(u * 12) * 1.5);
+        posThreads[i3 + 1] = (0.5 - v) * 12.0 + Math.cos(u * 6.0) * 1.5;
+        posThreads[i3 + 2] = Math.sin(thetaThread) * threadSpiralR + (Math.cos(v * 10) * 2.0);
+
+        // --- STATE 2: Wavy, Flowing Textile Fabric Sheet ---
+        const fabricWidth = 6.8;
+        const fabricHeight = 7.4;
+        const fX = (u - 0.5) * fabricWidth;
+        const fY = (0.5 - v) * fabricHeight;
+        const fZ = Math.sin(u * Math.PI * 3.0) * 0.9 + Math.cos(v * Math.PI * 2.5) * 0.6;
+        posFabric[i3]     = fX;
+        posFabric[i3 + 1] = fY;
+        posFabric[i3 + 2] = fZ;
+
+        // --- STATE 3: Sculptural 3D Tailored Jacket on Mannequin ---
+        // We calculate an authentic cylindrical torso with waist, chest curve, shoulders & collar!
+        const yGarment = (0.5 - v) * 5.2; // vertical position (-2.6 to +2.6)
+
+        // Torso radius contour: wide shoulders at top (v ~ 0.15), chest (v ~ 0.35), narrow waist (v ~ 0.65), hips (v ~ 0.9)
+        let torsoR = 1.35;
+        if (v < 0.25) {
+          torsoR = 1.35 + (0.25 - v) * 2.8; // broad shoulders
+        } else if (v < 0.5) {
+          torsoR = 1.45 + Math.sin((v - 0.25) * Math.PI * 4) * 0.25; // chest volume
+        } else if (v < 0.75) {
+          torsoR = 1.25; // tapered waist
+        } else {
+          torsoR = 1.45; // jacket hem flair
+        }
+
+        // Horizontal angle wrapping around body (leaving open front lapel cut)
+        const wrapAngle = (u - 0.5) * Math.PI * 1.75;
+        let gX = Math.sin(wrapAngle) * torsoR;
+        let gZ = Math.cos(wrapAngle) * torsoR * 0.85; // elliptical depth
+
+        // Front lapel fold-over effect for jacket opening
+        if (Math.abs(u - 0.5) < 0.12 && v < 0.55) {
+          // Lapels fold forward outwards
+          gZ += 0.35 + (0.55 - v) * 0.5;
+        }
+
+        posGarment[i3]     = gX;
+        posGarment[i3 + 1] = yGarment;
+        posGarment[i3 + 2] = gZ;
+
+        vIndex++;
+      }
+    }
+
+    // --- 5. Volumetric Loose Silk Threads (Flying in from space) ---
+    const threadCount = 28;
+    const looseThreadsGroup = new THREE.Group();
+    mainGroup.add(looseThreadsGroup);
+
+    const looseThreadsData = [];
+
+    for (let t = 0; t < threadCount; t++) {
+      const isRed = (t % 3 === 0);
+      const isGold = (t % 3 === 1);
+      const tColor = isRed ? 0xe04434 : (isGold ? 0xf59e0b : 0xe2e8f0);
+
+      const numControlPts = 8;
+      const tScatter = [];
+      const tWrap = [];
+
+      const phi = (t / threadCount) * Math.PI * 2;
+
+      for (let p = 0; p < numControlPts; p++) {
+        const frac = p / (numControlPts - 1);
+
+        // Swirling freely in space
+        const sx = Math.cos(phi + frac * 4) * (6.5 + Math.sin(frac * 6) * 3);
+        const sy = (frac - 0.5) * 14 + Math.cos(phi * 2) * 2;
+        const sz = Math.sin(phi + frac * 4) * (6.5 + Math.cos(frac * 6) * 3);
+        tScatter.push(new THREE.Vector3(sx, sy, sz));
+
+        // Wrapped around jacket waist, shoulders & lapels like designer basting stitches!
+        const wRadius = 1.5 + (t % 4) * 0.15;
+        const wAngle = phi + (frac * Math.PI * 2);
+        const wx = Math.cos(wAngle) * wRadius;
+        const wy = (frac - 0.5) * 4.6;
+        const wz = Math.sin(wAngle) * wRadius * 0.9;
+        tWrap.push(new THREE.Vector3(wx, wy, wz));
+      }
+
+      const initialCurve = new THREE.CatmullRomCurve3(tScatter, true);
+      const tubeGeometry = new THREE.TubeGeometry(initialCurve, 64, 0.038, 6, false);
+      const tubeMaterial = new THREE.MeshPhysicalMaterial({
+        color: tColor,
+        roughness: 0.25,
+        clearcoat: 0.8,
+        emissive: tColor,
+        emissiveIntensity: isRed ? 0.35 : 0.15
+      });
+
+      const tubeMesh = new THREE.Mesh(tubeGeometry, tubeMaterial);
+      looseThreadsGroup.add(tubeMesh);
+
+      looseThreadsData.push({
+        mesh: tubeMesh,
+        scatter: tScatter,
+        wrap: tWrap,
+        radius: 0.038
+      });
+    }
+
+    // --- 6. Haute Couture Garment Details (Mannequin, Buttons, Lapel, Brand Tag) ---
+    const detailsGroup = new THREE.Group();
+    mainGroup.add(detailsGroup);
+
+    // Elegant Inner Mannequin Neck / Torso Stand (Matt Charcoal)
+    const neckGeo = new THREE.CylinderGeometry(0.55, 0.65, 1.8, 32);
+    const standMat = new THREE.MeshStandardMaterial({
+      color: 0x0e131d,
+      roughness: 0.8,
+      metalness: 0.2
+    });
+    const neckMesh = new THREE.Mesh(neckGeo, standMat);
+    neckMesh.position.set(0, 2.5, -0.2);
+    detailsGroup.add(neckMesh);
+
+    // High Fashion Metallic Gold / Horn Buttons on the Jacket
+    const buttonGeo = new THREE.CylinderGeometry(0.12, 0.12, 0.04, 24);
+    const buttonMat = new THREE.MeshStandardMaterial({
+      color: 0xd4af37, // Polished Gold
+      metalness: 0.85,
+      roughness: 0.2
+    });
+
+    const buttonPositions = [
+      new THREE.Vector3(0.0, 0.4, 1.45),
+      new THREE.Vector3(0.0, -0.4, 1.38),
+      new THREE.Vector3(0.0, -1.2, 1.32)
     ];
 
-    const travelingPhotons = [];
-
-    tradeRoutes.forEach((route, rIdx) => {
-      const p1 = latLonToVector(route.from.lat, route.from.lon, earthRadius + 0.05);
-      const p2 = latLonToVector(route.to.lat, route.to.lon, earthRadius + 0.05);
-
-      const dist = p1.distanceTo(p2);
-      const mid = p1.clone().add(p2).multiplyScalar(0.5);
-      mid.normalize().multiplyScalar(earthRadius + 0.05 + dist * 0.32);
-
-      const curve = new THREE.QuadraticBezierCurve3(p1, mid, p2);
-      const arcPts = curve.getPoints(50);
-      const arcGeo = new THREE.BufferGeometry().setFromPoints(arcPts);
-
-      const arcMat = new THREE.LineBasicMaterial({
-        color: route.color,
-        transparent: true,
-        opacity: 0.55,
-        blending: THREE.AdditiveBlending
-      });
-      const arcLine = new THREE.Line(arcGeo, arcMat);
-      arcsGroup.add(arcLine);
-
-      // Traveling glowing light photon
-      const photonGeo = new THREE.SphereGeometry(0.06, 12, 12);
-      const photonMat = new THREE.MeshBasicMaterial({
-        color: 0xffffff,
-        blending: THREE.AdditiveBlending
-      });
-      const photonMesh = new THREE.Mesh(photonGeo, photonMat);
-      arcsGroup.add(photonMesh);
-
-      travelingPhotons.push({
-        mesh: photonMesh,
-        curve,
-        progress: (rIdx * 0.2) % 1.0,
-        speed: 0.35 + (rIdx * 0.04)
-      });
+    buttonPositions.forEach(bPos => {
+      const bMesh = new THREE.Mesh(buttonGeo, buttonMat);
+      bMesh.rotation.x = Math.PI / 2;
+      bMesh.position.copy(bPos);
+      detailsGroup.add(bMesh);
     });
 
-    // --- 7. Realistic 3D Glass Floating Service & Photo Cards ---
-    const serviceCardConfigs = [
-      { id: '01', title: 'МАРКЕТИНГ', img: 'images/napravleniya/01-marketing.png', color: '#e04434' },
-      { id: '02', title: 'АНАЛИТИКА', img: 'images/napravleniya/02-analytics.png', color: '#38bdf8' },
-      { id: '03', title: 'ПРОДАКШН', img: 'images/napravleniya/03-production.png', color: '#f59e0b' },
-      { id: '04', title: 'DIGITAL', img: 'images/napravleniya/04-digital.png', color: '#a855f7' },
-      { id: '05', title: 'БИЗНЕС', img: 'images/napravleniya/05-business.png', color: '#10b981' }
-    ];
+    // WTMA Designer Fabric Tag on Lapel
+    const tagCanvas = document.createElement('canvas');
+    tagCanvas.width = 380;
+    tagCanvas.height = 140;
+    const tCtx = tagCanvas.getContext('2d');
+    tCtx.fillStyle = '#0f172a';
+    tCtx.fillRect(0, 0, 380, 140);
+    tCtx.strokeStyle = '#e04434';
+    tCtx.lineWidth = 6;
+    tCtx.strokeRect(6, 6, 368, 128);
+    tCtx.fillStyle = '#e04434';
+    tCtx.font = 'bold 36px "Plus Jakarta Sans", sans-serif';
+    tCtx.fillText('WTMA', 30, 60);
+    tCtx.fillStyle = '#ffffff';
+    tCtx.font = '500 20px "Plus Jakarta Sans", sans-serif';
+    tCtx.fillText('100% NATURAL SILK & COTTON', 30, 95);
+    tCtx.fillStyle = '#94a3b8';
+    tCtx.font = '500 16px "Plus Jakarta Sans", sans-serif';
+    tCtx.fillText('MADE IN UZBEKISTAN • GLOBAL BRAND', 30, 120);
 
-    const cardsGroup = new THREE.Group();
-    mainWorldGroup.add(cardsGroup);
+    const tagTex = new THREE.CanvasTexture(tagCanvas);
+    const tagGeo = new THREE.PlaneGeometry(1.0, 0.42);
+    const tagMat = new THREE.MeshBasicMaterial({ map: tagTex, side: THREE.DoubleSide });
+    const tagMesh = new THREE.Mesh(tagGeo, tagMat);
+    tagMesh.position.set(0.78, 1.2, 1.42);
+    tagMesh.rotation.set(-0.1, -0.3, 0.08);
+    detailsGroup.add(tagMesh);
 
-    const cardMeshes = [];
-    const raycastCards = [];
-
-    serviceCardConfigs.forEach((info, idx) => {
-      // 3D Card Plane with real WTMA artwork
-      const cardW = 2.4, cardH = 1.55;
-      const cardGeo = new THREE.PlaneGeometry(cardW, cardH);
-
-      // High-res canvas texture with glass border and metadata
-      const cCanvas = document.createElement('canvas');
-      cCanvas.width = 720;
-      cCanvas.height = 465;
-      const ctx = cCanvas.getContext('2d');
-
-      // Frosted Glass Base
-      ctx.fillStyle = 'rgba(10, 15, 25, 0.94)';
-      ctx.fillRect(0, 0, 720, 465);
-
-      // Elegant Luxury Border
-      ctx.strokeStyle = info.color;
-      ctx.lineWidth = 6;
-      ctx.strokeRect(12, 12, 696, 441);
-
-      // Title & ID
-      ctx.fillStyle = info.color;
-      ctx.font = 'bold 36px "Plus Jakarta Sans", sans-serif';
-      ctx.fillText(info.id + ' WTMA', 48, 80);
-
-      ctx.fillStyle = '#ffffff';
-      ctx.font = 'bold 44px "Plus Jakarta Sans", sans-serif';
-      ctx.fillText(info.title, 48, 140);
-
-      ctx.fillStyle = '#94a3b8';
-      ctx.font = '24px "Plus Jakarta Sans", sans-serif';
-      ctx.fillText('Международная текстильная платформа', 48, 185);
-
-      const initialTex = new THREE.CanvasTexture(cCanvas);
-
-      const cardMat = new THREE.MeshPhysicalMaterial({
-        map: initialTex,
-        roughness: 0.2,
-        clearcoat: 0.9,
-        transparent: true,
-        opacity: 0.95,
-        side: THREE.DoubleSide
-      });
-
-      // Load Actual Photography
-      textureLoader.load(info.img, (loadedTex) => {
-        // Redraw canvas with the photo taking up lower portion
-        const imgObj = loadedTex.image;
-        ctx.drawImage(imgObj, 24, 210, 672, 230);
-        initialTex.needsUpdate = true;
-      });
-
-      const cardMesh = new THREE.Mesh(cardGeo, cardMat);
-
-      // Scattered coordinates (Phase 0)
-      const phi = (idx / 5) * Math.PI * 2;
-      const scatterX = Math.cos(phi) * 6.2;
-      const scatterY = (idx - 2) * 2.5;
-      const scatterZ = Math.sin(phi) * 4.5;
-
-      cardMesh.position.set(scatterX, scatterY, scatterZ);
-      cardsGroup.add(cardMesh);
-
-      cardMesh.userData = { id: info.id, title: info.title, color: info.color };
-      raycastCards.push(cardMesh);
-
-      cardMeshes.push({
-        mesh: cardMesh,
-        scatterPos: new THREE.Vector3(scatterX, scatterY, scatterZ),
-        scatterRot: new THREE.Euler(0, -phi, 0),
-        orbitAngle: phi,
-        idx: idx
-      });
+    // Floating Textile Dust / Fiber Particles
+    const dustCount = 450;
+    const dustGeo = new THREE.BufferGeometry();
+    const dustPositions = new Float32Array(dustCount * 3);
+    for (let i = 0; i < dustCount * 3; i += 3) {
+      dustPositions[i] = (Math.random() - 0.5) * 25;
+      dustPositions[i + 1] = (Math.random() - 0.5) * 20;
+      dustPositions[i + 2] = (Math.random() - 0.5) * 20;
+    }
+    dustGeo.setAttribute('position', new THREE.BufferAttribute(dustPositions, 3));
+    const dustMat = new THREE.PointsMaterial({
+      color: 0xe04434,
+      size: 0.07,
+      transparent: true,
+      opacity: 0.4,
+      blending: THREE.AdditiveBlending
     });
+    const dustPoints = new THREE.Points(dustGeo, dustMat);
+    scene.add(dustPoints);
 
-    // --- 8. Smooth Scrubber & Camera Choreography ---
-    let currentScrub = 0; // 0.0 to 1.0
-    let targetScrub = 0;
+    // --- 7. Metamorphosis Interpolation System ---
+    let currentProgress = 0;
+    let targetProgress = 0;
 
-    function applyScrub(p) {
-      // 1. Morph the Volumetric Silk Ribbons
-      ribbonsData.forEach(item => {
-        const curPoints = [];
-        for (let j = 0; j < item.scatteredPts.length; j++) {
-          const s = item.scatteredPts[j];
-          const g = item.globePts[j];
-          curPoints.push(new THREE.Vector3(
-            THREE.MathUtils.lerp(s.x, g.x, p),
-            THREE.MathUtils.lerp(s.y, g.y, p),
-            THREE.MathUtils.lerp(s.z, g.z, p)
+    function updateMetamorphosis(p) {
+      // 1. Interpolate the Main Garment Mesh
+      // Phase 1 (0.0 -> 0.48): Threads -> Fabric Sheet
+      // Phase 2 (0.48 -> 1.0): Fabric Sheet -> Tailored Garment
+      const positions = morphGeo.attributes.position.array;
+
+      for (let i = 0; i < vertexCount; i++) {
+        const i3 = i * 3;
+        let curX, curY, curZ;
+
+        if (p < 0.48) {
+          const t1 = p / 0.48;
+          curX = THREE.MathUtils.lerp(posThreads[i3], posFabric[i3], t1);
+          curY = THREE.MathUtils.lerp(posThreads[i3 + 1], posFabric[i3 + 1], t1);
+          curZ = THREE.MathUtils.lerp(posThreads[i3 + 2], posFabric[i3 + 2], t1);
+        } else {
+          const t2 = (p - 0.48) / 0.52;
+          curX = THREE.MathUtils.lerp(posFabric[i3], posGarment[i3], t2);
+          curY = THREE.MathUtils.lerp(posFabric[i3 + 1], posGarment[i3 + 1], t2);
+          curZ = THREE.MathUtils.lerp(posFabric[i3 + 2], posGarment[i3 + 2], t2);
+        }
+
+        positions[i3]     = curX;
+        positions[i3 + 1] = curY;
+        positions[i3 + 2] = curZ;
+      }
+
+      morphGeo.attributes.position.needsUpdate = true;
+      morphGeo.computeVertexNormals();
+
+      // 2. Interpolate the Loose Flying Silk Threads
+      looseThreadsData.forEach(item => {
+        const curControlPts = [];
+        for (let j = 0; j < item.scatter.length; j++) {
+          const s = item.scatter[j];
+          const w = item.wrap[j];
+          curControlPts.push(new THREE.Vector3(
+            THREE.MathUtils.lerp(s.x, w.x, p),
+            THREE.MathUtils.lerp(s.y, w.y, p),
+            THREE.MathUtils.lerp(s.z, w.z, p)
           ));
         }
-        const updatedCurve = new THREE.CatmullRomCurve3(curPoints, true);
-        const newGeo = new THREE.TubeGeometry(updatedCurve, 90, item.radius, 8, true);
+
+        const newCurve = new THREE.CatmullRomCurve3(curControlPts, true);
+        const newGeo = new THREE.TubeGeometry(newCurve, 64, item.radius, 6, false);
         item.mesh.geometry.dispose();
         item.mesh.geometry = newGeo;
+
+        // In final garment phase, loose threads blend softly as decorative contrast stitching
+        item.mesh.material.opacity = p > 0.85 ? 0.75 : 0.95;
       });
 
-      // 2. Earth Visibility, Clouds & Glow
-      // In phase 0 Earth is deep inside silk haze; as we scrub it reveals with full glory!
-      const earthScale = THREE.MathUtils.lerp(0.82, 1.0, p);
-      earthGroup.scale.setScalar(earthScale);
-
-      // 3. Orbiting Cards Transformation
-      cardMeshes.forEach(item => {
-        const orbitR = 5.8;
-        const dynamicAngle = item.orbitAngle + (mainWorldGroup.rotation.y * 0.4);
-
-        const orbX = Math.cos(dynamicAngle) * orbitR;
-        const orbY = Math.sin(dynamicAngle * 2) * 1.0;
-        const orbZ = Math.sin(dynamicAngle) * orbitR;
-
-        item.mesh.position.x = THREE.MathUtils.lerp(item.scatterPos.x, orbX, p);
-        item.mesh.position.y = THREE.MathUtils.lerp(item.scatterPos.y, orbY, p);
-        item.mesh.position.z = THREE.MathUtils.lerp(item.scatterPos.z, orbZ, p);
-
-        if (p > 0.45) {
-          // Billboarding cards facing camera
-          item.mesh.lookAt(camera.position);
-          const sc = THREE.MathUtils.lerp(1.0, 0.78, (p - 0.45) * 1.8);
-          item.mesh.scale.setScalar(sc);
-        } else {
-          item.mesh.rotation.copy(item.scatterRot);
-          item.mesh.scale.setScalar(1.0);
+      // 3. Garment Details Visibility (Buttons, Tag, Mannequin)
+      // Fade in smoothly as garment forms (p > 0.65)
+      const detailOpacity = Math.max(0, (p - 0.6) / 0.4);
+      detailsGroup.position.y = THREE.MathUtils.lerp(-1.5, 0, detailOpacity);
+      detailsGroup.traverse(child => {
+        if (child.material) {
+          child.material.transparent = true;
+          child.material.opacity = detailOpacity;
         }
       });
 
-      // 4. Update HUD and Story Cards
+      // 4. Update Story Cards & HUD
       updateStoryCards(p);
     }
 
@@ -1035,40 +907,31 @@
       }
     }
 
-    // --- 9. City Quick Flight System ---
-    let isFlyingToCity = false;
-    let targetWorldRotY = 0;
-    let targetWorldRotX = 0;
+    // Color switcher handler
+    window.changeFabricColor = function(hexColor, btnElement) {
+      currentFabricColor = hexColor;
+      fabricMaterial.color.setHex(hexColor);
 
-    window.flyToCity = function(cityKey) {
-      const city = cities[cityKey];
-      if (!city) return;
+      // If light color (Ivory), adjust roughness & clearcoat for silk shine
+      if (hexColor === 0xf1f5f9) {
+        fabricMaterial.clearcoat = 0.9;
+        fabricMaterial.roughness = 0.3;
+      } else {
+        fabricMaterial.clearcoat = 0.5;
+        fabricMaterial.roughness = 0.45;
+      }
 
-      // Highlight active city button
-      document.querySelectorAll('.city-btn').forEach(b => b.classList.remove('active'));
-      const activeBtn = Array.from(document.querySelectorAll('.city-btn')).find(b => b.textContent.includes(city.name));
-      if (activeBtn) activeBtn.classList.add('active');
-
-      // Auto set scrub to Globe phase
-      jumpTo(1.0);
-
-      // Calculate rotation to center city towards camera
-      const phi = (90 - city.lat) * (Math.PI / 180);
-      const theta = (city.lon + 180) * (Math.PI / 180);
-
-      targetWorldRotY = -theta + Math.PI / 2;
-      targetWorldRotX = phi - Math.PI / 2;
-      isFlyingToCity = true;
+      document.querySelectorAll('.color-dot-btn').forEach(b => b.classList.remove('active'));
+      if (btnElement) btnElement.classList.add('active');
     };
 
-    // --- 10. Mouse Interaction & Drag Orbit ---
+    // --- 8. Mouse / Touch Orbit Interaction ---
     let isDragging = false;
     let prevMouseX = 0, prevMouseY = 0;
     let mouseX = 0, mouseY = 0;
 
     window.addEventListener('mousedown', (e) => {
       isDragging = true;
-      isFlyingToCity = false;
       prevMouseX = e.clientX;
       prevMouseY = e.clientY;
       document.getElementById('orbitHint').style.opacity = '0';
@@ -1081,37 +944,34 @@
       if (isDragging) {
         const deltaX = e.clientX - prevMouseX;
         const deltaY = e.clientY - prevMouseY;
-        mainWorldGroup.rotation.y += deltaX * 0.005;
-        mainWorldGroup.rotation.x += deltaY * 0.005;
+        mainGroup.rotation.y += deltaX * 0.006;
+        mainGroup.rotation.x += deltaY * 0.006;
         prevMouseX = e.clientX;
         prevMouseY = e.clientY;
       }
-
-      // Raycast 3D Cards for Hover Glow & Tooltip
-      checkCardRaycast(e.clientX, e.clientY);
     });
 
     window.addEventListener('mouseup', () => { isDragging = false; });
 
     // Scrubber slider listener
     document.getElementById('scrubberSlider').addEventListener('input', (e) => {
-      targetScrub = parseFloat(e.target.value) / 100;
+      targetProgress = parseFloat(e.target.value) / 100;
       window.scrollTo({
-        top: targetScrub * (document.body.scrollHeight - window.innerHeight),
+        top: targetProgress * (document.body.scrollHeight - window.innerHeight),
         behavior: 'smooth'
       });
     });
 
-    // Window scroll sync
+    // Window scroll sync (Apple style scrubbing)
     window.addEventListener('scroll', () => {
       const maxS = document.body.scrollHeight - window.innerHeight;
       if (maxS > 0) {
-        targetScrub = Math.min(Math.max(window.scrollY / maxS, 0), 1);
+        targetProgress = Math.min(Math.max(window.scrollY / maxS, 0), 1);
       }
     });
 
     window.jumpTo = function(val) {
-      targetScrub = val;
+      targetProgress = val;
       const maxS = document.body.scrollHeight - window.innerHeight;
       window.scrollTo({
         top: val * maxS,
@@ -1119,77 +979,31 @@
       });
     };
 
-    // Tooltip Raycasting
-    const raycaster = new THREE.Raycaster();
-    const mouseVector = new THREE.Vector2();
-    const tooltip = document.getElementById('card-tooltip');
-    const tooltipNum = document.getElementById('tooltipNum');
-    const tooltipName = document.getElementById('tooltipName');
-
-    function checkCardRaycast(clientX, clientY) {
-      mouseVector.x = (clientX / window.innerWidth) * 2 - 1;
-      mouseVector.y = -(clientY / window.innerHeight) * 2 + 1;
-
-      raycaster.setFromCamera(mouseVector, camera);
-      const intersects = raycaster.intersectObjects(raycastCards);
-
-      if (intersects.length > 0) {
-        const card = intersects[0].object;
-        tooltip.style.left = `${clientX}px`;
-        tooltip.style.top = `${clientY}px`;
-        tooltipNum.textContent = `${card.userData.id} WTMA`;
-        tooltipNum.style.color = card.userData.color;
-        tooltipName.textContent = card.userData.title;
-        tooltip.classList.add('visible');
-        document.body.style.cursor = 'pointer';
-      } else {
-        tooltip.classList.remove('visible');
-        document.body.style.cursor = 'default';
-      }
-    }
-
-    // --- 11. Main Render Loop (60 FPS) ---
+    // --- 9. Main Render Loop (60 FPS) ---
     const clock = new THREE.Clock();
 
     function animate() {
       requestAnimationFrame(animate);
       const delta = clock.getDelta();
 
-      // Smooth scrub lerp
-      currentScrub += (targetScrub - currentScrub) * 0.085;
-      applyScrub(currentScrub);
+      // Smooth progress interpolation
+      currentProgress += (targetProgress - currentProgress) * 0.085;
+      updateMetamorphosis(currentProgress);
 
-      // Auto slow rotation of Earth & atmospheric clouds
-      if (!isDragging && !isFlyingToCity) {
-        earthGroup.rotation.y += 0.0018;
-        cloudsMesh.rotation.y += 0.0024; // clouds drift independently
-      } else if (isFlyingToCity) {
-        mainWorldGroup.rotation.y += (targetWorldRotY - mainWorldGroup.rotation.y) * 0.06;
-        mainWorldGroup.rotation.x += (targetWorldRotX - mainWorldGroup.rotation.x) * 0.06;
+      // Idle Rotation (Slow Fashion Runway spin)
+      if (!isDragging) {
+        mainGroup.rotation.y += 0.0025;
       }
 
-      // Pulse Radar Rings
-      radarRings.forEach(item => {
-        item.scale += delta * 0.8;
-        if (item.scale > 2.6) item.scale = 0.8;
-        item.ring.scale.setScalar(item.scale);
-        item.ring.material.opacity = (1 - (item.scale / 2.6)) * 0.8;
-      });
-
-      // Animate Photons along Trade Routes
-      travelingPhotons.forEach(item => {
-        item.progress += delta * item.speed;
-        if (item.progress > 1.0) item.progress = 0;
-        const pt = item.curve.getPoint(item.progress);
-        item.mesh.position.copy(pt);
-      });
-
-      // Smooth Parallax Camera movement
+      // Parallax Camera Response
       if (!isDragging) {
         camera.position.x += (mouseX * 1.2 - camera.position.x) * 0.04;
-        camera.position.y += (mouseY * 0.8 - camera.position.y) * 0.04;
+        camera.position.y += (mouseY * 0.8 + 0.5 - camera.position.y) * 0.04;
         camera.lookAt(0, 0, 0);
       }
+
+      // Dust Floating
+      dustPoints.rotation.y += 0.0004;
 
       renderer.render(scene, camera);
     }
