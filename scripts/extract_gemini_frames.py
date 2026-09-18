@@ -1,13 +1,13 @@
 import bpy
 import os
 
-print("=== Extracting Frames from Gemini Generated Video ===")
+print("=== Extracting 120 Frames from New WTMA Video (gemini_generated_video_9471915d.mp4) ===")
 
 scene = bpy.context.scene
 scene.sequence_editor_create()
 
-video_path = "C:/Projects/wtma_landingPage/gemini_generated_video_e64c67ea.mp4"
-strip = scene.sequence_editor.strips.new_movie('GeminiVid', video_path, channel=1, frame_start=1)
+video_path = "C:/Projects/wtma_landingPage/gemini_generated_video_9471915d.mp4"
+strip = scene.sequence_editor.strips.new_movie('GeminiVid2', video_path, channel=1, frame_start=1)
 
 scene.render.resolution_x = 1280
 scene.render.resolution_y = 720
@@ -17,7 +17,7 @@ scene.render.image_settings.quality = 92
 out_dir = "C:/Projects/wtma_landingPage/images/gemini-sequence"
 os.makedirs(out_dir, exist_ok=True)
 
-# 240 frames in original video. Extract every 2nd frame = 120 smooth frames!
+# 240 frames total. Extract every 2nd frame = 120 smooth frames!
 total = 240
 step = 2
 count = 1
@@ -31,4 +31,4 @@ for f in range(1, total + 1, step):
         print(f"Extracted {count}/120 frames ({frame_name})")
     count += 1
 
-print(f"=== Successfully Extracted {count-1} Frames! ===")
+print(f"=== Successfully Extracted {count-1} New WTMA Frames! ===")
