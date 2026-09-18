@@ -3,22 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WTMA — Blender 3D Fashion Animation (Apple Style Canvas Scroll)</title>
-  <meta name="description" content="Blender 5.1 render kadrlari asosidagi interaktiv 3D to'qimachilik metamorfozasi.">
+  <title>WTMA — Ipdan to Tayyor Kiyimgacha (Gemini AI Photorealistic Metamorphosis)</title>
+  <meta name="description" content="Haqiqiy tola va ipakdan to tayyor libosgacha bo'lgan fotorealistik metamorfoza: Apple uslubidagi interaktiv to'qimachilik evolyutsiyasi.">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-dark: #07090e;
+      --bg-dark: #0a0d14;
       --brand-red: #e04434;
       --brand-red-glow: rgba(224, 68, 52, 0.45);
+      --silk-gold: #f59e0b;
       --text-white: #ffffff;
       --text-muted: #94a3b8;
       --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
     }
 
     * {
@@ -33,7 +35,7 @@
       color: var(--text-white);
       font-family: var(--font-sans);
       overflow-x: hidden;
-      min-height: 300vh;
+      min-height: 340vh;
     }
 
     /* Fixed Canvas Player (Apple Keynote Style) */
@@ -47,16 +49,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      background: radial-gradient(circle at center, #151a24 0%, #07090e 75%, #05060a 100%);
       pointer-events: none;
     }
 
     canvas {
-      max-width: 90vh;
-      max-height: 90vh;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.8));
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      filter: contrast(1.04) brightness(0.98);
     }
 
     /* Top Navigation Bar */
@@ -148,6 +149,40 @@
       box-shadow: 0 0 16px var(--brand-red-glow);
     }
 
+    /* Video Play/Pause Floating Action Button */
+    .playback-fab {
+      position: fixed;
+      top: 92px;
+      right: 36px;
+      z-index: 45;
+      background: rgba(13, 17, 26, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(16px);
+      padding: 10px 18px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: all 0.25s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    .playback-fab:hover {
+      background: rgba(224, 68, 52, 0.25);
+      border-color: var(--brand-red);
+      transform: translateY(-2px);
+    }
+
+    .play-icon {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
     /* Floating Apple HUD Controller */
     .luxury-hud {
       position: fixed;
@@ -181,7 +216,7 @@
 
     .hud-slider {
       appearance: none;
-      width: 190px;
+      width: 200px;
       height: 4px;
       background: rgba(255, 255, 255, 0.2);
       border-radius: 2px;
@@ -200,11 +235,15 @@
       transition: transform 0.15s ease;
     }
 
+    .hud-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.25);
+    }
+
     .hud-percentage {
       font-size: 0.82rem;
       font-weight: 700;
       color: #fff;
-      min-width: 42px;
+      min-width: 48px;
     }
 
     /* Story Track for Scroll */
@@ -224,15 +263,15 @@
 
     .story-card {
       max-width: 520px;
-      background: rgba(8, 12, 20, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      backdrop-filter: blur(18px);
+      background: rgba(8, 12, 20, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
       padding: 38px 44px;
       border-radius: 24px;
       opacity: 0;
       transform: translateY(40px);
       transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.65);
     }
 
     .story-card.active {
@@ -285,7 +324,7 @@
       font-weight: 600;
       padding: 6px 14px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.1);
       color: #e2e8f0;
     }
@@ -338,12 +377,12 @@
   <!-- Loading Screen -->
   <div id="loading-overlay">
     <div class="spinner"></div>
-    <div style="font-size: 0.85rem; color: #94a3b8;" id="load-text">Blender 5.1 kadrlar yuklanmoqda (0/60)...</div>
+    <div style="font-size: 0.85rem; color: #94a3b8;" id="load-text">Fotorealistik kadrlar yuklanmoqda (0/120)...</div>
   </div>
 
   <!-- Apple Keynote Canvas Container -->
   <div id="canvas-container">
-    <canvas id="sequence-canvas" width="960" height="960"></canvas>
+    <canvas id="sequence-canvas" width="1280" height="720"></canvas>
   </div>
 
   <!-- Header -->
@@ -351,25 +390,33 @@
     <div class="brand-wrap">
       <span class="brand-badge">WTMA</span>
       <div class="brand-sub">
-        <span class="brand-title">Blender 5.1 Pipeline</span>
-        <span class="brand-tag">Apple uslubidagi kadrma-kadr to'qimachilik renderi</span>
+        <span class="brand-title">Textile Metamorphosis</span>
+        <span class="brand-tag">Tola va ipakdan to tayyor libosgacha</span>
       </div>
     </div>
 
     <!-- Quick Stage Jumper -->
     <div class="stage-pills">
       <button class="pill-btn active" onclick="jumpTo(0.0)">01 Tola va Iplar</button>
-      <button class="pill-btn" onclick="jumpTo(0.5)">02 To'quv & Gazlama</button>
-      <button class="pill-btn" onclick="jumpTo(1.0)">03 Tayyor Libos</button>
+      <button class="pill-btn" onclick="jumpTo(0.48)">02 To'quv & Matoga Aylanish</button>
+      <button class="pill-btn" onclick="jumpTo(1.0)">03 Tayyor Premium Kiyim</button>
     </div>
   </header>
 
+  <!-- Play / Pause Autoplay FAB -->
+  <button class="playback-fab" id="playBtn" onclick="togglePlay()">
+    <svg class="play-icon" viewBox="0 0 24 24" id="playIcon">
+      <path d="M8 5v14l11-7z"/>
+    </svg>
+    <span id="playText">Avtomatik Ko'rish</span>
+  </button>
+
   <!-- Floating HUD Scrubber -->
   <div class="luxury-hud">
-    <span class="hud-caption">Kadr:</span>
+    <span class="hud-caption">Metamorfoza:</span>
     <div class="hud-scrubber-wrap">
-      <input type="range" min="1" max="60" value="1" class="hud-slider" id="scrubberSlider">
-      <span class="hud-percentage" id="scrubberPercent">1 / 60</span>
+      <input type="range" min="1" max="120" value="1" class="hud-slider" id="scrubberSlider">
+      <span class="hud-percentage" id="scrubberPercent">1 / 120</span>
     </div>
   </div>
 
@@ -381,12 +428,13 @@
         <div class="story-badge">01. XOMASHYO VA TOLALAR</div>
         <h2 class="story-heading">Har bir buyuk libos bitta nozik toladan boshlanadi</h2>
         <p class="story-desc">
-          O'zbekistonning tabiiy ipak va paxta tolalari havoda erkin suzadi. Ushbu iplar yuqori sifat va an'anaviy to'qimachilik san'atining poydevoridir.
+          O'zbekistonning oltin va ipak tolalari qorong'u fazoda nur sochib suzadi. Bu tabiat, mehnat va milliy to'qimachilik an'analarining dastlabki ibtidosidir.
         </p>
         <div class="story-pills">
           <span class="story-pill">Tabiiy Paxta</span>
           <span class="story-pill">Ipak Tolasi</span>
-          <span class="story-pill">Laboratoriya Tahlili</span>
+          <span class="story-pill">Xomashyo Saralash</span>
+          <span class="story-pill">Laboratoriya Nazorati</span>
         </div>
       </div>
     </section>
@@ -394,15 +442,16 @@
     <!-- Step 2: Weaving the Textile Fabric -->
     <section class="story-section" id="story2">
       <div class="story-card">
-        <div class="story-badge">02. TO'QUV VA GAZLAMA</div>
-        <h2 class="story-heading">Iplar o'zaro to'qilib, mustahkam matoga aylanadi</h2>
+        <div class="story-badge">02. TO'QUV VA MATO HOSIL BO'LISHI</div>
+        <h2 class="story-heading">Iplar to'qilib, nafis trikotaj matosiga aylanadi</h2>
         <p class="story-desc">
-          Iplar o'ralib, zich to'quv va mayin jiloli gazlama matosini shakllantiradi. Zamonaviy dastgohlarda to'qilgan mato xalqaro eksport standartlariga tayyorlanadi.
+          Zich va mayin to'qilgan iplar yelka, yoqa va ko'krak qolipini hosil qilib, o'zaro birikadi. Har bir to'qima mukammal elastiklik va qulaylik kasb etadi.
         </p>
         <div class="story-pills">
-          <span class="story-pill">Zich To'quv</span>
-          <span class="story-pill">Atlas & Shoyi</span>
-          <span class="story-pill">Kostyumbob Gazlama</span>
+          <span class="story-pill">Zich Trikotaj</span>
+          <span class="story-pill">To'quv Dastgohi</span>
+          <span class="story-pill">Mayinlik & Qulaylik</span>
+          <span class="story-pill">Xalqaro Standart</span>
         </div>
       </div>
     </section>
@@ -410,15 +459,16 @@
     <!-- Step 3: Tailored Haute Couture Garment -->
     <section class="story-section" id="story3">
       <div class="story-card">
-        <div class="story-badge">03. BICHUV VA TAYYOR LIBOS</div>
-        <h2 class="story-heading">Mato qomatga moslanib, tayyor brend libosiga aylanadi</h2>
+        <div class="story-badge">03. TAYYOR PREMIUMLIK LIBOS</div>
+        <h2 class="story-heading">Jahon podiumlariga munosib tayyor brend libosi</h2>
         <p class="story-desc">
-          Maneken ustida shakllangan kostyum, qizil ipak astar, oltin tugmalar va WTMA brend yorlig'i bilan to'liq tayyor bo'ladi.
+          Mukammal maneken ustida qad ko'targan tayyor kiyim. WTMA barcha to'qimachilik korxonalarini mahalliy xomashyodan to xalqaro butiklar darajasigacha olib chiqadi.
         </p>
         <div class="story-pills">
-          <span class="story-pill">Haute Couture</span>
-          <span class="story-pill">WTMA Dizayn</span>
+          <span class="story-pill">Premium Trikotaj</span>
+          <span class="story-pill">WTMA Brendi</span>
           <span class="story-pill">Jahon Eksporti</span>
+          <span class="story-pill">Xalqaro Bozorlar</span>
         </div>
       </div>
     </section>
@@ -428,7 +478,7 @@
   <script>
     const canvas = document.getElementById('sequence-canvas');
     const ctx = canvas.getContext('2d');
-    const totalFrames = 60;
+    const totalFrames = 120;
     const images = [];
     let loadedCount = 0;
 
@@ -436,15 +486,21 @@
     const loadText = document.getElementById('load-text');
     const slider = document.getElementById('scrubberSlider');
     const percentText = document.getElementById('scrubberPercent');
+    const playBtn = document.getElementById('playBtn');
+    const playIcon = document.getElementById('playIcon');
+    const playText = document.getElementById('playText');
 
-    // Preload all 60 frames rendered by Blender 5.1
+    let isPlaying = false;
+    let playInterval = null;
+
+    // Preload all 120 frames extracted from the Gemini video
     for (let i = 1; i <= totalFrames; i++) {
       const img = new Image();
       const frameNum = String(i).padStart(3, '0');
-      img.src = `images/blender-sequence/frame_${frameNum}.png`;
+      img.src = `images/gemini-sequence/frame_${frameNum}.jpg`;
       img.onload = () => {
         loadedCount++;
-        loadText.textContent = `Blender 5.1 kadrlar yuklanmoqda (${loadedCount}/${totalFrames})...`;
+        loadText.textContent = `Fotorealistik kadrlar yuklanmoqda (${loadedCount}/${totalFrames})...`;
         if (loadedCount === totalFrames) {
           loadingOverlay.style.opacity = '0';
           setTimeout(() => loadingOverlay.style.display = 'none', 500);
@@ -462,6 +518,7 @@
       if (img && img.complete) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        currentFrame = idx;
         slider.value = idx;
         percentText.textContent = `${idx} / ${totalFrames}`;
         updateStory(idx / totalFrames);
@@ -489,6 +546,7 @@
 
     // Scroll scrubbing (Apple style)
     window.addEventListener('scroll', () => {
+      if (isPlaying) return; // scroll takes over
       const maxScroll = document.body.scrollHeight - window.innerHeight;
       if (maxScroll > 0) {
         const scrollFraction = Math.min(Math.max(window.scrollY / maxScroll, 0), 1);
@@ -499,6 +557,7 @@
 
     // Slider scrubber
     slider.addEventListener('input', (e) => {
+      if (isPlaying) stopPlay();
       const frame = parseInt(e.target.value, 10);
       drawFrame(frame);
       const maxScroll = document.body.scrollHeight - window.innerHeight;
@@ -509,12 +568,48 @@
     });
 
     window.jumpTo = function(val) {
+      if (isPlaying) stopPlay();
       const maxScroll = document.body.scrollHeight - window.innerHeight;
       window.scrollTo({
         top: val * maxScroll,
         behavior: 'smooth'
       });
     };
+
+    // Auto Play / Pause Toggle
+    window.togglePlay = function() {
+      if (isPlaying) {
+        stopPlay();
+      } else {
+        startPlay();
+      }
+    };
+
+    function startPlay() {
+      isPlaying = true;
+      playText.textContent = "To'xtatish (Pauza)";
+      playIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+      
+      playInterval = setInterval(() => {
+        let nextFrame = currentFrame + 1;
+        if (nextFrame > totalFrames) nextFrame = 1;
+        drawFrame(nextFrame);
+        
+        // sync scroll
+        const maxScroll = document.body.scrollHeight - window.innerHeight;
+        window.scrollTo({
+          top: ((nextFrame - 1) / (totalFrames - 1)) * maxScroll,
+          behavior: 'auto'
+        });
+      }, 40); // 25 fps
+    }
+
+    function stopPlay() {
+      isPlaying = false;
+      clearInterval(playInterval);
+      playText.textContent = "Avtomatik Ko'rish";
+      playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+    }
   </script>
 </body>
 </html>
