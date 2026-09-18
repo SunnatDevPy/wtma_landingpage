@@ -7,11 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const section = document.getElementById('metamorphosis');
   const canvas = document.getElementById('metamorphosisCanvas');
   const logoOverlay = document.getElementById('metaLogoOverlay');
-  const frameCounter = document.getElementById('metaFrameCounter');
-  const phasePills = document.querySelectorAll('.hud-phase-pill');
-  const step1Card = document.getElementById('metaStep1');
-  const step2Card = document.getElementById('metaStep2');
-  const step3Card = document.getElementById('metaStep3');
 
   if (!section || !canvas) return;
 
@@ -52,29 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
       currentDrawnIndex = idx;
     }
 
-    // Update Counter
-    if (frameCounter) {
-      frameCounter.textContent = `${idx} / ${totalFrames}`;
-    }
-
     const progress = (idx - 1) / (totalFrames - 1);
 
-    // Update Story Cards
-    if (step1Card && step2Card && step3Card) {
-      step1Card.classList.toggle('active', progress < 0.38);
-      step2Card.classList.toggle('active', progress >= 0.38 && progress < 0.78);
-      step3Card.classList.toggle('active', progress >= 0.78);
-    }
-
-    // Update HUD Phase Pills
-    if (phasePills.length === 3) {
-      phasePills[0].classList.toggle('active', progress < 0.38);
-      phasePills[1].classList.toggle('active', progress >= 0.38 && progress < 0.78);
-      phasePills[2].classList.toggle('active', progress >= 0.78);
-    }
-
     // =========================================================================
-    // WTMA LOGO REVEAL (Appears on top when garment is finished at the climax)
+    // WTMA LOGO REVEAL (Appears smoothly from bottom when garment is finished)
     // =========================================================================
     if (logoOverlay) {
       if (progress >= 0.82) {

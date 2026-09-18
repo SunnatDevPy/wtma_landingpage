@@ -59,17 +59,17 @@
 }
 
 /* ==========================================================================
-   WTMA LOGO REVEAL OVERLAY (Appears upon garment completion)
+   WTMA LOGO REVEAL OVERLAY (Revealed at the bottom upon garment completion)
    ========================================================================== */
 .metamorphosis-logo-overlay {
   position: absolute;
-  top: 14%;
+  bottom: 48px;
   left: 50%;
-  transform: translate(-50%, -20px) scale(0.92);
+  transform: translate(-50%, 36px) scale(0.95);
   z-index: 20;
   opacity: 0;
   pointer-events: none;
-  transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .metamorphosis-logo-overlay.is-revealed {
@@ -136,112 +136,14 @@
 }
 
 /* ==========================================================================
-   FLOATING STORY CARDS
-   ========================================================================== */
-.metamorphosis-story-container {
-  position: absolute;
-  inset: 0;
-  z-index: 10;
-  pointer-events: none;
-  max-width: var(--container-max, 1340px);
-  margin: 0 auto;
-  padding: 0 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.meta-story-card {
-  max-width: 420px;
-  background: rgba(8, 12, 20, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  padding: 32px 36px;
-  border-radius: 20px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-  position: absolute;
-}
-
-.meta-story-card.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#metaStep1 {
-  left: 5%;
-  bottom: 22%;
-}
-
-#metaStep2 {
-  right: 5%;
-  top: 26%;
-}
-
-#metaStep3 {
-  left: 5%;
-  bottom: 18%;
-}
-
-.meta-kicker {
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: var(--brand-accent-red, #e04434);
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.meta-kicker::before {
-  content: '';
-  width: 14px;
-  height: 2px;
-  background: var(--brand-accent-red, #e04434);
-}
-
-.meta-heading {
-  font-family: var(--font-sans);
-  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
-  font-weight: 800;
-  line-height: 1.25;
-  color: #ffffff;
-  margin-bottom: 12px;
-  letter-spacing: -0.01em;
-}
-
-.meta-desc {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #cbd5e1;
-}
-
-/* ==========================================================================
    RESPONSIVE OPTIMIZATIONS
    ========================================================================== */
 @media (max-width: 1024px) {
   .section-metamorphosis {
     height: 280vh;
   }
-  .metamorphosis-story-container {
-    padding: 0 20px;
-  }
-  .meta-story-card {
-    max-width: 340px;
-    padding: 24px 26px;
-  }
-  #metaStep1, #metaStep3 {
-    left: 20px;
-    bottom: 15%;
-  }
-  #metaStep2 {
-    right: 20px;
-    top: 20%;
+  .metamorphosis-logo-overlay {
+    bottom: 36px;
   }
   .meta-logo-box {
     padding: 18px 30px;
@@ -253,24 +155,24 @@
     height: 240vh;
   }
   .metamorphosis-logo-overlay {
-    top: 10%;
-    width: 90%;
+    bottom: 24px;
+    width: 92%;
+    max-width: 360px;
   }
   .meta-logo-box {
     padding: 14px 20px;
+    gap: 6px;
   }
   .meta-brand-badge {
     font-size: 1rem;
+    padding: 4px 14px;
   }
   .meta-brand-title {
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
   }
-  .meta-story-card {
-    left: 16px !important;
-    right: 16px !important;
-    max-width: calc(100% - 32px);
-    bottom: 80px !important;
-    top: auto !important;
+  .meta-brand-slogan {
+    font-size: 0.95rem;
   }
 }
+
