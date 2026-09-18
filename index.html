@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/metamorphosis.css">
   <link rel="stylesheet" href="css/directions-stage.css">
+  <link rel="stylesheet" href="css/about-network.css">
 </head>
 <body>
 
@@ -267,6 +268,29 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ==================== О НАС — ГЛОБАЛЬНАЯ ЭКОСИСТЕМА (ИНТЕРАКТИВНАЯ 3D СФЕРА) ==================== -->
+    <section class="block-section section-about-network dark-theme" id="aboutNetworkInteractive" aria-label="Интерактивная глобальная сеть WTMA">
+      <div class="about-network-sticky-wrap">
+        
+        <!-- Background Canvas Stage -->
+        <div class="about-network-canvas-stage">
+          <canvas id="aboutNetworkCanvas" width="1280" height="720"></canvas>
+          <div class="about-network-vignette"></div>
+        </div>
+
+        <!-- Floating WTMA Brand Badge (Revealed at the bottom upon completion) -->
+        <div class="about-network-badge-overlay" id="aboutNetworkBadgeOverlay" aria-hidden="true">
+          <div class="meta-logo-box">
+            <div class="meta-brand-badge">WTMA GLOBAL</div>
+            <div class="meta-brand-title">МЕЖДУНАРОДНАЯ ЭКОСИСТЕМА И СЕТЬ СВЯЗЕЙ</div>
+            <div class="meta-brand-divider"></div>
+            <div class="meta-brand-slogan">МАРКЕТИНГ • МЕДИА • ПРОДАКШН • ЦИФРОВЫЕ РЕШЕНИЯ</div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -753,5 +777,6 @@
   <script src="js/main.js"></script>
   <script src="js/metamorphosis.js"></script>
   <script src="js/directions-stage.js"></script>
+  <script src="js/about-network.js"></script>
 </body>
 </html>
