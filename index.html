@@ -31,6 +31,7 @@
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/metamorphosis.css">
+  <link rel="stylesheet" href="css/directions-stage.css">
 </head>
 <body>
 
@@ -454,6 +455,29 @@
       </div>
     </section>
 
+    <!-- ==================== НАПРАВЛЕНИЯ — ГЛОБАЛЬНЫЙ МАСШТАБ (ИНТЕРАКТИВНАЯ 3D СФЕРА) ==================== -->
+    <section class="block-section section-directions-stage dark-theme" id="napravleniyaInteractive" aria-label="Интерактивная визуализация направлений WTMA">
+      <div class="directions-sticky-wrap">
+        
+        <!-- Background Canvas Stage -->
+        <div class="directions-canvas-stage">
+          <canvas id="directionsCanvas" width="1280" height="720"></canvas>
+          <div class="directions-vignette"></div>
+        </div>
+
+        <!-- Floating WTMA Brand Badge (Revealed at the bottom upon completion) -->
+        <div class="directions-badge-overlay" id="directionsBadgeOverlay" aria-hidden="true">
+          <div class="meta-logo-box">
+            <div class="meta-brand-badge">WTMA</div>
+            <div class="meta-brand-title">WORLD TEXTILE MARKETING AGENCY</div>
+            <div class="meta-brand-divider"></div>
+            <div class="meta-brand-slogan">НАПРАВЛЕНИЯ ДЕЯТЕЛЬНОСТИ • ГЛОБАЛЬНЫЙ МАСШТАБ</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- ==================== 05 — НАША ЭКСПЕРТИЗА ==================== -->
     <section class="block-section section-expertise light-theme" id="expertise">
       <div class="site-container">
@@ -728,5 +752,6 @@
   <!-- Main JavaScript File -->
   <script src="js/main.js"></script>
   <script src="js/metamorphosis.js"></script>
+  <script src="js/directions-stage.js"></script>
 </body>
 </html>

@@ -1,0 +1,173 @@
+/* ==========================================================================
+   WTMA — Directions Stage (3D Globe & Directions Canvas Scrubbing)
+   Apple-Style Canvas Sequence & Sticky Scroll Stage
+   ========================================================================== */
+
+.section-directions-stage {
+  position: relative;
+  height: 300vh; /* Smooth natural scrolling length */
+  background-color: #03060a;
+  color: #ffffff;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+}
+
+/* Sticky Screen Viewport */
+.directions-sticky-wrap {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #0c1524 0%, #050912 60%, #020407 100%);
+}
+
+/* Canvas Stage */
+.directions-canvas-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+#directionsCanvas {
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+  object-fit: cover;
+  filter: contrast(1.08) brightness(1.0);
+}
+
+/* Seamless Vignette Blending */
+.directions-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(3, 6, 10, 0) 35%, rgba(3, 6, 10, 0.65) 75%, #03060a 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Floating WTMA Brand Badge (Revealed at the bottom upon completion) */
+.directions-badge-overlay {
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translate(-50%, 36px) scale(0.95);
+  z-index: 20;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.directions-badge-overlay.is-revealed {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+  pointer-events: all;
+}
+
+.directions-badge-overlay .meta-logo-box {
+  position: relative;
+  background: rgba(11, 16, 25, 0.88);
+  border: 1px solid rgba(224, 68, 52, 0.4);
+  box-shadow: 0 0 35px rgba(224, 68, 52, 0.35), 0 25px 50px rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 22px 42px;
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.directions-badge-overlay .meta-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--brand-accent-red, #e04434);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 5px 16px;
+  border-radius: 8px;
+  box-shadow: 0 0 16px rgba(224, 68, 52, 0.5);
+}
+
+.directions-badge-overlay .meta-brand-title {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.directions-badge-overlay .meta-brand-divider {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #f59e0b, transparent);
+  margin: 4px 0;
+}
+
+.directions-badge-overlay .meta-brand-slogan {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #f59e0b;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .section-directions-stage {
+    height: 260vh;
+  }
+  .directions-badge-overlay {
+    bottom: 36px;
+  }
+  .directions-badge-overlay .meta-logo-box {
+    padding: 18px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-directions-stage {
+    height: 230vh;
+  }
+  .directions-badge-overlay {
+    bottom: 24px;
+    width: 92%;
+    max-width: 360px;
+  }
+  .directions-badge-overlay .meta-logo-box {
+    padding: 14px 20px;
+    gap: 6px;
+  }
+  .directions-badge-overlay .meta-brand-badge {
+    font-size: 1rem;
+    padding: 4px 14px;
+  }
+  .directions-badge-overlay .meta-brand-title {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+  }
+  .directions-badge-overlay .meta-brand-slogan {
+    font-size: 0.95rem;
+  }
+}
