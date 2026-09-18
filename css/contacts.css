@@ -101,25 +101,22 @@
   height: 100%;
   object-fit: cover;
   object-position: center 30%;
-  filter: brightness(0.72) contrast(1.08);
-  transform: scale(1.02);
+  filter: brightness(0.95) contrast(1.05);
+  transform: scale(1.01);
   transition: transform 12s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .contacts-hero:hover .contacts-hero-img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .contacts-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(6, 9, 14, 0.8) 0%,
-    rgba(6, 9, 14, 0.42) 40%,
-    rgba(6, 9, 14, 0.72) 75%,
-    #06090e 100%
-  );
+  /* Balanced lighting: keeps text 100% readable on left, while reception & WTMA logo are bright and clear on right */
+  background:
+    linear-gradient(90deg, rgba(6, 9, 14, 0.72) 0%, rgba(6, 9, 14, 0.35) 45%, rgba(6, 9, 14, 0.1) 75%, rgba(6, 9, 14, 0.25) 100%),
+    linear-gradient(180deg, rgba(6, 9, 14, 0.5) 0%, transparent 30%, transparent 65%, #06090e 100%);
   pointer-events: none;
 }
 
