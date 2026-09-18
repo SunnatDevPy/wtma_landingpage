@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Медиа — WTMA | Визуальный контент для текстильной и fashion-индустрии</title>
+  <meta name="description" content="WTMA Медиа: Профессиональная фотосъёмка, видеопроизводство, интервью, креативный контент и медиапроекты для текстильной и fashion-индустрии.">
+  <meta name="keywords" content="WTMA, Медиа, Текстильный продакшн, Фотосъёмка фабрик, Видеопроизводство текстиль, Fashion контент">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-weight='bold' fill='%23111827'>W</text></svg>">
+
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet & Media Page Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/media.css">
+</head>
+<body class="media-page-body">
+
+  <!-- ==================== HEADER / NAVIGATION ==================== -->
+  <header class="site-header header-scrolled-dark" id="siteHeader">
+    <div class="header-container">
+      <!-- Logo -->
+      <a href="index.html" class="brand-logo" aria-label="WTMA Главная">
+        <span class="logo-mark">WTMA</span>
+        <span class="logo-details">
+          <span class="logo-line">WORLD TEXTILE</span>
+          <span class="logo-line">MARKETING AGENCY</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="main-nav" id="mainNav" aria-label="Основная навигация">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="index.html#about" class="nav-link">
+              <span class="nav-label">
+                О WTMA
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="napravleniya.html" class="nav-link">
+              <span class="nav-label">
+                Направления
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="proyekty.html" class="nav-link">
+              <span class="nav-label">
+                Проекты
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#mission" class="nav-link">
+              <span class="nav-label">
+                Каталог
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="media.html" class="nav-link active">
+              <span class="nav-label">
+                Медиа
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="contacts.html" class="nav-link">
+              <span class="nav-label">
+                Контакты
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="header-actions">
+        <!-- Search Button -->
+        <button class="action-btn search-trigger" aria-label="Поиск по сайту" id="searchBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <!-- Language Selector -->
+        <div class="lang-selector" id="langSelector">
+          <button class="lang-btn" aria-haspopup="true" aria-expanded="false" id="langToggle">
+            <span>RU</span>
+            <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <a href="#" class="lang-option active">RU (Русский)</a>
+            <a href="#" class="lang-option">EN (English)</a>
+            <a href="#" class="lang-option">UZ (O'zbekcha)</a>
+          </div>
+        </div>
+
+        <!-- Contact CTA Button -->
+        <a href="contacts.html" class="btn-contact-pill" id="headerContactBtn">
+          <span>Связаться</span>
+          <span class="arrow">→</span>
+        </a>
+
+        <!-- Mobile Burger Menu Toggle -->
+        <button class="burger-toggle" id="burgerToggle" aria-label="Открыть мобильное меню">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <ul class="mobile-nav-list">
+        <li><a href="index.html#about" class="mobile-nav-link">О WTMA</a></li>
+        <li><a href="napravleniya.html" class="mobile-nav-link">Направления</a></li>
+        <li><a href="proyekty.html" class="mobile-nav-link">Проекты</a></li>
+        <li><a href="index.html#mission" class="mobile-nav-link">Наша миссия</a></li>
+        <li><a href="media.html" class="mobile-nav-link active">Медиа</a></li>
+        <li><a href="contacts.html" class="mobile-nav-link">Контакты</a></li>
+      </ul>
+      <div class="mobile-drawer-footer">
+        <button class="btn-contact-pill w-full open-contact-modal">
+          <span>Связаться с WTMA</span>
+          <span class="arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="media-main">
+
+    <!-- ==================== BLOCK 1: HERO SECTION ==================== -->
+    <section class="media-hero" id="mediaHero">
+      <div class="media-hero-bg">
+        <img src="images/media/hero-bg.png" alt="Киносъёмка на текстильном производстве WTMA" class="media-hero-img" loading="eager">
+        <div class="media-hero-overlay"></div>
+      </div>
+
+      <div class="site-container media-hero-container">
+        <!-- Main Content Area -->
+        <div class="media-hero-content">
+          <div class="media-badge">МЕДИА</div>
+          
+          <h1 class="media-hero-title">
+            ВИЗУАЛЬНЫЙ<br>
+            КОНТЕНТ
+          </h1>
+          
+          <div class="media-hero-subtitle">
+            ДЛЯ ТЕКСТИЛЬНОЙ И FASHION-ИНДУСТРИИ
+          </div>
+
+          <div class="media-hero-divider"></div>
+
+          <p class="media-hero-desc">
+            Фото, видео и визуальные решения для брендов, производств и компаний отрасли.
+          </p>
+        </div>
+
+        <!-- Bottom Tags / Kickers -->
+        <div class="media-hero-footer-row">
+          <div class="media-kicker-col left-kicker">
+            <span>PEOPLE</span>
+            <span>INDUSTRY</span>
+            <span>IDEAS</span>
+            <span>IN MOTION</span>
+          </div>
+
+          <div class="media-kicker-col right-kicker">
+            <span>TEXTILE</span>
+            <span>FASHION</span>
+            <span>A STRONGER</span>
+            <span>TOMORROW</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== BLOCKS 2 & 3: MEDIA SERVICES CARDS ==================== -->
+    <section class="media-cards-section" id="mediaCards">
+      <div class="site-container">
+
+        <!-- ROW 1: 2 Large Cards (01 & 02) -->
+        <div class="media-cards-row row-duo">
+
+          <!-- Card 01: Фотосъёмка -->
+          <article class="media-card card-large" data-service="01" role="button" tabindex="0" aria-label="Подробнее о направлении 01 Фотосъёмка">
+            <div class="media-card-bg">
+              <img src="images/media/01-photoshoot.png" alt="Профессиональная текстильная фотосъёмка WTMA" class="media-card-img" loading="lazy">
+              <div class="media-card-overlay"></div>
+            </div>
+
+            <div class="media-card-content">
+              <div class="media-card-header">
+                <span class="media-card-num">01</span>
+                <span class="media-num-line"></span>
+              </div>
+
+              <div class="media-card-body">
+                <h2 class="media-card-title">ФОТОСЪЁМКА</h2>
+                <p class="media-card-sub">Производства · Продукция · Бренды · Кампании</p>
+                
+                <button class="btn-media-action" data-service-id="photoshoot">
+                  <span>Смотреть работы</span>
+                  <span class="arrow">→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 02: Видеосъёмка -->
+          <article class="media-card card-large" data-service="02" role="button" tabindex="0" aria-label="Подробнее о направлении 02 Видеосъёмка">
+            <div class="media-card-bg">
+              <img src="images/media/02-videoshoot.png" alt="Профессиональное видеопроизводство WTMA" class="media-card-img" loading="lazy">
+              <div class="media-card-overlay"></div>
+            </div>
+
+            <div class="media-card-content">
+              <div class="media-card-header">
+                <span class="media-card-num">02</span>
+                <span class="media-num-line"></span>
+              </div>
+
+              <div class="media-card-body">
+                <h2 class="media-card-title">ВИДЕОСЪЁМКА</h2>
+                <p class="media-card-sub">Производственные съёмки · Рекламные ролики · Презентационные видео</p>
+                
+                <button class="btn-media-action" data-service-id="videoshoot">
+                  <span>Смотреть работы</span>
+                  <span class="arrow">→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ROW 2: 3 Cards (03, 04, 05) -->
+        <div class="media-cards-row row-trio">
+
+          <!-- Card 03: Интервью -->
+          <article class="media-card card-medium" data-service="03" role="button" tabindex="0" aria-label="Подробнее о направлении 03 Интервью">
+            <div class="media-card-bg">
+              <img src="images/media/03-interview.png" alt="Студийные интервью с экспертами индустрии WTMA" class="media-card-img" loading="lazy">
+              <div class="media-card-overlay"></div>
+            </div>
+
+            <div class="media-card-content">
+              <div class="media-card-header">
+                <span class="media-card-num">03</span>
+                <span class="media-num-line"></span>
+              </div>
+
+              <div class="media-card-body">
+                <h2 class="media-card-title">ИНТЕРВЬЮ</h2>
+                <p class="media-card-sub">Руководители · Эксперты · Представители компаний</p>
+                
+                <button class="btn-media-action" data-service-id="interview">
+                  <span>Смотреть работы</span>
+                  <span class="arrow">→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 04: Креативный контент -->
+          <article class="media-card card-medium" data-service="04" role="button" tabindex="0" aria-label="Подробнее о направлении 04 Креативный контент">
+            <div class="media-card-bg">
+              <img src="images/media/04-creative.png" alt="Креативный контент для текстильных брендов WTMA" class="media-card-img" loading="lazy">
+              <div class="media-card-overlay"></div>
+            </div>
+
+            <div class="media-card-content">
+              <div class="media-card-header">
+                <span class="media-card-num">04</span>
+                <span class="media-num-line"></span>
+              </div>
+
+              <div class="media-card-body">
+                <h2 class="media-card-title">КРЕАТИВНЫЙ<br>КОНТЕНТ</h2>
+                <p class="media-card-sub">Визуальные концепции · Кампании · Digital-контент</p>
+                
+                <button class="btn-media-action" data-service-id="creative">
+                  <span>Смотреть работы</span>
+                  <span class="arrow">→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 05: Медиапроекты -->
+          <article class="media-card card-medium" data-service="05" role="button" tabindex="0" aria-label="Подробнее о направлении 05 Медиапроекты">
+            <div class="media-card-bg">
+              <img src="images/media/05-projects.png" alt="Специальные медиапроекты WTMA" class="media-card-img" loading="lazy">
+              <div class="media-card-overlay"></div>
+            </div>
+
+            <div class="media-card-content">
+              <div class="media-card-header">
+                <span class="media-card-num">05</span>
+                <span class="media-num-line"></span>
+              </div>
+
+              <div class="media-card-body">
+                <h2 class="media-card-title">МЕДИАПРОЕКТЫ</h2>
+                <p class="media-card-sub">Спецпроекты · Репортажи · Материалы WTMA</p>
+                
+                <button class="btn-media-action" data-service-id="projects">
+                  <span>Смотреть работы</span>
+                  <span class="arrow">→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== BLOCK 4: PRE-FOOTER CTA BANNER ==================== -->
+    <section class="media-prefooter" id="mediaPrefooter">
+      <div class="media-prefooter-bg">
+        <img src="images/media/prefooter-bg.png" alt="Космическая шелковая драпировка над горизонтом Земли" class="media-prefooter-img" loading="lazy">
+        <div class="media-prefooter-overlay"></div>
+      </div>
+
+      <div class="site-container media-prefooter-container">
+        <!-- Left Slogan -->
+        <div class="prefooter-col-left">
+          <span>ВМЕСТЕ</span>
+          <span>МЫ СОЗДАЁМ</span>
+          <span>СИЛЬНЕЕ</span>
+          <span>ИНДУСТРИЮ</span>
+        </div>
+
+        <!-- Center Motto -->
+        <div class="prefooter-col-center">
+          <blockquote class="prefooter-quote">
+            “ХОРОШИЙ ВИЗУАЛ<br>
+            СОЗДАЁТ БОЛЬШИЕ ВОЗМОЖНОСТИ”
+          </blockquote>
+          <div class="prefooter-quote-line"></div>
+        </div>
+
+        <!-- Right Action Button -->
+        <div class="prefooter-col-right">
+          <button class="btn-prefooter-cta open-contact-modal" data-subject="Обсудить медиа проект">
+            <span>ОБСУДИТЬ ПРОЕКТ</span>
+            <span class="arrow">→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== MINIMAL FOOTER ==================== -->
+  <footer class="media-footer">
+    <div class="site-container media-footer-container">
+      <!-- Left: Brand -->
+      <div class="footer-brand-col">
+        <div class="footer-logo">WTMA</div>
+        <div class="footer-sub">WORLD TEXTILE MARKETING AGENCY</div>
+      </div>
+
+      <!-- Center: Slogan -->
+      <div class="footer-center-col">
+        <span>TEXTILE. FASHION. A STRONGER TOMORROW.</span>
+      </div>
+
+      <!-- Right: Social Links -->
+      <div class="footer-social-col">
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+          </svg>
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+          </svg>
+        </a>
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="YouTube">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== PORTFOLIO SHOWCASE LIGHTBOX MODAL ==================== -->
+  <div class="media-modal-backdrop" id="mediaShowcaseModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="media-modal-container">
+      <button class="media-modal-close" id="mediaModalClose" aria-label="Закрыть окно">✕</button>
+
+      <div class="media-modal-header">
+        <span class="media-modal-num" id="modalShowcaseNum">01</span>
+        <h3 class="media-modal-title" id="modalShowcaseTitle">ФОТОСЪЁМКА</h3>
+        <p class="media-modal-desc" id="modalShowcaseDesc">Производства · Продукция · Бренды · Кампании</p>
+      </div>
+
+      <div class="media-modal-gallery" id="modalShowcaseGallery">
+        <!-- Dynamically injected gallery items by js/media.js -->
+      </div>
+
+      <div class="media-modal-footer">
+        <button class="btn-prefooter-cta open-contact-modal" data-subject="Заказ съемки из портфолио">
+          <span>ОБСУДИТЬ ВАШ ПРОЕКТ</span>
+          <span class="arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CONTACT MODAL ==================== -->
+  <div class="contact-modal-backdrop" id="contactModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="contact-modal-window">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Закрыть модальное окно">✕</button>
+      <div class="modal-header">
+        <span class="modal-kicker text-gold">СВЯЗАТЬСЯ С WTMA</span>
+        <h3 class="modal-title">Обсудить проект</h3>
+        <p class="modal-desc">Оставьте ваши контакты, и наши эксперты свяжутся с вами в течение 24 часов.</p>
+      </div>
+      <form class="modal-form" id="contactForm">
+        <div class="form-group">
+          <label for="userName">Ваше имя *</label>
+          <input type="text" id="userName" name="name" placeholder="Иван Петров" required>
+        </div>
+        <div class="form-group">
+          <label for="userCompany">Компания</label>
+          <input type="text" id="userCompany" name="company" placeholder="Название текстильной компании">
+        </div>
+        <div class="form-group">
+          <label for="userEmail">Электронная почта *</label>
+          <input type="email" id="userEmail" name="email" placeholder="example@company.com" required>
+        </div>
+        <div class="form-group">
+          <label for="userPhone">Номер телефона *</label>
+          <input type="tel" id="userPhone" name="phone" placeholder="+998 90 123 45 67" required>
+        </div>
+        <div class="form-group">
+          <label for="userSubject">Интересующее направление</label>
+          <select id="userSubject" name="subject">
+            <option value="Медиа и продакшн">Медиа и продакшн</option>
+            <option value="Фотосъёмка">Фотосъёмка</option>
+            <option value="Видеосъёмка">Видеосъёмка</option>
+            <option value="Интервью">Интервью</option>
+            <option value="Креативный контент">Креативный контент</option>
+            <option value="Комплексный маркетинг">Комплексный маркетинг</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-form-submit">
+          <span>Отправить заявку</span>
+          <span class="arrow">→</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/media.js"></script>
+</body>
+</html>

@@ -1,0 +1,1070 @@
+/* ==========================================================================
+   WTMA — Контакты (Contacts) Page Styles
+   Based on Master Reference Design (kontakt_page_to'plangani.jpg)
+   ========================================================================== */
+
+/* --- Master Body & Background --- */
+.contacts-page-body {
+  background-color: #06090e;
+  color: #f3f4f6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure the header on this dark page starts in dark theme */
+.contacts-page-body .site-header {
+  background: rgba(6, 9, 14, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform var(--transition-normal), background-color var(--transition-normal), border-color var(--transition-normal);
+}
+
+.contacts-page-body .site-header .brand-logo .logo-mark {
+  color: #ffffff;
+}
+
+.contacts-page-body .site-header .brand-logo .logo-details {
+  border-left-color: rgba(255, 255, 255, 0.2);
+}
+
+.contacts-page-body .site-header .brand-logo .logo-line {
+  color: #cbd5e1;
+}
+
+.contacts-page-body .site-header .nav-link {
+  color: #cbd5e1;
+}
+
+.contacts-page-body .site-header .nav-link:hover,
+.contacts-page-body .site-header .nav-link.active {
+  color: var(--brand-accent-red);
+}
+
+.contacts-page-body .site-header .action-btn,
+.contacts-page-body .site-header .lang-btn {
+  color: #ffffff;
+  transition: color var(--transition-fast);
+}
+
+.contacts-page-body .site-header .action-btn:hover,
+.contacts-page-body .site-header .lang-btn:hover {
+  color: var(--brand-accent-red);
+}
+
+.contacts-page-body .site-header .btn-contact-pill {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.06);
+  transition: all var(--transition-normal);
+}
+
+.contacts-page-body .site-header .btn-contact-pill:hover {
+  background-color: var(--brand-accent-red);
+  color: #ffffff;
+  border-color: var(--brand-accent-red);
+  box-shadow: 0 4px 18px rgba(224, 68, 52, 0.35);
+}
+
+.contacts-page-body .site-header .burger-toggle .bar {
+  background-color: #ffffff;
+}
+
+/* ==========================================================================
+   BLOCK 1: HERO SECTION
+   ========================================================================== */
+.contacts-hero {
+  position: relative;
+  min-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: calc(var(--header-height) + 40px);
+  padding-bottom: 50px;
+  overflow: hidden;
+}
+
+.contacts-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.contacts-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: brightness(0.72) contrast(1.08);
+  transform: scale(1.02);
+  transition: transform 12s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.contacts-hero:hover .contacts-hero-img {
+  transform: scale(1.05);
+}
+
+.contacts-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 9, 14, 0.8) 0%,
+    rgba(6, 9, 14, 0.42) 40%,
+    rgba(6, 9, 14, 0.72) 75%,
+    #06090e 100%
+  );
+  pointer-events: none;
+}
+
+.contacts-hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.contacts-hero-content {
+  max-width: 680px;
+  margin-top: 20px;
+}
+
+/* Badge "КОНТАКТЫ" */
+.contacts-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 18px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  margin-bottom: 24px;
+}
+
+/* Big Heading "СВЯЗАТЬСЯ С WTMA" */
+.contacts-hero-title {
+  font-family: var(--font-sans);
+  font-size: clamp(2.8rem, 6.2vw, 5.5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+}
+
+.contacts-hero-divider {
+  width: 70px;
+  height: 2px;
+  background: #ffffff;
+  margin-bottom: 22px;
+}
+
+.contacts-hero-desc {
+  font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+  line-height: 1.5;
+  color: #cbd5e1;
+  max-width: 480px;
+  margin: 0 0 50px 0;
+  font-weight: 400;
+}
+
+/* Left Bottom Kickers */
+.contacts-kicker-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Right Top Kickers */
+.contacts-kicker-right {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  text-align: right;
+  margin-top: 30px;
+}
+
+/* ==========================================================================
+   BLOCK 2: WHITE CONTACT DETAILS & FORM
+   ========================================================================== */
+.contacts-details-section {
+  position: relative;
+  z-index: 2;
+  background-color: #ffffff;
+  color: #111827;
+  padding: 90px 0 100px 0;
+}
+
+.contacts-details-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Subheading */
+.section-subheading {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #111827;
+  margin: 0 0 36px 0;
+}
+
+/* Contact Info List */
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 50px;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.info-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.contact-info-item:hover .info-icon {
+  background: var(--brand-accent-red);
+  color: #ffffff;
+  border-color: var(--brand-accent-red);
+  transform: translateY(-2px);
+}
+
+.info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.info-val {
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #1e293b;
+  margin: 0;
+}
+
+.info-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e293b;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.info-link:hover {
+  color: var(--brand-accent-red);
+}
+
+.info-phones {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Social Icon Buttons Row */
+.info-social-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.social-sq-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  color: #334155;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.social-sq-btn:hover {
+  background: var(--brand-accent-red);
+  border-color: var(--brand-accent-red);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Editorial Statement Block */
+.contacts-statement-box {
+  padding-top: 36px;
+  border-top: 1px solid #e2e8f0;
+  max-width: 480px;
+}
+
+.statement-kicker {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1e293b;
+}
+
+.statement-line {
+  width: 50px;
+  height: 1.5px;
+  background: #94a3b8;
+  margin: 18px 0;
+}
+
+.statement-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+}
+
+/* Project Request Form */
+.contacts-form-col {
+  background: #ffffff;
+}
+
+.main-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-row-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+
+.form-field label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 13px 14px;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: #0f172a;
+  outline: none;
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #94a3b8;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  background-color: #ffffff;
+  border-color: var(--brand-accent-red);
+  box-shadow: 0 0 0 3px rgba(224, 68, 52, 0.12);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.field-error-msg {
+  display: none;
+  font-size: 0.76rem;
+  color: #dc2626;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.form-field.has-error input,
+.form-field.has-error textarea {
+  border-color: #dc2626;
+  background-color: #fff5f5;
+}
+
+.form-field.has-error .field-error-msg {
+  display: block;
+}
+
+/* Submit Button */
+.btn-submit-request {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #0d121c;
+  border: none;
+  color: #ffffff;
+  padding: 15px 24px;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-submit-request .arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.btn-submit-request:hover {
+  background-color: var(--brand-accent-red);
+  box-shadow: 0 6px 20px rgba(224, 68, 52, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-submit-request:hover .arrow {
+  transform: translateX(4px);
+}
+
+.form-footer-note {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin-top: 6px;
+}
+
+/* Success Banner */
+.form-success-banner {
+  display: none;
+  background: #ecfdf5;
+  border: 1px solid #10b981;
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-top: 14px;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.form-success-banner.is-visible {
+  display: flex;
+}
+
+.success-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #10b981;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.success-text strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #065f46;
+  margin-bottom: 2px;
+}
+
+.success-text p {
+  font-size: 0.86rem;
+  color: #047857;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   BLOCK 3: LOCATION & TASHKENT CITY OFFICE
+   ========================================================================== */
+.contacts-location-section {
+  position: relative;
+  z-index: 2;
+  background-color: #06090e;
+  padding: 70px 0 90px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.location-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.location-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0d121c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  min-height: 440px;
+}
+
+/* Left: Map Card */
+.map-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.map-viewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+}
+
+.map-viewport:active {
+  cursor: grabbing;
+}
+
+.map-layer-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 46% 48%;
+  transform-origin: 46% 48%;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: brightness(0.85) contrast(1.1);
+}
+
+.map-overlay-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 45% 48%, transparent 40%, rgba(6, 9, 14, 0.65) 90%);
+  pointer-events: none;
+}
+
+/* Pulsing Pin Marker */
+.map-pin-wrapper {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.map-pin-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(224, 68, 52, 0.35);
+  animation: mapPulse 2s infinite ease-out;
+}
+
+@keyframes mapPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.4);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.2);
+    opacity: 0;
+  }
+}
+
+.map-pin-dot {
+  position: relative;
+  z-index: 2;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--brand-accent-red);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 12px rgba(224, 68, 52, 0.8);
+}
+
+.map-pin-card {
+  position: absolute;
+  top: -46px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(13, 18, 28, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+}
+
+.map-pin-card .pin-title {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+}
+
+.map-pin-card .pin-sub {
+  font-size: 0.65rem;
+  color: #94a3b8;
+}
+
+/* Map UI Controls (+ / -) */
+.map-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 12;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.map-ctrl-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  background: rgba(13, 18, 28, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.map-ctrl-btn:hover {
+  background: var(--brand-accent-red);
+  border-color: var(--brand-accent-red);
+  color: #ffffff;
+}
+
+.map-bottom-badge {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 12;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #cbd5e1;
+  background: rgba(13, 18, 28, 0.7);
+  padding: 5px 12px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Right: Tashkent City Office Card */
+.office-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 44px;
+  box-sizing: border-box;
+}
+
+.office-card-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.office-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.9) contrast(1.05);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.office-card:hover .office-card-img {
+  transform: scale(1.04);
+}
+
+.office-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(8, 12, 20, 0.95) 0%,
+    rgba(8, 12, 20, 0.7) 48%,
+    rgba(8, 12, 20, 0.2) 100%
+  );
+}
+
+.office-card-content {
+  position: relative;
+  z-index: 2;
+  max-width: 440px;
+}
+
+.office-card-line {
+  width: 36px;
+  height: 2px;
+  background: #ffffff;
+  margin-bottom: 20px;
+}
+
+.office-card-kicker {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #94a3b8;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.office-card-title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.6rem, 2.3vw, 2.2rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.01em;
+}
+
+.office-card-address {
+  font-size: 0.92rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+  margin: 0 0 32px 0;
+}
+
+.office-card-action {
+  margin-bottom: 20px;
+}
+
+.btn-route-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.btn-route-action .arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.btn-route-action:hover {
+  background: var(--brand-accent-red);
+  border-color: var(--brand-accent-red);
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(224, 68, 52, 0.35);
+}
+
+.btn-route-action:hover .arrow {
+  transform: translateX(4px);
+}
+
+.office-card-badge {
+  position: absolute;
+  bottom: -15px;
+  right: -10px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   BLOCK 4: PRE-FOOTER HORIZON BANNER
+   ========================================================================== */
+.contacts-horizon-section {
+  position: relative;
+  z-index: 2;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  background-color: #06090e;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 50px 0;
+}
+
+.contacts-horizon-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.contacts-horizon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.85) contrast(1.15);
+}
+
+.contacts-horizon-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 9, 14, 0.7) 0%,
+    rgba(6, 9, 14, 0.25) 50%,
+    rgba(6, 9, 14, 0.8) 100%
+  );
+}
+
+.contacts-horizon-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.horizon-col-left,
+.horizon-col-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.horizon-rule {
+  width: 40px;
+  height: 1.5px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.horizon-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-family: var(--font-sans);
+  font-size: clamp(0.78rem, 1.2vw, 0.95rem);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.horizon-col-right {
+  text-align: right;
+  flex-direction: row-reverse;
+}
+
+/* ==========================================================================
+   BLOCK 5: MINIMAL FOOTER
+   ========================================================================== */
+.contacts-footer {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #04060a;
+  padding: 36px 0;
+}
+
+.contacts-footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.contacts-footer .brand-logo .logo-mark {
+  color: #ffffff;
+}
+
+.contacts-footer .brand-logo .logo-details {
+  border-left-color: rgba(255, 255, 255, 0.2);
+}
+
+.contacts-footer .brand-logo .logo-line {
+  color: #94a3b8;
+}
+
+.contacts-footer .footer-center-col {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: #64748b;
+}
+
+.contacts-footer .footer-social-col {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.contacts-footer .social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contacts-footer .social-icon-btn:hover {
+  background: var(--brand-accent-red);
+  border-color: var(--brand-accent-red);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .contacts-details-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .location-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contacts-hero-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .contacts-kicker-right {
+    text-align: left;
+    align-items: flex-start;
+    margin-top: 0;
+  }
+
+  .office-card {
+    min-height: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contacts-hero {
+    min-height: auto;
+    padding-top: calc(var(--header-height) + 30px);
+    padding-bottom: 50px;
+  }
+
+  .contacts-details-section {
+    padding: 60px 0;
+  }
+
+  .form-row-duo {
+    grid-template-columns: 1fr;
+  }
+
+  .contacts-horizon-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .horizon-col-right {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .contacts-footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+}

@@ -15,31 +15,89 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * 1. Header Scroll effect (Add shadow & background blur on scroll)
+ * 1. Header Scroll effect (Smart Hide/Show & Adaptive Theme)
+ * - Hides when scrolling down, reveals when scrolling up
+ * - Adapts colors (Hero mode, Scrolled Light mode, Scrolled Dark mode)
  */
 function initHeaderScroll() {
   const header = document.getElementById('siteHeader');
   if (!header) return;
 
-  const handleScroll = () => {
-    if (window.scrollY > 40) {
-      header.classList.add('scrolled');
+  let lastScrollY = window.scrollY;
+  let isHidden = false;
+
+  const handleHeaderUpdate = () => {
+    const currentScrollY = window.scrollY;
+
+    // A. Theme adaptation
+    if (currentScrollY <= 80) {
+      header.classList.remove('header-scrolled-light', 'header-scrolled-dark');
+      header.classList.add('header-hero');
     } else {
-      header.classList.remove('scrolled');
+      header.classList.remove('header-hero');
+
+      // Detect whether the section beneath the header is dark or light theme
+      const sections = document.querySelectorAll('main section[id]');
+      let currentSection = null;
+
+      sections.forEach((sec) => {
+        const rect = sec.getBoundingClientRect();
+        // Check if header (top: 0-80px) is currently inside this section
+        if (rect.top <= 65 && rect.bottom > 65) {
+          currentSection = sec;
+        }
+      });
+
+      if (currentSection && currentSection.classList.contains('dark-theme')) {
+        header.classList.add('header-scrolled-dark');
+        header.classList.remove('header-scrolled-light');
+      } else {
+        header.classList.add('header-scrolled-light');
+        header.classList.remove('header-scrolled-dark');
+      }
     }
+
+    // B. Hide on scroll down, show on scroll up
+    const scrollDelta = currentScrollY - lastScrollY;
+
+    if (currentScrollY > 120 && scrollDelta > 6) {
+      // Scrolling DOWN -> hide header
+      if (!isHidden) {
+        header.classList.add('header-hidden');
+        isHidden = true;
+        const langSelector = document.getElementById('langSelector');
+        if (langSelector) langSelector.classList.remove('open');
+      }
+    } else if (scrollDelta < -6 || currentScrollY <= 70) {
+      // Scrolling UP or at top -> show header
+      if (isHidden) {
+        header.classList.remove('header-hidden');
+        isHidden = false;
+      }
+    }
+
+    lastScrollY = currentScrollY;
   };
 
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll();
+  window.addEventListener('scroll', handleHeaderUpdate, { passive: true });
+  handleHeaderUpdate();
 }
 
 /**
- * 2. ScrollSpy - Highlight active navigation link with the terracotta dot
+ * 2. ScrollSpy - Highlight active navigation link with animated red dot & expanding lines
  */
 function initScrollSpy() {
   const sections = document.querySelectorAll('main section[id]');
   const navLinks = document.querySelectorAll('.main-nav .nav-link');
   if (!sections.length || !navLinks.length) return;
+
+  // Immediate active transition on click
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      navLinks.forEach((l) => l.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
 
   const observerOptions = {
     root: null,

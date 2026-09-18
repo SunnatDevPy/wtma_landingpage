@@ -196,17 +196,18 @@ ul {
   width: 100%;
   height: var(--header-height);
   z-index: 1000;
-  transition: background-color var(--transition-smooth), backdrop-filter var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(15, 20, 28, 0.06);
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.35s ease,
+              border-color 0.35s ease,
+              box-shadow 0.35s ease,
+              backdrop-filter 0.35s ease,
+              -webkit-backdrop-filter 0.35s ease;
+  will-change: transform;
 }
 
-.site-header.scrolled {
-  background: rgba(255, 255, 255, 0.92);
-  border-bottom-color: rgba(15, 20, 28, 0.1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+/* Hide on scroll down */
+.site-header.header-hidden {
+  transform: translateY(-100%);
 }
 
 .header-container {
@@ -233,7 +234,7 @@ ul {
   font-size: 1.6rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: #0d1219;
+  transition: color var(--transition-fast);
 }
 
 .logo-details {
@@ -241,6 +242,7 @@ ul {
   flex-direction: column;
   border-left: 1px solid rgba(0, 0, 0, 0.15);
   padding-left: 10px;
+  transition: border-color var(--transition-fast);
 }
 
 .logo-line {
@@ -248,11 +250,11 @@ ul {
   font-weight: 700;
   letter-spacing: 0.14em;
   line-height: 1.35;
-  color: #374151;
   text-transform: uppercase;
+  transition: color var(--transition-fast);
 }
 
-/* Nav Menu */
+/* Desktop Nav Menu */
 .main-nav {
   display: flex;
   align-items: center;
@@ -274,39 +276,87 @@ ul {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #404854;
-  padding: 8px 0;
+  padding: 8px 4px 12px;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   transition: color var(--transition-fast);
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.nav-link:hover {
-  color: #000000;
+.nav-label {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Animated Center Dot & Expanding Dual Lines */
+.nav-indicator {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
 }
 
 .nav-dot {
-  position: absolute;
-  bottom: -4px;
-  width: 5px;
-  height: 5px;
-  background-color: var(--brand-accent-red);
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
+  background-color: var(--brand-accent-red);
+  flex-shrink: 0;
+  transform: scale(0);
   opacity: 0;
-  transform: scale(0.5);
-  transition: all var(--transition-fast);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(224, 68, 52, 0.9);
 }
 
+.nav-line {
+  height: 2.5px;
+  background-color: var(--brand-accent-red);
+  flex: 1;
+  border-radius: 2px;
+  opacity: 0;
+}
+
+.nav-line-left {
+  transform-origin: right center;
+  transform: scaleX(0);
+  transition: transform 0.52s cubic-bezier(0.16, 1, 0.3, 1) 0.08s, opacity 0.3s ease;
+}
+
+.nav-line-right {
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.52s cubic-bezier(0.16, 1, 0.3, 1) 0.08s, opacity 0.3s ease;
+}
+
+/* Active & Hover States: Text turns RED, Center dot pops and lines expand to FULL text width */
+.nav-link:hover,
 .nav-link.active {
-  color: #0a0d13;
-  font-weight: 700;
+  color: var(--brand-accent-red);
 }
 
-.nav-link.active .nav-dot {
-  opacity: 1;
+.nav-link.active .nav-dot,
+.nav-link:hover .nav-dot {
   transform: scale(1);
+  opacity: 1;
+}
+
+.nav-link.active .nav-line-left,
+.nav-link.active .nav-line-right,
+.nav-link:hover .nav-line-left,
+.nav-link:hover .nav-line-right {
+  transform: scaleX(1);
+  opacity: 1;
 }
 
 /* Header Actions */
@@ -323,13 +373,7 @@ ul {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  color: #2b3340;
-  transition: background-color var(--transition-fast), color var(--transition-fast);
-}
-
-.action-btn:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-  color: #000000;
+  transition: all var(--transition-fast);
 }
 
 /* Language Selector */
@@ -343,14 +387,9 @@ ul {
   gap: 4px;
   font-size: 0.85rem;
   font-weight: 700;
-  color: #202733;
-  padding: 6px 8px;
-  border-radius: 4px;
-  transition: background-color var(--transition-fast);
-}
-
-.lang-btn:hover {
-  background-color: rgba(0, 0, 0, 0.04);
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: all var(--transition-fast);
 }
 
 .lang-btn .chevron {
@@ -390,6 +429,7 @@ ul {
   font-size: 0.82rem;
   font-weight: 500;
   color: #374151;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 
 .lang-option:hover {
@@ -409,20 +449,10 @@ ul {
   gap: 10px;
   padding: 9px 20px;
   border-radius: 999px;
-  background-color: transparent;
-  border: 1px solid #1c2431;
-  color: #111827;
   font-size: 0.84rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   transition: all var(--transition-fast);
-}
-
-.btn-contact-pill:hover {
-  background-color: #111827;
-  color: #ffffff;
-  border-color: #111827;
-  transform: translateY(-1px);
 }
 
 .btn-contact-pill .arrow {
@@ -431,6 +461,260 @@ ul {
 
 .btn-contact-pill:hover .arrow {
   transform: translateX(3px);
+}
+
+/* ==========================================================================
+   THEME ADAPTATION STATES (Rasm va joyga qarab oq/qora)
+   ========================================================================== */
+
+/* --- 1. Hero Mode (At Top Over Header.png with soft grey glass) --- */
+.site-header.header-hero {
+  background: rgba(245, 247, 250, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.site-header.header-hero .brand-logo .logo-mark {
+  color: #0d1219;
+}
+.site-header.header-hero .brand-logo .logo-details {
+  border-left-color: rgba(0, 0, 0, 0.2);
+}
+.site-header.header-hero .brand-logo .logo-line {
+  color: #374151;
+}
+
+.site-header.header-hero .nav-link {
+  color: #475569;
+  text-shadow: none;
+}
+.site-header.header-hero .nav-link:hover {
+  color: var(--brand-accent-red);
+  text-shadow: none;
+}
+.site-header.header-hero .nav-link.active {
+  color: var(--brand-accent-red);
+  font-weight: 700;
+  text-shadow: none;
+}
+
+.site-header.header-hero .action-btn {
+  color: #334155;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(15, 23, 42, 0.14);
+}
+.site-header.header-hero .action-btn:hover {
+  background-color: #ffffff;
+  color: var(--brand-accent-red);
+  border-color: var(--brand-accent-red);
+}
+
+.site-header.header-hero .lang-btn {
+  color: #334155;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(15, 23, 42, 0.14);
+}
+.site-header.header-hero .lang-btn:hover {
+  background-color: #ffffff;
+  color: var(--brand-accent-red);
+  border-color: var(--brand-accent-red);
+}
+
+.site-header.header-hero .btn-contact-pill {
+  color: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.25);
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.site-header.header-hero .btn-contact-pill:hover {
+  background-color: var(--brand-accent-red);
+  color: #ffffff;
+  border-color: var(--brand-accent-red);
+  transform: translateY(-1px);
+}
+
+.site-header.header-hero .burger-toggle .bar {
+  background-color: #0f172a;
+}
+
+.site-header.header-hero .lang-dropdown {
+  background: #ffffff;
+  border-color: var(--border-light);
+  box-shadow: var(--shadow-md);
+}
+.site-header.header-hero .lang-option {
+  color: #374151;
+}
+.site-header.header-hero .lang-option:hover {
+  background-color: #f8fafc;
+  color: var(--brand-accent-red);
+}
+
+/* --- 2. Scrolled Light Theme (Over Light Sections) --- */
+.site-header.header-scrolled-light {
+  background: rgba(248, 250, 252, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(15, 20, 28, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.site-header.header-scrolled-light .brand-logo .logo-mark {
+  color: #0d1219;
+}
+.site-header.header-scrolled-light .brand-logo .logo-details {
+  border-left-color: rgba(0, 0, 0, 0.15);
+}
+.site-header.header-scrolled-light .brand-logo .logo-line {
+  color: #374151;
+}
+
+.site-header.header-scrolled-light .nav-link {
+  color: #475569;
+  text-shadow: none;
+}
+.site-header.header-scrolled-light .nav-link:hover {
+  color: var(--brand-accent-red);
+}
+.site-header.header-scrolled-light .nav-link.active {
+  color: var(--brand-accent-red);
+  font-weight: 700;
+}
+
+.site-header.header-scrolled-light .action-btn {
+  color: #334155;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+.site-header.header-scrolled-light .action-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--brand-accent-red);
+}
+
+.site-header.header-scrolled-light .lang-btn {
+  color: #334155;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+.site-header.header-scrolled-light .lang-btn:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: var(--brand-accent-red);
+}
+
+.site-header.header-scrolled-light .btn-contact-pill {
+  color: #111827;
+  border: 1px solid #1c2431;
+  background-color: transparent;
+}
+.site-header.header-scrolled-light .btn-contact-pill:hover {
+  background-color: var(--brand-accent-red);
+  color: #ffffff;
+  border-color: var(--brand-accent-red);
+  transform: translateY(-1px);
+}
+
+.site-header.header-scrolled-light .burger-toggle .bar {
+  background-color: #111827;
+}
+
+.site-header.header-scrolled-light .lang-dropdown {
+  background: #ffffff;
+  border-color: var(--border-light);
+  box-shadow: var(--shadow-md);
+}
+.site-header.header-scrolled-light .lang-option {
+  color: #374151;
+}
+.site-header.header-scrolled-light .lang-option:hover {
+  background-color: #f3f4f6;
+  color: var(--brand-accent-red);
+}
+
+/* --- 3. Scrolled Dark Theme (Over Dark Sections) --- */
+.site-header.header-scrolled-dark {
+  background: rgba(7, 10, 15, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+.site-header.header-scrolled-dark .brand-logo .logo-mark {
+  color: #ffffff;
+}
+.site-header.header-scrolled-dark .brand-logo .logo-details {
+  border-left-color: rgba(255, 255, 255, 0.25);
+}
+.site-header.header-scrolled-dark .brand-logo .logo-line {
+  color: #cbd5e1;
+}
+
+.site-header.header-scrolled-dark .nav-link {
+  color: #cbd5e1;
+  text-shadow: none;
+}
+.site-header.header-scrolled-dark .nav-link:hover {
+  color: var(--brand-accent-red);
+}
+.site-header.header-scrolled-dark .nav-link.active {
+  color: var(--brand-accent-red);
+  font-weight: 700;
+}
+
+.site-header.header-scrolled-dark .action-btn {
+  color: #ffffff;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+.site-header.header-scrolled-dark .action-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--brand-accent-red);
+}
+
+.site-header.header-scrolled-dark .lang-btn {
+  color: #ffffff;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+.site-header.header-scrolled-dark .lang-btn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--brand-accent-red);
+}
+
+.site-header.header-scrolled-dark .btn-contact-pill {
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+}
+.site-header.header-scrolled-dark .btn-contact-pill:hover {
+  background-color: var(--brand-accent-red);
+  color: #ffffff;
+  border-color: var(--brand-accent-red);
+  transform: translateY(-1px);
+}
+
+.site-header.header-scrolled-dark .burger-toggle .bar {
+  background-color: #ffffff;
+}
+
+.site-header.header-scrolled-dark .lang-dropdown {
+  background: #101622;
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+.site-header.header-scrolled-dark .lang-option {
+  color: #cbd5e1;
+}
+.site-header.header-scrolled-dark .lang-option:hover {
+  background-color: #1e293b;
+  color: #ffffff;
 }
 
 /* Mobile Burger Toggle */
@@ -497,7 +781,13 @@ ul {
 .mobile-nav-link {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #111827;
+  color: #475569;
+  transition: color var(--transition-fast);
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  color: var(--brand-accent-red);
 }
 
 .w-full {
@@ -535,7 +825,7 @@ ul {
   object-position: center right;
 }
 
-/* Delicate gradient to ensure text readability on the left while preserving sky & building */
+/* Delicate transparent gradient so Header.png remains vivid and visible behind all content */
 .hero-overlay {
   position: absolute;
   top: 0;
@@ -544,11 +834,22 @@ ul {
   height: 100%;
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.94) 0%,
-    rgba(255, 255, 255, 0.88) 35%,
-    rgba(255, 255, 255, 0.5) 55%,
-    rgba(255, 255, 255, 0.05) 100%
+    rgba(255, 255, 255, 0.64) 0%,
+    rgba(255, 255, 255, 0.38) 38%,
+    rgba(255, 255, 255, 0.08) 68%,
+    transparent 100%
   );
+}
+
+.hero-overlay::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(180deg, transparent 0%, var(--bg-primary) 100%);
+  pointer-events: none;
 }
 
 .hero-inner {
@@ -572,9 +873,10 @@ ul {
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #526071;
+  color: #374151;
   display: inline-block;
   position: relative;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
 }
 
 .hero-title {
@@ -585,14 +887,16 @@ ul {
   color: #0c1119;
   letter-spacing: -0.02em;
   margin-bottom: 28px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
 }
 
 .hero-desc {
   font-size: 1.08rem;
   line-height: 1.7;
-  color: #374151;
+  color: #1f2937;
   margin-bottom: 36px;
-  font-weight: 400;
+  font-weight: 450;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
 }
 
 .hero-actions {
@@ -1151,6 +1455,7 @@ ul {
   background-color: #fafbfd;
   padding: 24px 12px;
   cursor: pointer;
+  text-decoration: none;
   transition: all var(--transition-smooth);
 }
 

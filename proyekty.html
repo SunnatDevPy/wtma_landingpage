@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проекты — WTMA | Реальные решения для текстильной и fashion-индустрии</title>
+  <meta name="description" content="Реализованные кейсы и проекты WTMA: Tex Area, Molto Caldo, продакшн, брендинг, digital-платформы и международные B2B проекты.">
+  <meta name="keywords" content="WTMA, Проекты, Кейсы, Tex Area, Molto Caldo, Текстильный маркетинг, Брендинг, Fashion кейсы">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-weight='bold' fill='%23111827'>W</text></svg>">
+
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet & Projects Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/projects.css">
+</head>
+<body class="projects-page-body">
+
+  <!-- ==================== HEADER / NAVIGATION ==================== -->
+  <header class="site-header header-scrolled-dark" id="siteHeader">
+    <div class="header-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="WTMA Главная">
+        <span class="logo-mark">WTMA</span>
+        <span class="logo-details">
+          <span class="logo-line">WORLD TEXTILE</span>
+          <span class="logo-line">MARKETING AGENCY</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="main-nav" id="mainNav" aria-label="Основная навигация">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="index.html#about" class="nav-link">
+              <span class="nav-label">
+                О WTMA
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="napravleniya.html" class="nav-link">
+              <span class="nav-label">
+                Направления
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="proyekty.html" class="nav-link active">
+              <span class="nav-label">
+                Проекты
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#mission" class="nav-link">
+              <span class="nav-label">
+                Каталог
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="media.html" class="nav-link">
+              <span class="nav-label">
+                Медиа
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="contacts.html" class="nav-link">
+              <span class="nav-label">
+                Контакты
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="header-actions">
+        <!-- Search Button -->
+        <button class="action-btn search-trigger" aria-label="Поиск по сайту" id="searchBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <!-- Language Selector -->
+        <div class="lang-selector" id="langSelector">
+          <button class="lang-btn" aria-haspopup="true" aria-expanded="false" id="langToggle">
+            <span>RU</span>
+            <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <a href="#" class="lang-option active">RU (Русский)</a>
+            <a href="#" class="lang-option">EN (English)</a>
+            <a href="#" class="lang-option">UZ (O'zbekcha)</a>
+          </div>
+        </div>
+
+        <!-- Contact CTA Button -->
+        <a href="contacts.html" class="btn-contact-pill" id="headerContactBtn">
+          <span>Связаться</span>
+          <span class="arrow">→</span>
+        </a>
+
+        <!-- Mobile Burger Menu Toggle -->
+        <button class="burger-toggle" id="burgerToggle" aria-label="Открыть мобильное меню">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <ul class="mobile-nav-list">
+        <li><a href="index.html#about" class="mobile-nav-link">О WTMA</a></li>
+        <li><a href="napravleniya.html" class="mobile-nav-link">Направления</a></li>
+        <li><a href="proyekty.html" class="mobile-nav-link active">Проекты</a></li>
+        <li><a href="index.html#mission" class="mobile-nav-link">Наша миссия</a></li>
+        <li><a href="media.html" class="mobile-nav-link">Медиа</a></li>
+        <li><a href="contacts.html" class="mobile-nav-link">Контакты</a></li>
+      </ul>
+      <div class="mobile-drawer-footer">
+        <a href="contacts.html" class="btn-contact-pill w-full">
+          <span>Связаться с WTMA</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="projects-main">
+
+    <!-- ==================== BLOCK 1: HERO SECTION ==================== -->
+    <section class="projects-hero" id="projectsHero">
+      <div class="projects-hero-bg">
+        <img src="images/projects/hero-textile.png" alt="Фактурная драпировка ткани премиального текстиля" class="projects-hero-img" loading="eager">
+        <div class="projects-hero-overlay"></div>
+      </div>
+
+      <div class="site-container projects-hero-container">
+        <!-- Main Content (Left) -->
+        <div class="projects-hero-content">
+          <div class="projects-badge">ПРОЕКТЫ</div>
+          
+          <h1 class="projects-hero-title">
+            РЕАЛЬНЫЕ<br>
+            РЕШЕНИЯ<br>
+            <span class="hero-title-sub">ДЛЯ ТЕКСТИЛЬНОЙ<br>И FASHION-ИНДУСТРИИ</span>
+          </h1>
+
+          <div class="projects-hero-divider"></div>
+
+          <p class="projects-hero-desc">
+            Мы превращаем идеи, знания и экспертизу в реальные проекты, которые создают ценность для бизнеса и индустрии.
+          </p>
+        </div>
+
+        <!-- Right Kickers -->
+        <div class="projects-hero-kickers">
+          <span>IDEAS</span>
+          <span>INSIGHTS</span>
+          <span>PEOPLE</span>
+          <span>REAL IMPACT</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== BLOCK 2: FILTER & SORT BAR ==================== -->
+    <section class="projects-filter-section" id="projectsFilter">
+      <div class="site-container projects-filter-container">
+        <!-- Category Filter Tabs -->
+        <div class="filter-tabs-wrapper" role="tablist" aria-label="Фильтр проектов по категориям">
+          <button class="filter-tab-btn active" data-filter="all" role="tab" aria-selected="true">
+            <span>ВСЕ</span>
+          </button>
+          <button class="filter-tab-btn" data-filter="analytics" role="tab" aria-selected="false">
+            <span>АНАЛИТИКА</span>
+          </button>
+          <button class="filter-tab-btn" data-filter="marketing" role="tab" aria-selected="false">
+            <span>МАРКЕТИНГ</span>
+          </button>
+          <button class="filter-tab-btn" data-filter="production" role="tab" aria-selected="false">
+            <span>ПРОДАКШН</span>
+          </button>
+          <button class="filter-tab-btn" data-filter="digital" role="tab" aria-selected="false">
+            <span>DIGITAL</span>
+          </button>
+          <button class="filter-tab-btn" data-filter="business" role="tab" aria-selected="false">
+            <span>БИЗНЕС-РАЗВИТИЕ</span>
+          </button>
+        </div>
+
+        <!-- Sort Dropdown -->
+        <div class="sort-wrapper" id="sortWrapper">
+          <button class="sort-toggle-btn" id="sortToggleBtn" aria-haspopup="true" aria-expanded="false">
+            <span id="currentSortLabel">Сортировка</span>
+            <svg class="sort-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="sort-dropdown" id="sortDropdown">
+            <button class="sort-option active" data-sort="default">По умолчанию</button>
+            <button class="sort-option" data-sort="num-asc">По номеру (01 → 06)</button>
+            <button class="sort-option" data-sort="category">По направлениям</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== BLOCK 3: PROJECTS 6-CARD GRID ==================== -->
+    <section class="projects-grid-section" id="projectsGridSection">
+      <div class="site-container">
+        <div class="projects-grid" id="projectsGrid">
+
+          <!-- CARD 01: TEX AREA -->
+          <article class="project-card" data-category="analytics" data-index="1" data-project-id="tex-area" role="button" tabindex="0" aria-label="Подробнее о проекте 01 Tex Area">
+            <div class="card-media">
+              <img src="images/projects/01-tex-area.png" alt="Tex Area — аналитическая платформа WTMA на экране ноутбука" class="card-img" loading="lazy">
+              <div class="card-media-overlay"></div>
+            </div>
+
+            <div class="card-info">
+              <div class="card-tags-row">
+                <span class="card-num">01</span>
+                <span class="card-category-badge">АНАЛИТИКА</span>
+              </div>
+
+              <div class="card-text-block">
+                <h2 class="card-title">TEX AREA</h2>
+                <h3 class="card-subtitle">Аналитическая платформа WTMA</h3>
+                <p class="card-desc">
+                  Данные. Рынки. Тренды. Аналитика текстильной и fashion-индустрии в одном пространстве.
+                </p>
+              </div>
+
+              <div class="card-action">
+                <button class="btn-card-cta" data-project="tex-area">
+                  <span>СМОТРЕТЬ ПРОЕКТ</span>
+                  <span class="arrow">→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 02: WTMA x MOLTO CALDO -->
+          <article class="project-card" data-category="analytics marketing" data-index="2" data-project-id="molto-caldo" role="button" tabindex="0" aria-label="Подробнее о проекте 02 Molto Caldo">
+            <div class="card-media">
+              <img src="images/projects/02-molto-caldo.png" alt="Molto Caldo премиальная бирка на кашемировом текстиле" class="card-img" loading="lazy">
+              <div class="card-media-overlay"></div>
+            </div>
+
+            <div class="card-info">
+              <div class="card-tags-row">
+                <span class="card-num">02</span>
+                <span class="card-category-badge">АНАЛИТИКА</span>
+              </div>
+
+              <div class="card-text-block">
+                <h2 class="card-title">WTMA × MOLTO CALDO</h2>
+                <h3 class="card-subtitle">Исследование рынка</h3>
+                <p class="card-desc">
+                  Комплексное исследование рынка и аналитическая поддержка для fashion-проекта.
+                </p>
+              </div>
+
+              <div class="card-action">
+                <button class="btn-card-cta" data-project="molto-caldo">
+                  <span>СМОТРЕТЬ ПРОЕКТ</span>
+                  <span class="arrow">→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 03: ПРОФЕССИОНАЛЬНАЯ СЪЁМКА -->
+          <article class="project-card" data-category="production" data-index="3" data-project-id="photoshoot" role="button" tabindex="0" aria-label="Подробнее о проекте 03 Профессиональная съёмка">
+            <div class="card-media">
+              <img src="images/projects/03-photoshoot.png" alt="Текстильное производство, катушки пряжи и фабричная съёмка" class="card-img" loading="lazy">
+              <div class="card-media-overlay"></div>
+            </div>
+
+            <div class="card-info">
+              <div class="card-tags-row">
+                <span class="card-num">03</span>
+                <span class="card-category-badge">ПРОДАКШН</span>
+              </div>
+
+              <div class="card-text-block">
+                <h2 class="card-title">ПРОФЕССИОНАЛЬНАЯ СЪЁМКА</h2>
+                <h3 class="card-subtitle">Текстильное производство</h3>
+                <p class="card-desc">
+                  Визуальный контент для производственных предприятий: фото, видео, презентации.
+                </p>
+              </div>
+
+              <div class="card-action">
+                <button class="btn-card-cta" data-project="photoshoot">
+                  <span>СМОТРЕТЬ ПРОЕКТ</span>
+                  <span class="arrow">→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 04: БРЕНДИНГ И ПОЗИЦИОНИРОВАНИЕ -->
+          <article class="project-card" data-category="marketing" data-index="4" data-project-id="branding" role="button" tabindex="0" aria-label="Подробнее о проекте 04 Брендинг и позиционирование">
+            <div class="card-media">
+              <img src="images/projects/04-branding.png" alt="Книга брендинга WTMA, коробки и упаковка айдентики" class="card-img" loading="lazy">
+              <div class="card-media-overlay"></div>
+            </div>
+
+            <div class="card-info">
+              <div class="card-tags-row">
+                <span class="card-num">04</span>
+                <span class="card-category-badge">МАРКЕТИНГ</span>
+              </div>
+
+              <div class="card-text-block">
+                <h2 class="card-title">БРЕНДИНГ И ПОЗИЦИОНИРОВАНИЕ</h2>
+                <h3 class="card-subtitle">Текстильные и fashion-бренды</h3>
+                <p class="card-desc">
+                  Разработка брендов, визуальной идентичности и маркетинговых стратегий.
+                </p>
+              </div>
+
+              <div class="card-action">
+                <button class="btn-card-cta" data-project="branding">
+                  <span>СМОТРЕТЬ ПРОЕКТ</span>
+                  <span class="arrow">→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 05: ВЕБ-ПЛАТФОРМЫ И DIGITAL-РЕШЕНИЯ -->
+          <article class="project-card" data-category="digital" data-index="5" data-project-id="digital" role="button" tabindex="0" aria-label="Подробнее о проекте 05 Веб-платформы и Digital">
+            <div class="card-media">
+              <img src="images/projects/05-digital.png" alt="Ноутбук с веб-платформой Textile Business Without Borders" class="card-img" loading="lazy">
+              <div class="card-media-overlay"></div>
+            </div>
+
+            <div class="card-info">
+              <div class="card-tags-row">
+                <span class="card-num">05</span>
+                <span class="card-category-badge">DIGITAL</span>
+              </div>
+
+              <div class="card-text-block">
+                <h2 class="card-title">ВЕБ-ПЛАТФОРМЫ И DIGITAL-РЕШЕНИЯ</h2>
+                <h3 class="card-subtitle">Сайты, платформы, SMM</h3>
+                <p class="card-desc">
+                  Разработка digital-продуктов и продвижение в международных рынках.
+                </p>
+              </div>
+
+              <div class="card-action">
+                <button class="btn-card-cta" data-project="digital">
+                  <span>СМОТРЕТЬ ПРОЕКТ</span>
+                  <span class="arrow">→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 06: МЕЖДУНАРОДНЫЕ ПРОЕКТЫ -->
+          <article class="project-card" data-category="business" data-index="6" data-project-id="international" role="button" tabindex="0" aria-label="Подробнее о проекте 06 Международные проекты">
+            <div class="card-media">
+              <img src="images/projects/06-international.png" alt="Морской грузовой терминал с контейнерами и кранами WTMA" class="card-img" loading="lazy">
+              <div class="card-media-overlay"></div>
+            </div>
+
+            <div class="card-info">
+              <div class="card-tags-row">
+                <span class="card-num">06</span>
+                <span class="card-category-badge">БИЗНЕС-РАЗВИТИЕ</span>
+              </div>
+
+              <div class="card-text-block">
+                <h2 class="card-title">МЕЖДУНАРОДНЫЕ ПРОЕКТЫ</h2>
+                <h3 class="card-subtitle">Новые рынки и партнёрства</h3>
+                <p class="card-desc">
+                  Поддержка выхода на зарубежные рынки, организация бизнес-миссий и B2B-встреч.
+                </p>
+              </div>
+
+              <div class="card-action">
+                <button class="btn-card-cta" data-project="international">
+                  <span>СМОТРЕТЬ ПРОЕКТ</span>
+                  <span class="arrow">→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== BLOCK 4: PRE-FOOTER BANNER ==================== -->
+    <section class="projects-prefooter" id="projectsPrefooter">
+      <div class="projects-prefooter-bg">
+        <img src="images/projects/prefooter-constellation.png" alt="Космический вид ночной Земли и созвездие WTMA" class="prefooter-bg-img" loading="lazy">
+        <div class="prefooter-bg-overlay"></div>
+      </div>
+
+      <div class="site-container projects-prefooter-container">
+        <div class="prefooter-left">
+          <span class="prefooter-kicker">ДВИГАЕМ ИНДУСТРИЮ ВПЕРЁД</span>
+          <h2 class="prefooter-title">ГОТОВЫ РЕАЛИЗОВАТЬ СЛЕДУЮЩИЙ ПРОЕКТ?</h2>
+        </div>
+
+        <div class="prefooter-right">
+          <a href="contacts.html" class="btn-prefooter-action">
+            <span>СВЯЗАТЬСЯ С НАМИ</span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== BLOCK 5: MINIMAL FOOTER ==================== -->
+  <footer class="projects-footer">
+    <div class="site-container projects-footer-container">
+      <!-- Left: Brand Logo & Details -->
+      <div class="footer-brand-col">
+        <a href="index.html" class="brand-logo" aria-label="WTMA Главная">
+          <span class="logo-mark">WTMA</span>
+          <span class="logo-details">
+            <span class="logo-line">WORLD TEXTILE</span>
+            <span class="logo-line">MARKETING AGENCY</span>
+          </span>
+        </a>
+      </div>
+
+      <!-- Center: Slogan -->
+      <div class="footer-center-col">
+        <span>TEXTILE. FASHION. A STRONGER TOMORROW.</span>
+      </div>
+
+      <!-- Right: Social Links -->
+      <div class="footer-social-col">
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+          </svg>
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+          </svg>
+        </a>
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="YouTube">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== CASE STUDY DETAIL LIGHTBOX MODAL ==================== -->
+  <div class="project-modal-backdrop" id="projectDetailModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="project-modal-window">
+      <button class="project-modal-close" id="projectModalCloseBtn" aria-label="Закрыть модальное окно">✕</button>
+
+      <div class="project-modal-header">
+        <div class="modal-meta-row">
+          <span class="modal-project-num" id="modalProjectNum">01</span>
+          <span class="modal-project-category" id="modalProjectCategory">АНАЛИТИКА</span>
+        </div>
+        <h3 class="modal-project-title" id="modalProjectTitle">TEX AREA</h3>
+        <p class="modal-project-subtitle" id="modalProjectSubtitle">Аналитическая платформа WTMA</p>
+      </div>
+
+      <div class="project-modal-body">
+        <div class="modal-hero-img-wrap">
+          <img src="images/projects/01-tex-area.png" alt="Кейс WTMA" class="modal-hero-img" id="modalHeroImg">
+        </div>
+
+        <div class="modal-details-grid">
+          <div class="modal-detail-item">
+            <span class="modal-detail-label">КЛИЕНТ / ПАРТНЁР</span>
+            <span class="modal-detail-val" id="modalClient">WTMA Analytics</span>
+          </div>
+          <div class="modal-detail-item">
+            <span class="modal-detail-label">НАПРАВЛЕНИЕ</span>
+            <span class="modal-detail-val" id="modalDirection">Отраслевая аналитика</span>
+          </div>
+          <div class="modal-detail-item">
+            <span class="modal-detail-label">ОХВАТ</span>
+            <span class="modal-detail-val" id="modalReach">12+ стран, 500+ компаний</span>
+          </div>
+          <div class="modal-detail-item">
+            <span class="modal-detail-label">РЕЗУЛЬТАТ</span>
+            <span class="modal-detail-val text-gold" id="modalResult">Единое аналитическое пространство</span>
+          </div>
+        </div>
+
+        <div class="modal-story-block">
+          <h4>О ПРОЕКТЕ</h4>
+          <p id="modalProjectStory">
+            Комплексный проект по структурированию, исследованию и визуализации глобальных данных текстильной и fashion-индустрии для принятия стратегических решений.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-modal-footer">
+        <a href="contacts.html" class="btn-modal-discuss">
+          <span>ОБСУДИТЬ ПОХОЖИЙ ПРОЕКТ</span>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/projects.js"></script>
+</body>
+</html>
