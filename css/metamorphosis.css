@@ -222,53 +222,6 @@
 }
 
 /* ==========================================================================
-   HUD PHASE CONTROLLER BAR
-   ========================================================================== */
-.metamorphosis-hud-bar {
-  position: absolute;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 25;
-  background: rgba(11, 16, 25, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  padding: 10px 24px;
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
-}
-
-.hud-phase-pill {
-  font-size: 0.76rem;
-  font-weight: 600;
-  color: #94a3b8;
-  padding: 6px 14px;
-  border-radius: 999px;
-  transition: all 0.25s ease;
-  white-space: nowrap;
-}
-
-.hud-phase-pill.active {
-  background: var(--brand-accent-red, #e04434);
-  color: #ffffff;
-  box-shadow: 0 0 12px rgba(224, 68, 52, 0.45);
-}
-
-.hud-frame-counter {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #ffffff;
-  min-width: 58px;
-  text-align: right;
-  border-left: 1px solid rgba(255, 255, 255, 0.12);
-  padding-left: 14px;
-}
-
-/* ==========================================================================
    RESPONSIVE OPTIMIZATIONS
    ========================================================================== */
 @media (max-width: 1024px) {
@@ -319,17 +272,5 @@
     max-width: calc(100% - 32px);
     bottom: 80px !important;
     top: auto !important;
-  }
-  .metamorphosis-hud-bar {
-    bottom: 18px;
-    padding: 8px 16px;
-    gap: 10px;
-  }
-  .hud-phase-pill {
-    font-size: 0.68rem;
-    padding: 4px 10px;
-  }
-  .hud-frame-counter {
-    display: none;
   }
 }
