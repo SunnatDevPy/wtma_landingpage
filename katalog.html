@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог TEX AREA — WTMA | Исследования и аналитические материалы текстильной индустрии</title>
+  <meta name="description" content="TEX AREA — серия аналитических изданий WTMA, посвящённых ключевым трендам, рынкам, технологиям и возможностям текстильной и fashion-индустрии.">
+  <meta name="keywords" content="WTMA, Каталог, TEX AREA, Текстильная аналитика, Fashion исследования, Хлопок, Пряжа, Деним, Логистика текстиля">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-weight='bold' fill='%23111827'>W</text></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans, Syncopate, Cormorant Garamond -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet & Katalog Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/katalog.css">
+</head>
+<body class="katalog-page-body">
+
+  <!-- ==================== HEADER / NAVIGATION ==================== -->
+  <header class="site-header header-scrolled-dark" id="siteHeader">
+    <div class="header-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="WTMA Главная">
+        <span class="logo-mark">WTMA</span>
+        <span class="logo-details">
+          <span class="logo-line">WORLD TEXTILE</span>
+          <span class="logo-line">MARKETING AGENCY</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="main-nav" id="mainNav" aria-label="Основная навигация">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="index.html#about" class="nav-link">
+              <span class="nav-label">
+                О WTMA
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="napravleniya.html" class="nav-link">
+              <span class="nav-label">
+                Направления
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="proyekty.html" class="nav-link">
+              <span class="nav-label">
+                Проекты
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="katalog.html" class="nav-link active">
+              <span class="nav-label">
+                Каталог
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="media.html" class="nav-link">
+              <span class="nav-label">
+                Медиа
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="contacts.html" class="nav-link">
+              <span class="nav-label">
+                Контакты
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="header-actions">
+        <!-- Search Button -->
+        <button class="action-btn search-trigger" aria-label="Поиск по сайту" id="searchBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <!-- Language Selector -->
+        <div class="lang-selector" id="langSelector">
+          <button class="lang-btn" aria-expanded="false" aria-haspopup="true">
+            <span class="current-lang">RU</span>
+            <svg class="lang-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <ul class="lang-dropdown">
+            <li><a href="#" class="active">RU — Русский</a></li>
+            <li><a href="#">UZ — Oʻzbekcha</a></li>
+            <li><a href="#">EN — English</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact CTA Button -->
+        <a href="contacts.html" class="btn-contact-pill">
+          <span>Связаться</span>
+        </a>
+
+        <!-- Burger Toggle for Mobile Menu -->
+        <button class="burger-toggle" id="burgerToggle" aria-label="Открыть мобильное меню" aria-expanded="false">
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+          <span class="bar bar-3"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MOBILE NAVIGATION OVERLAY ==================== -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true">
+    <div class="mobile-nav-inner">
+      <ul class="mobile-nav-list">
+        <li><a href="index.html#about" class="mobile-nav-link">О WTMA</a></li>
+        <li><a href="napravleniya.html" class="mobile-nav-link">Направления</a></li>
+        <li><a href="proyekty.html" class="mobile-nav-link">Проекты</a></li>
+        <li><a href="katalog.html" class="mobile-nav-link active">Каталог</a></li>
+        <li><a href="media.html" class="mobile-nav-link">Медиа</a></li>
+        <li><a href="contacts.html" class="mobile-nav-link">Контакты</a></li>
+      </ul>
+      <div class="mobile-nav-footer">
+        <a href="contacts.html" class="btn-mobile-contact">Связаться с нами</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SEARCH MODAL ==================== -->
+  <div class="search-modal" id="searchModal" aria-hidden="true" role="dialog">
+    <div class="search-modal-backdrop" id="searchModalBackdrop"></div>
+    <div class="search-modal-box">
+      <div class="search-input-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Поиск по изданиям TEX AREA, статьям, аналитике..." autocomplete="off">
+        <button class="search-modal-close" id="searchModalClose" aria-label="Закрыть">✕</button>
+      </div>
+      <div class="search-quick-tags">
+        <span class="quick-tag-label">Популярные темы:</span>
+        <button class="quick-tag" data-tag="New Markets">New Markets</button>
+        <button class="quick-tag" data-tag="Cotton">Cotton Textile</button>
+        <button class="quick-tag" data-tag="Apparel">Apparel 50</button>
+        <button class="quick-tag" data-tag="Denim">Denim</button>
+        <button class="quick-tag" data-tag="Yarn">Future of Yarn</button>
+      </div>
+      <div class="search-results-container" id="searchResultsContainer"></div>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN CONTENT WRAPPER ==================== -->
+  <main class="katalog-main" id="mainContent">
+
+    <!-- ==================== HERO SECTION: TEX AREA ==================== -->
+    <section class="katalog-hero-section" id="katalogHero" aria-label="TEX AREA Обзор">
+      <div class="katalog-hero-ambient"></div>
+
+      <div class="site-container katalog-hero-container">
+        
+        <!-- Left Column: Typography & Action -->
+        <div class="katalog-hero-content">
+          <div class="katalog-badge-wrap">
+            <span class="katalog-breadcrumb">КАТАЛОГ</span>
+          </div>
+
+          <h1 class="katalog-hero-title">TEX AREA</h1>
+
+          <h2 class="katalog-hero-subtitle">ИССЛЕДОВАНИЯ И АНАЛИТИЧЕСКИЕ МАТЕРИАЛЫ ТЕКСТИЛЬНОЙ ИНДУСТРИИ</h2>
+
+          <div class="katalog-gold-divider" aria-hidden="true"></div>
+
+          <p class="katalog-hero-desc">
+            TEX AREA — это серия аналитических изданий WTMA, посвящённых ключевым трендам, рынкам и возможностям текстильной и fashion-индустрии.
+          </p>
+
+          <div class="katalog-hero-cta">
+            <button class="btn-katalog-presentation" id="btnOpenPresentation" aria-label="Смотреть презентацию TEX AREA">
+              <span>СМОТРЕТЬ ПРЕЗЕНТАЦИЮ</span>
+              <svg class="cta-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Column: 3D Pyramid Prism Visual -->
+        <div class="katalog-hero-visual" id="heroPyramidWrapper">
+          <div class="pyramid-glow-layer"></div>
+          <div class="pyramid-image-box">
+            <picture>
+              <source srcset="images/katalog/hero_pyramid.webp" type="image/webp">
+              <img src="images/katalog/hero_pyramid.png" alt="TEX AREA 3D Спектральная призма аналитики текстиля" class="pyramid-img" width="1536" height="1024" loading="eager">
+            </picture>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== CATALOG GRID: 8 EDITIONS ==================== -->
+    <section class="katalog-grid-section" id="katalogGrid" aria-label="Выпуски изданий TEX AREA">
+      <div class="site-container">
+        
+        <div class="katalog-cards-grid">
+
+          <!-- Card 01 -->
+          <article class="katalog-card" data-edition="01" tabindex="0">
+            <div class="katalog-card-media">
+              <picture>
+                <source srcset="images/katalog/tex_area_01.webp" type="image/webp">
+                <img src="images/katalog/tex_area_01.png" alt="TEX AREA 01 — New Markets, Logistics, Technology Reports" class="katalog-card-img" width="1024" height="1536" loading="lazy">
+              </picture>
+              <div class="katalog-card-overlay">
+                <span class="btn-card-quickview">
+                  <span>Обзор выпуска</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </span>
+              </div>
+            </div>
+            <div class="katalog-card-footer">
+              <h3 class="katalog-card-title">TEX AREA 01</h3>
+              <span class="katalog-card-vol">VOL. 01</span>
+            </div>
+          </article>
+
+          <!-- Card 02 -->
+          <article class="katalog-card" data-edition="02" tabindex="0">
+            <div class="katalog-card-media">
+              <picture>
+                <source srcset="images/katalog/tex_area_02.webp" type="image/webp">
+                <img src="images/katalog/tex_area_02.png" alt="TEX AREA 02 — Cotton Textile, Color Trends, Sustainable Fashion" class="katalog-card-img" width="1086" height="1448" loading="lazy">
+              </picture>
+              <div class="katalog-card-overlay">
+                <span class="btn-card-quickview">
+                  <span>Обзор выпуска</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </span>
+              </div>
+            </div>
+            <div class="katalog-card-footer">
+              <h3 class="katalog-card-title">TEX AREA 02</h3>
+              <span class="katalog-card-vol">VOL. 02</span>
+            </div>
+          </article>
+
+          <!-- Card 03 -->
+          <article class="katalog-card" data-edition="03" tabindex="0">
+            <div class="katalog-card-media">
+              <picture>
+                <source srcset="images/katalog/tex_area_03.webp" type="image/webp">
+                <img src="images/katalog/tex_area_03.png" alt="TEX AREA 03 — Apparel 50, Future of Yarn, Saida Amir" class="katalog-card-img" width="1024" height="1536" loading="lazy">
+              </picture>
+              <div class="katalog-card-overlay">
+                <span class="btn-card-quickview">
+                  <span>Обзор выпуска</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </span>
+              </div>
+            </div>
+            <div class="katalog-card-footer">
+              <h3 class="katalog-card-title">TEX AREA 03</h3>
+              <span class="katalog-card-vol">VOL. 03</span>
+            </div>
+          </article>
+
+          <!-- Card 04 -->
+          <article class="katalog-card" data-edition="04" tabindex="0">
+            <div class="katalog-card-media">
+              <picture>
+                <source srcset="images/katalog/tex_area_04.webp" type="image/webp">
+                <img src="images/katalog/tex_area_04.png" alt="TEX AREA 04 — Dyed Yarn, Denim, Leather Production" class="katalog-card-img" width="1086" height="1448" loading="lazy">
+              </picture>
+              <div class="katalog-card-overlay">
+                <span class="btn-card-quickview">
+                  <span>Обзор выпуска</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </span>
+              </div>
+            </div>
+            <div class="katalog-card-footer">
+              <h3 class="katalog-card-title">TEX AREA 04</h3>
+              <span class="katalog-card-vol">VOL. 04</span>
+            </div>
+          </article>
+
+          <!-- Card 05 -->
+          <article class="katalog-card" data-edition="05" tabindex="0">
+            <div class="katalog-card-media">
+              <picture>
+                <source srcset="images/katalog/tex_area_05.webp" type="image/webp">
+                <img src="images/katalog/tex_area_05.png" alt="TEX AREA 05 — Architectural Textiles & Structural Materials" class="katalog-card-img" width="651" height="855" loading="lazy">
+              </picture>
+              <div class="katalog-card-overlay">
+                <span class="btn-card-quickview">
+                  <span>Обзор выпуска</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </span>
+              </div>
+            </div>
+            <div class="katalog-card-footer">
+              <h3 class="katalog-card-title">TEX AREA 05</h3>
+              <span class="katalog-card-vol">VOL. 05</span>
+            </div>
+          </article>
+
+          <!-- Card 06 -->
+          <article class="katalog-card" data-edition="06" tabindex="0">
+            <div class="katalog-card-media">
+              <picture>
+                <source srcset="images/katalog/tex_area_06.webp" type="image/webp">
+                <img src="images/katalog/tex_area_06.png" alt="TEX AREA 06 — Innovative Weaving, Textured Fabrics & Raw Materials" class="katalog-card-img" width="651" height="855" loading="lazy">
+              </picture>
+              <div class="katalog-card-overlay">
+                <span class="btn-card-quickview">
+                  <span>Обзор выпуска</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </span>
+              </div>
+            </div>
+            <div class="katalog-card-footer">
+              <h3 class="katalog-card-title">TEX AREA 06</h3>
+              <span class="katalog-card-vol">VOL. 06</span>
+            </div>
+          </article>
+
+          <!-- Card 07 -->
+          <article class="katalog-card" data-edition="07" tabindex="0">
+            <div class="katalog-card-media">
+              <picture>
+                <source srcset="images/katalog/tex_area_07.webp" type="image/webp">
+                <img src="images/katalog/tex_area_07.png" alt="TEX AREA 07 — Outerwear Trends & Premium Global Silhouettes" class="katalog-card-img" width="651" height="855" loading="lazy">
+              </picture>
+              <div class="katalog-card-overlay">
+                <span class="btn-card-quickview">
+                  <span>Обзор выпуска</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </span>
+              </div>
+            </div>
+            <div class="katalog-card-footer">
+              <h3 class="katalog-card-title">TEX AREA 07</h3>
+              <span class="katalog-card-vol">VOL. 07</span>
+            </div>
+          </article>
+
+          <!-- Card 08 -->
+          <article class="katalog-card" data-edition="08" tabindex="0">
+            <div class="katalog-card-media">
+              <picture>
+                <source srcset="images/katalog/tex_area_08.webp" type="image/webp">
+                <img src="images/katalog/tex_area_08.png" alt="TEX AREA 08 — Deep Indigo, Micro-Weave Mastery & Modern Finishes" class="katalog-card-img" width="651" height="855" loading="lazy">
+              </picture>
+              <div class="katalog-card-overlay">
+                <span class="btn-card-quickview">
+                  <span>Обзор выпуска</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </span>
+              </div>
+            </div>
+            <div class="katalog-card-footer">
+              <h3 class="katalog-card-title">TEX AREA 08</h3>
+              <span class="katalog-card-vol">VOL. 08</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== NETWORK MAP BOTTOM SECTION ==================== -->
+    <section class="katalog-network-section" id="katalogNetwork" aria-label="Глобальная сеть и покрытие WTMA">
+      <div class="network-map-bg-wrap">
+        <picture>
+          <source srcset="images/katalog/network_map_bg.webp" type="image/webp">
+          <img src="images/katalog/network_map_bg.png" alt="Глобальная сеть связей WTMA и аналитические потоки" class="network-map-img" width="1536" height="1024" loading="lazy">
+        </picture>
+        <div class="network-map-gradient-top"></div>
+        <div class="network-map-gradient-bottom"></div>
+      </div>
+
+      <div class="site-container network-content-container">
+        <div class="network-stats-card">
+          <div class="network-stats-row">
+            <div class="stat-box">
+              <span class="stat-number">12+</span>
+              <span class="stat-label">Стран глобального присутствия</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Партнёров и текстильных брендов</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">8</span>
+              <span class="stat-label">Аналитических выпусков серии</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Верифицированная рыночная статистика</span>
+            </div>
+          </div>
+
+          <div class="network-action-row">
+            <div class="network-cta-text">
+              <h4>ХОТИТЕ ПОЛУЧИТЬ ПОЛНЫЙ ДОСТУП К ИЗДАНИЯМ TEX AREA?</h4>
+              <p>Оставьте запрос, и наш отдел аналитики предоставит печатные или цифровые копии для вашей компании.</p>
+            </div>
+            <a href="contacts.html" class="btn-network-cta">
+              <span>СВЯЗАТЬСЯ С АНАЛИТИЧЕСКИМ ОТДЕЛОМ</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== MODAL: EDITION DETAIL LIGHTBOX ==================== -->
+  <div class="edition-modal-backdrop" id="editionModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="edition-modal-window">
+      <button class="edition-modal-close" id="editionModalCloseBtn" aria-label="Закрыть окно">✕</button>
+
+      <div class="edition-modal-content">
+        <!-- Left: Large Cover -->
+        <div class="edition-modal-cover-wrap">
+          <img src="" alt="Обложка TEX AREA" class="edition-modal-cover" id="modalCoverImg">
+          <span class="edition-modal-vol-badge" id="modalVolBadge">VOL. 01</span>
+        </div>
+
+        <!-- Right: Information & Topics -->
+        <div class="edition-modal-info">
+          <div class="modal-tag-row">
+            <span class="modal-category">АНАЛИТИЧЕСКОЕ ИЗДАНИЕ WTMA</span>
+            <span class="modal-status-pill">В НАЛИЧИИ</span>
+          </div>
+
+          <h3 class="modal-edition-title" id="modalEditionTitle">TEX AREA 01</h3>
+          <h4 class="modal-edition-theme" id="modalEditionTheme">New Markets, Logistics & Technologies</h4>
+
+          <div class="modal-gold-line"></div>
+
+          <p class="modal-edition-desc" id="modalEditionDesc">
+            Комплексный стратегический обзор новых экспортных направлений, цепочек поставок, таможенных преференций и новейших технологических внедрений в текстильном кластере.
+          </p>
+
+          <div class="modal-topics-block">
+            <h5>КЛЮЧЕВЫЕ ТЕМЫ ВЫПУСКА:</h5>
+            <ul class="modal-topics-list" id="modalTopicsList">
+              <!-- Dynamically filled by JS -->
+            </ul>
+          </div>
+
+          <div class="modal-actions-row">
+            <a href="contacts.html" class="btn-modal-request" id="modalRequestBtn">
+              <span>ЗАПРОСИТЬ ЭТОТ ВЫПУСК (PDF)</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <button class="btn-modal-preview-close" id="modalBackBtn">Вернуться к списку</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: PRESENTATION OVERVIEW ==================== -->
+  <div class="edition-modal-backdrop" id="presentationModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="edition-modal-window presentation-window">
+      <button class="edition-modal-close" id="presentationModalCloseBtn" aria-label="Закрыть окно">✕</button>
+
+      <div class="presentation-modal-header">
+        <span class="modal-category">ПРЕЗЕНТАЦИЯ TEX AREA</span>
+        <h3>ЭКОСИСТЕМА ТЕКСТИЛЬНОЙ АНАЛИТИКИ WTMA</h3>
+        <p>Краткий обзор структуры исследовательского проекта TEX AREA и его практической ценности для бизнеса</p>
+      </div>
+
+      <div class="presentation-grid">
+        <div class="presentation-card">
+          <div class="p-num">01</div>
+          <h4>Рыночные исследования</h4>
+          <p>Глубокий анализ спроса и предложения в ЕС, СНГ, Азии и на Ближнем Востоке. Ценовые индексы и прогнозные тренды.</p>
+        </div>
+        <div class="presentation-card">
+          <div class="p-num">02</div>
+          <h4>Инновации и сырьё</h4>
+          <p>От волокна и эко-хлопка до биополимеров, инновационной пряжи и передовых методов крашения без отходов.</p>
+        </div>
+        <div class="presentation-card">
+          <div class="p-num">03</div>
+          <h4>Логистика и экспорт</h4>
+          <p>Анализ транспортных коридоров, субсидий, таможенных барьеров и сертификации стандартов (GOTS, OEKO-TEX, BCI).</p>
+        </div>
+        <div class="presentation-card">
+          <div class="p-num">04</div>
+          <h4>Fashion & Бренд-стратегия</h4>
+          <p>Интервью с лидерами индустрии, капсульные коллекции, B2B-шоурумы и интеграция локальных фабрик в мировой ритейл.</p>
+        </div>
+      </div>
+
+      <div class="presentation-modal-footer">
+        <a href="contacts.html" class="btn-modal-request">
+          <span>СКАЧАТЬ ПОЛНУЮ ПРЕЗЕНТАЦИЮ</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer katalog-footer" id="siteFooter">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo" aria-label="WTMA Главная">
+          <span class="logo-mark">WTMA</span>
+          <span class="logo-details">
+            <span class="logo-line">WORLD TEXTILE</span>
+            <span class="logo-line">MARKETING AGENCY</span>
+          </span>
+        </a>
+      </div>
+
+      <div class="footer-copy">
+        <p>&copy; 2026 WTMA — World Textile Marketing Agency. Все права защищены.</p>
+      </div>
+
+      <div class="footer-socials">
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.2a1.66 1.66 0 0 0-1.66 1.66c0 .92.74 1.66 1.66 1.66.92 0 1.66-.74 1.66-1.66 0-.92-.74-1.66-1.66-1.66Z"/>
+          </svg>
+        </a>
+        <!-- Instagram -->
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+          </svg>
+        </a>
+        <!-- YouTube -->
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/katalog.js"></script>
+</body>
+</html>
