@@ -21,84 +21,154 @@
 </head>
 <body class="katalog-page-body">
 
-  <!-- ==================== HEADER / NAVIGATION (Exact match to main_toplami.jpg) ==================== -->
-  <header class="katalog-header" id="siteHeader">
-    <div class="katalog-container katalog-header-inner">
-      
-      <!-- Brand Logo -->
-      <a href="index.html" class="katalog-brand" aria-label="WTMA Главная">
-        <span class="katalog-logo-mark">WTMA</span>
-        <span class="katalog-logo-sep"></span>
-        <span class="katalog-logo-text">WORLD TEXTILE<br>MARKETING AGENCY</span>
+  <!-- ==================== SITE HEADER / NAVIGATION (Exact match to all pages) ==================== -->
+  <header class="site-header header-scrolled-dark" id="siteHeader">
+    <div class="header-container">
+      <!-- Logo -->
+      <a href="index.html" class="brand-logo" aria-label="WTMA Главная">
+        <span class="logo-mark">WTMA</span>
+        <span class="logo-details">
+          <span class="logo-line">WORLD TEXTILE</span>
+          <span class="logo-line">MARKETING AGENCY</span>
+        </span>
       </a>
 
       <!-- Desktop Navigation Menu -->
-      <nav class="katalog-nav" id="mainNav" aria-label="Основная навигация">
-        <ul class="katalog-nav-list">
-          <li><a href="index.html#about" class="katalog-nav-link">О WTMA</a></li>
-          <li><a href="napravleniya.html" class="katalog-nav-link">НАПРАВЛЕНИЯ</a></li>
-          <li><a href="proyekty.html" class="katalog-nav-link">ПРОЕКТЫ</a></li>
-          <li><a href="katalog.html" class="katalog-nav-link active">КАТАЛОГ</a></li>
-          <li><a href="media.html" class="katalog-nav-link">МЕДИА</a></li>
-          <li><a href="contacts.html" class="katalog-nav-link">КОНТАКТЫ</a></li>
+      <nav class="main-nav" id="mainNav" aria-label="Основная навигация">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="index.html#about" class="nav-link">
+              <span class="nav-label">
+                О WTMA
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="napravleniya.html" class="nav-link">
+              <span class="nav-label">
+                Направления
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="proyekty.html" class="nav-link">
+              <span class="nav-label">
+                Проекты
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="katalog.html" class="nav-link active">
+              <span class="nav-label">
+                Каталог
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="media.html" class="nav-link">
+              <span class="nav-label">
+                Медиа
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="contacts.html" class="nav-link">
+              <span class="nav-label">
+                Контакты
+                <span class="nav-indicator" aria-hidden="true">
+                  <span class="nav-line nav-line-left"></span>
+                  <span class="nav-dot"></span>
+                  <span class="nav-line nav-line-right"></span>
+                </span>
+              </span>
+            </a>
+          </li>
         </ul>
       </nav>
 
-      <!-- Right Header Actions (Search & Lang Switcher) -->
-      <div class="katalog-header-actions">
-        <!-- Search Trigger Button -->
-        <button class="katalog-icon-btn" id="searchBtn" aria-label="Поиск по изданиям">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Right Header Actions -->
+      <div class="header-actions">
+        <!-- Search Button -->
+        <button class="action-btn search-trigger" aria-label="Поиск по изданиям" id="searchBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
         </button>
 
-        <span class="katalog-action-pipe"></span>
-
         <!-- Language Selector -->
-        <div class="katalog-lang" id="langSelector">
-          <button class="katalog-lang-btn" aria-haspopup="true" aria-expanded="false" id="langToggle">
+        <div class="lang-selector" id="langSelector">
+          <button class="lang-btn" aria-haspopup="true" aria-expanded="false" id="langToggle">
             <span>RU</span>
-            <svg class="chevron" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
-          <ul class="katalog-lang-dropdown">
-            <li><a href="#" class="active">RU (Русский)</a></li>
-            <li><a href="#">UZ (O'zbekcha)</a></li>
-            <li><a href="#">EN (English)</a></li>
-          </ul>
+          <div class="lang-dropdown" id="langDropdown">
+            <a href="#" class="lang-option active">RU (Русский)</a>
+            <a href="#" class="lang-option">EN (English)</a>
+            <a href="#" class="lang-option">UZ (O'zbekcha)</a>
+          </div>
         </div>
 
-        <!-- Mobile Burger Toggle (hidden on desktop) -->
-        <button class="katalog-burger-toggle" id="burgerToggle" aria-label="Мобильное меню" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
+        <!-- Contact CTA Button -->
+        <a href="contacts.html" class="btn-contact-pill" id="headerContactBtn">
+          <span>Связаться</span>
+          <span class="arrow">→</span>
+        </a>
+
+        <!-- Mobile Burger Menu Toggle -->
+        <button class="burger-toggle" id="burgerToggle" aria-label="Открыть мобильное меню">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
         </button>
       </div>
-
     </div>
-  </header>
 
-  <!-- ==================== MOBILE DRAWER (Completely hidden on desktop) ==================== -->
-  <div class="katalog-mobile-drawer" id="mobileDrawer" aria-hidden="true">
-    <div class="mobile-drawer-inner">
-      <button class="mobile-drawer-close" id="mobileDrawerClose">✕</button>
-      <ul class="mobile-drawer-list">
-        <li><a href="index.html#about">О WTMA</a></li>
-        <li><a href="napravleniya.html">НАПРАВЛЕНИЯ</a></li>
-        <li><a href="proyekty.html">ПРОЕКТЫ</a></li>
-        <li><a href="katalog.html" class="active">КАТАЛОГ</a></li>
-        <li><a href="media.html">МЕДИА</a></li>
-        <li><a href="contacts.html">КОНТАКТЫ</a></li>
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <ul class="mobile-nav-list">
+        <li><a href="index.html#about" class="mobile-nav-link">О WTMA</a></li>
+        <li><a href="napravleniya.html" class="mobile-nav-link">Направления</a></li>
+        <li><a href="proyekty.html" class="mobile-nav-link">Проекты</a></li>
+        <li><a href="katalog.html" class="mobile-nav-link active">Каталог</a></li>
+        <li><a href="media.html" class="mobile-nav-link">Медиа</a></li>
+        <li><a href="contacts.html" class="mobile-nav-link">Контакты</a></li>
       </ul>
-      <div class="mobile-drawer-cta">
-        <a href="contacts.html" class="btn-mobile-contact">Связаться с WTMA</a>
+      <div class="mobile-drawer-footer">
+        <a href="contacts.html" class="btn-contact-pill w-full">
+          <span>Связаться</span>
+          <span class="arrow">→</span>
+        </a>
       </div>
     </div>
-  </div>
+  </header>
 
   <!-- ==================== SEARCH MODAL (Hidden modal window) ==================== -->
   <div class="katalog-search-modal" id="searchModal" aria-hidden="true" role="dialog">

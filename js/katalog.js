@@ -123,35 +123,83 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // ==================== 2. HEADER & NAVIGATION ====================
+  // Sticky scroll-aware header
+  const siteHeader = document.getElementById('siteHeader');
+  if (siteHeader) {
+    let lastScrollY = window.scrollY;
+    let isHidden = false;
+
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+      const scrollDelta = currentScrollY - lastScrollY;
+
+      if (currentScrollY > 120 && scrollDelta > 6) {
+        if (!isHidden) {
+          siteHeader.classList.add('header-hidden');
+          isHidden = true;
+        }
+      } else if (scrollDelta < -6 || currentScrollY <= 60) {
+        if (isHidden) {
+          siteHeader.classList.remove('header-hidden');
+          isHidden = false;
+        }
+      }
+
+      lastScrollY = currentScrollY;
+    }, { passive: true });
+  }
+
+  // Burger and Mobile Drawer
   const burgerToggle = document.getElementById('burgerToggle');
   const mobileDrawer = document.getElementById('mobileDrawer');
-  const mobileDrawerClose = document.getElementById('mobileDrawerClose');
 
   if (burgerToggle && mobileDrawer) {
     burgerToggle.addEventListener('click', () => {
-      mobileDrawer.classList.toggle('is-open');
+      burgerToggle.classList.toggle('open');
+      mobileDrawer.classList.toggle('open');
       document.body.classList.toggle('no-scroll');
     });
 
-    mobileDrawerClose?.addEventListener('click', () => {
-      mobileDrawer.classList.remove('is-open');
-      document.body.classList.remove('no-scroll');
+    const drawerLinks = mobileDrawer.querySelectorAll('.mobile-nav-link');
+    drawerLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        burgerToggle.classList.remove('open');
+        mobileDrawer.classList.remove('open');
+        document.body.classList.remove('no-scroll');
+      });
     });
   }
 
   // Language Selector
   const langSelector = document.getElementById('langSelector');
   const langToggle = document.getElementById('langToggle');
+  const langOptions = document.querySelectorAll('.lang-option');
 
   if (langSelector && langToggle) {
     langToggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      langSelector.classList.toggle('is-open');
+      langSelector.classList.toggle('open');
+      const isOpen = langSelector.classList.contains('open');
+      langToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    langOptions.forEach((opt) => {
+      opt.addEventListener('click', (e) => {
+        e.preventDefault();
+        langOptions.forEach((o) => o.classList.remove('active'));
+        opt.classList.add('active');
+        const text = opt.textContent.split(' ')[0];
+        const span = langToggle.querySelector('span');
+        if (span) span.textContent = text;
+        langSelector.classList.remove('open');
+        langToggle.setAttribute('aria-expanded', 'false');
+      });
     });
 
     document.addEventListener('click', (e) => {
       if (!langSelector.contains(e.target)) {
-        langSelector.classList.remove('is-open');
+        langSelector.classList.remove('open');
+        langToggle.setAttribute('aria-expanded', 'false');
       }
     });
   }
@@ -309,7 +357,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') {
       closeEditionModal();
       closeSearch();
-      mobileDrawer?.classList.remove('is-open');
+      mobileDrawer?.classList.remove('open');
+      burgerToggle?.classList.remove('open');
       document.body.classList.remove('no-scroll');
     }
   });
