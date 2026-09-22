@@ -1,6 +1,6 @@
 /**
  * WTMA — Каталог (TEX AREA) Interactive Scripts
- * Handles edition modal previews, presentation viewer, header behaviors & search.
+ * Handles edition modal previews, header behaviors & quick search.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -123,42 +123,36 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // ==================== 2. HEADER & NAVIGATION ====================
-  const siteHeader = document.getElementById('siteHeader');
   const burgerToggle = document.getElementById('burgerToggle');
-  const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+  const mobileDrawer = document.getElementById('mobileDrawer');
+  const mobileDrawerClose = document.getElementById('mobileDrawerClose');
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      siteHeader?.classList.add('is-scrolled');
-    } else {
-      siteHeader?.classList.remove('is-scrolled');
-    }
-  }, { passive: true });
-
-  if (burgerToggle && mobileNavOverlay) {
+  if (burgerToggle && mobileDrawer) {
     burgerToggle.addEventListener('click', () => {
-      const isOpen = burgerToggle.getAttribute('aria-expanded') === 'true';
-      burgerToggle.setAttribute('aria-expanded', !isOpen);
-      burgerToggle.classList.toggle('is-active');
-      mobileNavOverlay.classList.toggle('is-active');
-      document.body.classList.toggle('no-scroll', !isOpen);
+      mobileDrawer.classList.toggle('is-open');
+      document.body.classList.toggle('no-scroll');
+    });
+
+    mobileDrawerClose?.addEventListener('click', () => {
+      mobileDrawer.classList.remove('is-open');
+      document.body.classList.remove('no-scroll');
     });
   }
 
   // Language Selector
   const langSelector = document.getElementById('langSelector');
-  if (langSelector) {
-    const langBtn = langSelector.querySelector('.lang-btn');
-    langBtn?.addEventListener('click', (e) => {
+  const langToggle = document.getElementById('langToggle');
+
+  if (langSelector && langToggle) {
+    langToggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      const isExpanded = langBtn.getAttribute('aria-expanded') === 'true';
-      langBtn.setAttribute('aria-expanded', !isExpanded);
       langSelector.classList.toggle('is-open');
     });
 
-    document.addEventListener('click', () => {
-      langBtn?.setAttribute('aria-expanded', 'false');
-      langSelector.classList.remove('is-open');
+    document.addEventListener('click', (e) => {
+      if (!langSelector.contains(e.target)) {
+        langSelector.classList.remove('is-open');
+      }
     });
   }
 
@@ -171,15 +165,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchResultsContainer = document.getElementById('searchResultsContainer');
 
   function openSearch() {
-    searchModal?.classList.add('is-open');
-    searchModal?.setAttribute('aria-hidden', 'false');
+    if (!searchModal) return;
+    searchModal.classList.add('is-open');
+    searchModal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('no-scroll');
     setTimeout(() => searchInput?.focus(), 100);
   }
 
   function closeSearch() {
-    searchModal?.classList.remove('is-open');
-    searchModal?.setAttribute('aria-hidden', 'true');
+    if (!searchModal) return;
+    searchModal.classList.remove('is-open');
+    searchModal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('no-scroll');
     if (searchInput) searchInput.value = '';
     if (searchResultsContainer) searchResultsContainer.innerHTML = '';
@@ -189,7 +185,6 @@ document.addEventListener('DOMContentLoaded', () => {
   searchModalClose?.addEventListener('click', closeSearch);
   searchModalBackdrop?.addEventListener('click', closeSearch);
 
-  // Search filter implementation
   function executeSearch(query) {
     if (!searchResultsContainer) return;
     const q = query.trim().toLowerCase();
@@ -210,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (matches.length === 0) {
-      searchResultsContainer.innerHTML = `<p class="search-empty">По запросу «${query}» ничего не найдено. Попробуйте другой термин.</p>`;
+      searchResultsContainer.innerHTML = `<p style="padding:16px;color:#94a3b8;font-size:13px;">По запросу «${query}» ничего не найдено.</p>`;
     } else {
       searchResultsContainer.innerHTML = `
         <div class="search-results-list">
@@ -218,9 +213,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="search-result-item" data-edition="${m.vol.replace('VOL. ', '')}">
               <img src="${m.cover}" alt="${m.title}" class="search-thumb">
               <div>
-                <span class="search-vol">${m.vol}</span>
-                <h4>${m.title} — ${m.theme}</h4>
-                <p>${m.desc.slice(0, 110)}...</p>
+                <span style="font-size:10px;font-weight:700;letter-spacing:0.12em;color:#e5a93c;">${m.vol}</span>
+                <h4 style="margin:2px 0 4px;font-size:13px;color:#ffffff;">${m.title} — ${m.theme}</h4>
+                <p style="margin:0;font-size:11px;color:#94a3b8;">${m.desc.slice(0, 95)}...</p>
               </div>
             </div>
           `).join('')}
@@ -283,13 +278,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     editionModal?.classList.add('is-open');
-    editionModal?.setAttribute('aria-hidden', 'false');
     document.body.classList.add('no-scroll');
   }
 
   function closeEditionModal() {
     editionModal?.classList.remove('is-open');
-    editionModal?.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('no-scroll');
   }
 
@@ -311,52 +304,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === editionModal) closeEditionModal();
   });
 
-  // ==================== 5. PRESENTATION MODAL ====================
-  const presentationModal = document.getElementById('presentationModal');
-  const btnOpenPresentation = document.getElementById('btnOpenPresentation');
-  const presentationModalCloseBtn = document.getElementById('presentationModalCloseBtn');
-
-  function openPresentationModal() {
-    presentationModal?.classList.add('is-open');
-    presentationModal?.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('no-scroll');
-  }
-
-  function closePresentationModal() {
-    presentationModal?.classList.remove('is-open');
-    presentationModal?.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('no-scroll');
-  }
-
-  btnOpenPresentation?.addEventListener('click', openPresentationModal);
-  presentationModalCloseBtn?.addEventListener('click', closePresentationModal);
-  presentationModal?.addEventListener('click', (e) => {
-    if (e.target === presentationModal) closePresentationModal();
-  });
-
-  // Global ESC key listener to close active modals
+  // Global ESC listener
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      if (editionModal?.classList.contains('is-open')) closeEditionModal();
-      if (presentationModal?.classList.contains('is-open')) closePresentationModal();
-      if (searchModal?.classList.contains('is-open')) closeSearch();
+      closeEditionModal();
+      closeSearch();
+      mobileDrawer?.classList.remove('is-open');
+      document.body.classList.remove('no-scroll');
     }
   });
 
-  // ==================== 6. SUBTLE 3D TILT ON HERO PYRAMID ====================
-  const heroPyramidWrapper = document.getElementById('heroPyramidWrapper');
-  const pyramidImg = heroPyramidWrapper?.querySelector('.pyramid-img');
-
-  if (heroPyramidWrapper && pyramidImg && window.innerWidth > 992) {
-    heroPyramidWrapper.addEventListener('mousemove', (e) => {
-      const rect = heroPyramidWrapper.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      pyramidImg.style.transform = `perspective(1000px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) scale(1.02)`;
-    });
-
-    heroPyramidWrapper.addEventListener('mouseleave', () => {
-      pyramidImg.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)';
-    });
-  }
+  // Smooth scroll for Presentation button
+  const btnHeroPresentation = document.getElementById('btnHeroPresentation');
+  btnHeroPresentation?.addEventListener('click', (e) => {
+    e.preventDefault();
+    const grid = document.getElementById('katalogGrid');
+    if (grid) {
+      grid.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
 });
