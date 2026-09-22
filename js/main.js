@@ -87,41 +87,28 @@ function initHeaderScroll() {
  * 2. ScrollSpy - Highlight active navigation link with animated red dot & expanding lines
  */
 function initScrollSpy() {
-  const sections = document.querySelectorAll('main section[id]');
-  const navLinks = document.querySelectorAll('.main-nav .nav-link');
-  if (!sections.length || !navLinks.length) return;
-
-  // Immediate active transition on click
-  navLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      navLinks.forEach((l) => l.classList.remove('active'));
-      link.classList.add('active');
+  const heroLinks = document.querySelectorAll('a[href="#hero"], .brand-logo');
+  heroLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const drawer = document.getElementById('mobileDrawer');
+      const burger = document.getElementById('burgerToggle');
+      if (drawer && drawer.classList.contains('open')) {
+        drawer.classList.remove('open');
+        if (burger) burger.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.pathname);
+      }
     });
   });
 
-  const observerOptions = {
-    root: null,
-    rootMargin: '-20% 0px -60% 0px',
-    threshold: 0
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach((link) => {
-          const href = link.getAttribute('href');
-          if (href === `#${id}`) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
-        });
-      }
-    });
-  }, observerOptions);
-
-  sections.forEach((section) => observer.observe(section));
+  const aboutLink = document.querySelector('.main-nav .nav-link[href="#hero"]');
+  if (aboutLink) {
+    aboutLink.classList.add('active');
+  }
 }
 
 /**
