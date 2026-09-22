@@ -321,15 +321,67 @@ body.no-scroll {
    ========================================================================== */
 .katalog-grid-section {
   position: relative;
-  z-index: 2;
-  padding: 30px 0 60px;
+  width: 100%;
+  padding: 40px 0 0;
   background-color: #03060c;
+  overflow: hidden;
+}
+
+/* Glowing Globe / Network Map Background Layer (Lower page half environment) */
+.katalog-globe-bg-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.katalog-globe-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  opacity: 0.96;
+  display: block;
+}
+
+.globe-blend-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 240px;
+  background: linear-gradient(180deg, #03060c 0%, rgba(3, 6, 12, 0.65) 45%, rgba(3, 6, 12, 0) 100%);
+  pointer-events: none;
+}
+
+.globe-blend-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 160px;
+  background: linear-gradient(0deg, #03060c 0%, rgba(3, 6, 12, 0.7) 50%, rgba(3, 6, 12, 0) 100%);
+  pointer-events: none;
+}
+
+.katalog-grid-container {
+  position: relative;
+  z-index: 2;
 }
 
 .katalog-cards-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 36px 24px;
+}
+
+/* Lower Globe Vista Showcase (The glowing world map spreading below cards) */
+.katalog-globe-vista {
+  height: 320px;
+  pointer-events: none;
 }
 
 /* Card */
@@ -435,61 +487,16 @@ body.no-scroll {
 }
 
 /* ==========================================================================
-   GLOBAL NETWORK MAP SECTION (Exact bottom visual from main_toplami.jpg)
-   ========================================================================== */
-.katalog-network-section {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  background-color: #03060c;
-  padding-top: 10px;
-  padding-bottom: 20px;
-}
-
-.katalog-network-map-container {
-  position: relative;
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-}
-
-.katalog-network-map-img {
-  width: 100%;
-  height: auto;
-  max-height: 480px;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  opacity: 0.95;
-}
-
-.network-fade-top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: linear-gradient(180deg, #03060c 0%, rgba(3, 6, 12, 0.5) 40%, transparent 100%);
-  pointer-events: none;
-}
-
-.network-fade-bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: linear-gradient(0deg, #03060c 0%, rgba(3, 6, 12, 0.5) 40%, transparent 100%);
-  pointer-events: none;
-}
-
-/* ==========================================================================
-   FOOTER (Exact match to main_toplami.jpg)
+   FOOTER (Seamless over the globe glow)
    ========================================================================== */
 .katalog-footer {
-  background-color: #03060c;
+  position: relative;
+  z-index: 3;
+  background: rgba(3, 6, 12, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 34px 0 40px;
+  padding: 30px 0 36px;
 }
 
 .katalog-footer-inner {
@@ -817,6 +824,10 @@ body.no-scroll {
 
   .edition-modal-window {
     padding: 24px 18px;
+  }
+
+  .katalog-globe-vista {
+    height: 180px;
   }
 }
 

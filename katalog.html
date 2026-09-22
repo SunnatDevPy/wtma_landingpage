@@ -237,9 +237,20 @@
       </div>
     </section>
 
-    <!-- ==================== CATALOG GRID: 8 EDITIONS (Exact 4x2 Grid) ==================== -->
-    <section class="katalog-grid-section" id="katalogGrid" aria-label="Выпуски изданий TEX AREA">
-      <div class="katalog-container">
+    <!-- ==================== CATALOG GRID & GLOBE SECTION (Continuous Background) ==================== -->
+    <section class="katalog-grid-section" id="katalogGrid" aria-label="Выпуски изданий TEX AREA и Глобальная сеть">
+      
+      <!-- Continuous Glowing Globe / Network Map Background Layer -->
+      <div class="katalog-globe-bg-layer" aria-hidden="true">
+        <picture>
+          <source srcset="images/katalog/network_map_bg.webp" type="image/webp">
+          <img src="images/katalog/network_map_bg.png" alt="Глобальная сеть связей WTMA" class="katalog-globe-bg-img" loading="lazy" decoding="async">
+        </picture>
+        <div class="globe-blend-top"></div>
+        <div class="globe-blend-bottom"></div>
+      </div>
+
+      <div class="katalog-container katalog-grid-container">
         
         <div class="katalog-cards-grid">
 
@@ -396,18 +407,9 @@
           </article>
 
         </div>
-      </div>
-    </section>
 
-    <!-- ==================== GLOBAL NETWORK MAP (Exact bottom visual from main_toplami.jpg) ==================== -->
-    <section class="katalog-network-section" id="katalogNetwork" aria-label="Глобальная сеть связей WTMA">
-      <div class="katalog-network-map-container">
-        <picture>
-          <source srcset="images/katalog/network_map_bg.webp" type="image/webp">
-          <img src="images/katalog/network_map_bg.png" alt="Глобальная сеть связей WTMA и аналитические потоки" class="katalog-network-map-img" width="1536" height="1024" loading="lazy" decoding="async">
-        </picture>
-        <div class="network-fade-top"></div>
-        <div class="network-fade-bottom"></div>
+        <!-- Majestic Globe Vista beneath cards (Continuous globe from main_toplami.jpg) -->
+        <div class="katalog-globe-vista" aria-hidden="true"></div>
       </div>
     </section>
 
