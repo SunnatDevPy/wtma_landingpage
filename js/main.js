@@ -3,6 +3,17 @@
  * Main Interactive Logic & Micro-interactions
  */
 
+// Immediate redirect if arrived via stale hash #mission
+if (window.location.hash === '#mission') {
+  window.location.replace('katalog.html');
+}
+if (window.location.hash === '#about') {
+  if (window.history && window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.pathname);
+  }
+  window.scrollTo(0, 0);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initHeaderScroll();
   initScrollSpy();

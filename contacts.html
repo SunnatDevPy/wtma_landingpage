@@ -9,6 +9,15 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('a').forEach(function(a) {
+        var h = a.getAttribute('href') || '';
+        if (h === 'index.html#about') a.setAttribute('href', 'index.html');
+        if (h.includes('#mission')) a.setAttribute('href', 'katalog.html');
+      });
+    });
+  </script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-weight='bold' fill='%23111827'>W</text></svg>">
