@@ -9,7 +9,7 @@ const DIRECTIONS_DATA = {
     id: 'marketing',
     title: 'МАРКЕТИНГ',
     tagline: 'Сильные бренды начинаются с правильной стратегии.',
-    image: 'images/napravleniya/01-marketing.png',
+    image: 'images/napravleniya/01-marketing.webp',
     services: [
       'Маркетинговая стратегия',
       'Брендинг',
@@ -26,7 +26,7 @@ const DIRECTIONS_DATA = {
     id: 'analytics',
     title: 'АНАЛИТИКА',
     tagline: 'Данные, которые открывают возможности.',
-    image: 'images/napravleniya/02-analytics.png',
+    image: 'images/napravleniya/02-analytics.webp',
     services: [
       'Анализ рынков',
       'Анализ стран',
@@ -44,7 +44,7 @@ const DIRECTIONS_DATA = {
     id: 'production',
     title: 'ПРОДАКШН',
     tagline: 'Показываем индустрию такой, какая она есть.',
-    image: 'images/napravleniya/03-production.png',
+    image: 'images/napravleniya/03-production.webp',
     services: [
       'Профессиональная фотосъёмка',
       'Видеопроизводство',
@@ -61,7 +61,7 @@ const DIRECTIONS_DATA = {
     id: 'digital',
     title: 'DIGITAL',
     tagline: 'Цифровые решения для реального бизнеса.',
-    image: 'images/napravleniya/04-digital.png',
+    image: 'images/napravleniya/04-digital.webp',
     services: [
       'Разработка сайтов',
       'Landing Page',
@@ -78,7 +78,7 @@ const DIRECTIONS_DATA = {
     id: 'business',
     title: 'БИЗНЕС-РАЗВИТИЕ',
     tagline: 'Открываем новые рынки и создаём партнёрства.',
-    image: 'images/napravleniya/05-business.png',
+    image: 'images/napravleniya/05-business.webp',
     services: [
       'Выход на новые рынки',
       'Международное развитие',

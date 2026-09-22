@@ -14,25 +14,25 @@ const MEDIA_SHOWCASE_DATA = {
         title: 'Текстильный комбинат "Bukhara Cotton"',
         category: 'Производственная съёмка',
         location: 'Бухара, Узбекистан',
-        image: 'images/media/01-photoshoot.png'
+        image: 'images/media/01-photoshoot.webp'
       },
       {
         title: 'Коллекция натурального хлопка и пряжи',
         category: 'Предметная и макросъёмка',
         location: 'Ташкент',
-        image: 'images/media/hero-bg.png'
+        image: 'images/media/hero-bg.webp'
       },
       {
         title: 'High-Fashion кампейн сезона Осень/Зима',
         category: 'Fashion & Lookbook',
         location: 'Студия WTMA',
-        image: 'images/media/04-creative.png'
+        image: 'images/media/04-creative.webp'
       },
       {
         title: 'Инновационные прядильные станки',
         category: 'Индустриальный репортаж',
         location: 'Ферганская долина',
-        image: 'images/media/02-videoshoot.png'
+        image: 'images/media/02-videoshoot.webp'
       }
     ]
   },
@@ -45,25 +45,25 @@ const MEDIA_SHOWCASE_DATA = {
         title: 'Имиджевый фильм: "Сила узбекского текстиля"',
         category: 'Имиджевое видео 4K Cinema',
         location: 'Ташкент / Самарканд',
-        image: 'images/media/02-videoshoot.png'
+        image: 'images/media/02-videoshoot.webp'
       },
       {
         title: 'Технологии прядения будущего',
         category: 'Корпоративный ролик',
         location: 'Андижанский текстильный парк',
-        image: 'images/media/hero-bg.png'
+        image: 'images/media/hero-bg.webp'
       },
       {
         title: 'Динамичный ролик для международной выставки',
         category: 'Promo Video / Reel',
         location: 'Heimtextil Frankfurt / WTMA',
-        image: 'images/media/05-projects.png'
+        image: 'images/media/05-projects.webp'
       },
       {
         title: 'Истории мастеров: от волокна к шедевру',
         category: 'Документальный мини-фильм',
         location: 'Маргилан',
-        image: 'images/media/01-photoshoot.png'
+        image: 'images/media/01-photoshoot.webp'
       }
     ]
   },
@@ -76,25 +76,25 @@ const MEDIA_SHOWCASE_DATA = {
         title: 'Диалог с лидером: Будущее экспорта текстиля',
         category: 'Студийный спецвыпуск',
         location: 'Медиа-студия WTMA',
-        image: 'images/media/03-interview.png'
+        image: 'images/media/03-interview.webp'
       },
       {
         title: 'Технологический суверенитет текстильного кластера',
         category: 'Экспертная аналитика',
         location: 'Ташкент',
-        image: 'images/media/05-projects.png'
+        image: 'images/media/05-projects.webp'
       },
       {
         title: 'Экологическая сертификация: взгляд инвестора',
         category: 'B2B Интервью',
         location: 'WTMA Summit',
-        image: 'images/media/02-videoshoot.png'
+        image: 'images/media/02-videoshoot.webp'
       },
       {
         title: 'Молодые дизайнеры и культурный код Востока',
         category: 'Fashion Talk',
         location: 'WTMA Media Hub',
-        image: 'images/media/04-creative.png'
+        image: 'images/media/04-creative.webp'
       }
     ]
   },
@@ -107,25 +107,25 @@ const MEDIA_SHOWCASE_DATA = {
         title: 'Кампейн "Шёлковая невесомость"',
         category: 'Арт-кампейн и лукбук',
         location: 'Париж / Ташкент',
-        image: 'images/media/04-creative.png'
+        image: 'images/media/04-creative.webp'
       },
       {
         title: 'Космический горизонт волокна',
         category: 'Концепт-арт и брендинг',
         location: 'WTMA Design Lab',
-        image: 'images/media/prefooter-bg.png'
+        image: 'images/media/prefooter-bg.webp'
       },
       {
         title: 'Digital-серия для европейского ритейла',
         category: 'Social Media & Ads',
         location: 'Digital Studio',
-        image: 'images/media/01-photoshoot.png'
+        image: 'images/media/01-photoshoot.webp'
       },
       {
         title: 'Капсульная коллекция денима',
         category: 'Urban Fashion Shoot',
         location: 'Ташкент',
-        image: 'images/media/03-interview.png'
+        image: 'images/media/03-interview.webp'
       }
     ]
   },
@@ -138,25 +138,25 @@ const MEDIA_SHOWCASE_DATA = {
         title: 'Проект "Textile Crossroads: Uzbekistan to the World"',
         category: 'Международный медиапроект',
         location: 'Ташкент - Стамбул - Франкфурт',
-        image: 'images/media/05-projects.png'
+        image: 'images/media/05-projects.webp'
       },
       {
         title: 'Освещение Ташкентской текстильной недели',
         category: 'Медиа-партнёрство & Прямой эфир',
         location: 'Узэкспоцентр',
-        image: 'images/media/02-videoshoot.png'
+        image: 'images/media/02-videoshoot.webp'
       },
       {
         title: 'Спецвыпуск WTMA Journal: Тренды 2026-2027',
         category: 'Издательский и цифровой проект',
         location: 'WTMA Editorial',
-        image: 'images/media/03-interview.png'
+        image: 'images/media/03-interview.webp'
       },
       {
         title: 'Спецпроект: Фабрика 4.0 — Индустриальная автоматизация',
         category: 'Мультимедийный лонгрид',
         location: 'Навоийский кластер',
-        image: 'images/media/hero-bg.png'
+        image: 'images/media/hero-bg.webp'
       }
     ]
   }
