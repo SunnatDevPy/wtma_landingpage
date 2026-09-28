@@ -227,8 +227,9 @@
 
 .contacts-details-grid {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr 1.4fr;
+  grid-template-columns: 1fr 0.95fr 1.35fr;
   align-items: stretch;
+  width: 100%;
 }
 
 /* Subheading */
@@ -244,8 +245,9 @@
 
 /* Column 1: Info */
 .contacts-info-col {
-  padding-right: 48px;
+  padding-right: 36px;
   border-right: 1px solid #e5e7eb;
+  min-width: 0;
 }
 
 .contact-info-list {
@@ -335,11 +337,12 @@
 
 /* Column 2: Editorial Statement */
 .contacts-statement-col {
-  padding: 0 48px;
+  padding: 0 36px;
   border-right: 1px solid #e5e7eb;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  min-width: 0;
 }
 
 .statement-kicker {
@@ -372,8 +375,9 @@
 
 /* Column 3: Form */
 .contacts-form-col {
-  padding-left: 48px;
+  padding-left: 36px;
   background: #ffffff;
+  min-width: 0;
 }
 
 .main-contact-form {
@@ -1001,30 +1005,42 @@
 /* ==========================================================================
    RESPONSIVE BREAKPOINTS
    ========================================================================== */
-@media (max-width: 1024px) {
+@media (max-width: 1120px) and (min-width: 769px) {
   .contacts-details-grid {
-    grid-template-columns: 1fr;
-    gap: 44px;
+    grid-template-columns: 1fr 0.92fr 1.35fr;
   }
 
   .contacts-info-col {
-    padding-right: 0;
-    border-right: none;
-    border-bottom: 1px solid #e5e7eb;
-    padding-bottom: 36px;
+    padding-right: 22px;
   }
 
   .contacts-statement-col {
-    padding: 0;
-    border-right: none;
-    border-bottom: 1px solid #e5e7eb;
-    padding-bottom: 36px;
+    padding: 0 22px;
   }
 
   .contacts-form-col {
-    padding-left: 0;
+    padding-left: 22px;
   }
 
+  .statement-kicker {
+    font-size: 1.15rem;
+  }
+
+  .statement-desc {
+    font-size: 0.88rem;
+  }
+
+  .section-subheading {
+    font-size: 1.12rem;
+    margin-bottom: 22px;
+  }
+
+  .form-row-duo {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 1024px) {
   .location-cards-grid {
     grid-template-columns: 1fr;
   }
@@ -1046,6 +1062,29 @@
 }
 
 @media (max-width: 768px) {
+  .contacts-details-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contacts-info-col {
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 32px;
+  }
+
+  .contacts-statement-col {
+    padding: 0;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 32px;
+  }
+
+  .contacts-form-col {
+    padding-left: 0;
+  }
+
   .contacts-hero {
     min-height: auto;
     padding-top: calc(var(--header-height) + 30px);
