@@ -42,15 +42,32 @@ Serveringizdagi mavjud asosiy saytlar (masalan `okaposai.uz` yoki boshqa portdag
    cd landing_wtma
    ```
 
-3. Docker konteynerini ishga tushiring:
+3. Telegram Bot sozlamalarini `.env` faylida to'ldiring:
+   ```bash
+   cp .env.example .env
+   nano .env
+   ```
+   Ichiga o'z ma'lumotlaringizni yozing:
+   - `TELEGRAM_BOT_TOKEN`: @BotFather dan olingan token
+   - `TELEGRAM_CHAT_ID`: Bot bilan shaxsiy chatdagi admin ID-si
+   - `TELEGRAM_GROUP_ID`: Zayavkalar tushadigan guruh yoki kanal ID-si (-100 bilan boshlanadi)
+
+4. (Ixtiyoriy) Botni sinab ko'rish:
+   ```bash
+   node test-telegram.js
+   ```
+
+5. Docker konteynerini ishga tushiring:
    ```bash
    docker compose up -d --build
    ```
 
-4. Konteyner holatini tekshiring:
+
+6. Konteyner holatini tekshiring:
    ```bash
    docker ps
    ```
+
    Sizda `wtma_landing_app` nomli konteyner `0.0.0.0:8088->80/tcp` portida ishlab turgan bo'ladi.
 
 ---

@@ -258,38 +258,63 @@ function initContactModal() {
     }
   });
 
-  // Form submission
+  // Form submission (Telegram Bot Integration)
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const submitBtn = document.getElementById('submitBtn');
+      const nameInput = document.getElementById('userName');
+      const emailInput = document.getElementById('userEmail');
+      const phoneInput = document.getElementById('userPhone');
+      const directionSelect = document.getElementById('userDirection');
+      const messageInput = document.getElementById('userMessage');
+
+      const leadData = {
+        name: nameInput ? nameInput.value.trim() : '',
+        email: emailInput ? emailInput.value.trim() : '',
+        phone: phoneInput ? phoneInput.value.trim() : '',
+        direction: directionSelect ? directionSelect.value : '',
+        message: messageInput ? messageInput.value.trim() : '',
+        source: 'Bosh sahifa (Modal oyna)'
+      };
+
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.querySelector('span').textContent = 'Отправка...';
       }
 
+      try {
+        await fetch('/api/send-lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(leadData)
+        });
+      } catch (err) {
+        console.warn('Lead submit API note:', err);
+      }
+
+      if (submitBtn) {
+        submitBtn.style.display = 'none';
+      }
+      if (successNotice) {
+        successNotice.style.display = 'block';
+      }
+
       setTimeout(() => {
+        form.reset();
         if (submitBtn) {
-          submitBtn.style.display = 'none';
+          submitBtn.style.display = 'inline-flex';
+          submitBtn.disabled = false;
+          submitBtn.querySelector('span').textContent = 'Отправить запрос';
         }
         if (successNotice) {
-          successNotice.style.display = 'block';
+          successNotice.style.display = 'none';
         }
-        setTimeout(() => {
-          form.reset();
-          if (submitBtn) {
-            submitBtn.style.display = 'inline-flex';
-            submitBtn.disabled = false;
-            submitBtn.querySelector('span').textContent = 'Отправить запрос';
-          }
-          if (successNotice) {
-            successNotice.style.display = 'none';
-          }
-          closeModal();
-        }, 3000);
-      }, 700);
+        closeModal();
+      }, 3500);
     });
   }
+
 }
 
 /**

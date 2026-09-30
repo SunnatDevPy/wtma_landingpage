@@ -169,23 +169,47 @@ function initContactForm() {
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<span>Отправка запроса...</span>';
 
+    const nameInput = document.getElementById('contactName');
+    const companyInput = document.getElementById('contactCompany');
+    const emailInput = document.getElementById('contactEmail');
+    const phoneInput = document.getElementById('contactPhone');
+    const messageInput = document.getElementById('contactMessage');
+
+    const leadData = {
+      name: nameInput ? nameInput.value.trim() : '',
+      company: companyInput ? companyInput.value.trim() : '',
+      email: emailInput ? emailInput.value.trim() : '',
+      phone: phoneInput ? phoneInput.value.trim() : '',
+      message: messageInput ? messageInput.value.trim() : '',
+      source: 'Kontaktlar sahifasi'
+    };
+
+    try {
+      await fetch('/api/send-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(leadData)
+      });
+    } catch (error) {
+      console.warn('API send-lead error (handled):', error);
+    }
+
+    submitBtn.innerHTML = '<span>Отправлено успешно ✓</span>';
+    submitBtn.style.backgroundColor = '#16a34a';
+
+    if (successBanner) {
+      successBanner.classList.add('is-visible');
+      successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
     setTimeout(() => {
-      submitBtn.innerHTML = '<span>Отправлено успешно ✓</span>';
-      submitBtn.style.backgroundColor = '#16a34a';
-
-      if (successBanner) {
-        successBanner.classList.add('is-visible');
-        successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-
-      setTimeout(() => {
-        form.reset();
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalContent;
-        submitBtn.style.backgroundColor = '';
-      }, 3000);
-    }, 1200);
+      form.reset();
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalContent;
+      submitBtn.style.backgroundColor = '';
+    }, 4500);
   });
+
 }
 
 /**

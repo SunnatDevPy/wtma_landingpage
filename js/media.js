@@ -408,26 +408,56 @@ function initContactModal() {
   });
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const submitBtn = contactForm.querySelector('.btn-form-submit');
-      const originalText = submitBtn.innerHTML;
+      const originalText = submitBtn ? submitBtn.innerHTML : '';
 
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<span>Отправка заявки...</span>';
+      const nameInput = contactForm.querySelector('[name="name"]');
+      const companyInput = contactForm.querySelector('[name="company"]');
+      const emailInput = contactForm.querySelector('[name="email"]');
+      const phoneInput = contactForm.querySelector('[name="phone"]');
+      const subjectSelect = contactForm.querySelector('[name="subject"]');
 
-      setTimeout(() => {
+      const leadData = {
+        name: nameInput ? nameInput.value.trim() : '',
+        company: companyInput ? companyInput.value.trim() : '',
+        email: emailInput ? emailInput.value.trim() : '',
+        phone: phoneInput ? phoneInput.value.trim() : '',
+        direction: subjectSelect ? subjectSelect.value : '',
+        source: 'Media sahifasi (Modal)'
+      };
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Отправка заявки...</span>';
+      }
+
+      try {
+        await fetch('/api/send-lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(leadData)
+        });
+      } catch (err) {
+        console.warn('Lead submit error:', err);
+      }
+
+      if (submitBtn) {
         submitBtn.innerHTML = '<span>Заявка успешно принята! ✓</span>';
         submitBtn.style.backgroundColor = '#16a34a';
+      }
 
-        setTimeout(() => {
-          contactForm.reset();
+      setTimeout(() => {
+        contactForm.reset();
+        if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalText;
           submitBtn.style.backgroundColor = '';
-          closeContact();
-        }, 1800);
-      }, 1000);
+        }
+        closeContact();
+      }, 2500);
     });
   }
+
 }
