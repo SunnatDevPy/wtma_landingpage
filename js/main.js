@@ -260,6 +260,8 @@ function initContactModal() {
 
   // Form submission (Telegram Bot Integration)
   if (form) {
+    const errorNotice = document.getElementById('formError');
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const submitBtn = document.getElementById('submitBtn');
@@ -283,37 +285,65 @@ function initContactModal() {
         submitBtn.querySelector('span').textContent = 'Отправка...';
       }
 
+      if (successNotice) successNotice.style.display = 'none';
+      if (errorNotice) errorNotice.style.display = 'none';
+
       try {
-        await fetch('/api/send-lead', {
+        const response = await fetch('/api/send-lead', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(leadData)
         });
-      } catch (err) {
-        console.warn('Lead submit API note:', err);
-      }
 
-      if (submitBtn) {
-        submitBtn.style.display = 'none';
-      }
-      if (successNotice) {
-        successNotice.style.display = 'block';
-      }
+        const result = await response.json().catch(() => ({}));
 
-      setTimeout(() => {
-        form.reset();
+        if (!response.ok || (result && result.ok === false)) {
+          throw new Error(result && result.error ? result.error : `HTTP Status ${response.status}: ${response.statusText}`);
+        }
+
+        // 1. MUVAFFAQITYAT (Yuborildi)
         if (submitBtn) {
-          submitBtn.style.display = 'inline-flex';
-          submitBtn.disabled = false;
-          submitBtn.querySelector('span').textContent = 'Отправить запрос';
+          submitBtn.style.display = 'none';
         }
         if (successNotice) {
-          successNotice.style.display = 'none';
+          successNotice.style.display = 'block';
         }
-        closeModal();
-      }, 3500);
+
+        setTimeout(() => {
+          form.reset();
+          if (submitBtn) {
+            submitBtn.style.display = 'inline-flex';
+            submitBtn.disabled = false;
+            submitBtn.querySelector('span').textContent = 'Отправить запрос';
+          }
+          if (successNotice) {
+            successNotice.style.display = 'none';
+          }
+          closeModal();
+        }, 3500);
+
+      } catch (err) {
+        // 2. XATOLIK:
+        // Haqiqiy texnik xatolik FAQAT brauzer konsoliga (console.error) yoziladi:
+        console.error('[WTMA Modal Lead Error Details]:', err);
+
+        // Saytda esa sodda va xavfsiz "Xatolik yuz berdi" ko'rinadi:
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.querySelector('span').textContent = 'Повторить попытку';
+        }
+        if (errorNotice) {
+          errorNotice.style.display = 'block';
+        }
+
+        setTimeout(() => {
+          if (errorNotice) errorNotice.style.display = 'none';
+          if (submitBtn) submitBtn.querySelector('span').textContent = 'Отправить запрос';
+        }, 4000);
+      }
     });
   }
+
 
 }
 

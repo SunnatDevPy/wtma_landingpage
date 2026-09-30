@@ -540,6 +540,50 @@
   line-height: 1.4;
 }
 
+/* Error Banner */
+.form-error-banner {
+  display: none;
+  background: #fef2f2;
+  border: 1px solid #ef4444;
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-top: 14px;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.form-error-banner.is-visible {
+  display: flex;
+}
+
+.error-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ef4444;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.error-text strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #991b1b;
+  margin-bottom: 2px;
+}
+
+.error-text p {
+  font-size: 0.86rem;
+  color: #b91c1c;
+  margin: 0;
+  line-height: 1.4;
+}
+
+
 /* ==========================================================================
    BLOCK 3: LOCATION & TASHKENT CITY OFFICE
    ========================================================================== */

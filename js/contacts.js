@@ -148,7 +148,9 @@ function initContactForm() {
     });
   });
 
-  form.addEventListener('submit', (e) => {
+  const errorBanner = document.getElementById('formErrorBanner');
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     let formValid = true;
@@ -163,6 +165,10 @@ function initContactForm() {
       if (firstError) firstError.focus();
       return;
     }
+
+    // Reset previous banners
+    if (successBanner) successBanner.classList.remove('is-visible');
+    if (errorBanner) errorBanner.classList.remove('is-visible');
 
     // Submit animation
     const originalContent = submitBtn.innerHTML;
@@ -185,30 +191,56 @@ function initContactForm() {
     };
 
     try {
-      await fetch('/api/send-lead', {
+      const response = await fetch('/api/send-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(leadData)
       });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || (result && result.ok === false)) {
+        throw new Error(result && result.error ? result.error : `HTTP Status ${response.status}: ${response.statusText}`);
+      }
+
+      // 1. MUVAFFAQITYATLI YUBORILGANDA
+      submitBtn.innerHTML = '<span>Отправлено успешно ✓</span>';
+      submitBtn.style.backgroundColor = '#16a34a';
+
+      if (successBanner) {
+        successBanner.classList.add('is-visible');
+        successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      setTimeout(() => {
+        form.reset();
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalContent;
+        submitBtn.style.backgroundColor = '';
+      }, 4500);
+
     } catch (error) {
-      console.warn('API send-lead error (handled):', error);
-    }
+      // 2. XATOLIK BO'LGANDA:
+      // Aniqlashtirilgan xatolik FAQAT brauzer konsoliga (console.error) chiqariladi:
+      console.error('[WTMA Lead Submission Error Details]:', error);
 
-    submitBtn.innerHTML = '<span>Отправлено успешно ✓</span>';
-    submitBtn.style.backgroundColor = '#16a34a';
-
-    if (successBanner) {
-      successBanner.classList.add('is-visible');
-      successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-
-    setTimeout(() => {
-      form.reset();
+      // Sayt foydalanuvchisiga esa sodda va tushunarli xatolik ko'rsatiladi:
       submitBtn.disabled = false;
-      submitBtn.innerHTML = originalContent;
-      submitBtn.style.backgroundColor = '';
-    }, 4500);
+      submitBtn.innerHTML = '<span>Ошибка при отправке ✕</span>';
+      submitBtn.style.backgroundColor = '#dc2626';
+
+      if (errorBanner) {
+        errorBanner.classList.add('is-visible');
+        errorBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      setTimeout(() => {
+        submitBtn.innerHTML = originalContent;
+        submitBtn.style.backgroundColor = '';
+      }, 4000);
+    }
   });
+
 
 }
 

@@ -434,30 +434,53 @@ function initContactModal() {
       }
 
       try {
-        await fetch('/api/send-lead', {
+        const response = await fetch('/api/send-lead', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(leadData)
         });
+
+        const result = await response.json().catch(() => ({}));
+
+        if (!response.ok || (result && result.ok === false)) {
+          throw new Error(result && result.error ? result.error : `HTTP Status ${response.status}: ${response.statusText}`);
+        }
+
+        // 1. MUVAFFAQITYAT (Yuborildi)
+        if (submitBtn) {
+          submitBtn.innerHTML = '<span>Заявка успешно принята! ✓</span>';
+          submitBtn.style.backgroundColor = '#16a34a';
+        }
+
+        setTimeout(() => {
+          contactForm.reset();
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+            submitBtn.style.backgroundColor = '';
+          }
+          closeContact();
+        }, 2500);
+
       } catch (err) {
-        console.warn('Lead submit error:', err);
-      }
+        // 2. XATOLIK:
+        // Haqiqiy texnik xatolik FAQAT brauzer konsoliga (console.error) chiqariladi:
+        console.error('[WTMA Media Lead Error Details]:', err);
 
-      if (submitBtn) {
-        submitBtn.innerHTML = '<span>Заявка успешно принята! ✓</span>';
-        submitBtn.style.backgroundColor = '#16a34a';
-      }
-
-      setTimeout(() => {
-        contactForm.reset();
+        // Saytda esa faqat oddiy xatolik ko'rsatiladi:
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.innerHTML = originalText;
-          submitBtn.style.backgroundColor = '';
+          submitBtn.innerHTML = '<span>Ошибка при отправке ✕</span>';
+          submitBtn.style.backgroundColor = '#dc2626';
+
+          setTimeout(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.style.backgroundColor = '';
+          }, 3500);
         }
-        closeContact();
-      }, 2500);
+      }
     });
   }
+
 
 }
