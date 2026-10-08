@@ -9,7 +9,28 @@ document.addEventListener('DOMContentLoaded', () => {
   initLanguageDropdown();
   initContactForm();
   initInteractiveMap();
+  initServicePreFill();
 });
+
+/**
+ * Handle incoming ?service=... query param from Directions page
+ */
+function initServicePreFill() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const serviceParam = urlParams.get('service');
+  if (serviceParam) {
+    const messageInput = document.getElementById('contactMessage');
+    if (messageInput && !messageInput.value) {
+      messageInput.value = `Здравствуйте! Меня интересует направление: ${serviceParam}. Хотелось бы обсудить детали сотрудничества.`;
+    }
+    const formSection = document.getElementById('contactFormSection');
+    if (formSection) {
+      setTimeout(() => {
+        formSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 350);
+    }
+  }
+}
 
 /**
  * 1. Header Scroll Logic (Hide on scroll down, reveal on scroll up)
