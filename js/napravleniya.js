@@ -261,30 +261,89 @@ function openDirectionBook(dirIndex) {
   if (leftTitle) leftTitle.textContent = data.title;
   if (leftTagline) leftTagline.textContent = data.tagline;
 
-  // Populate Right Page (Services list)
+  // Populate Right Page (Services list accordion)
   const servicesListContainer = document.getElementById('servicesListContainer');
   if (servicesListContainer) {
     servicesListContainer.innerHTML = '';
     data.services.forEach((service, idx) => {
       const serviceRow = document.createElement('div');
       serviceRow.className = 'service-row-item';
+      serviceRow.setAttribute('role', 'region');
+      serviceRow.setAttribute('aria-expanded', 'false');
       serviceRow.style.animation = `fadeInUp 0.35s ease forwards ${(idx * 0.04) + 0.15}s`;
       serviceRow.style.opacity = '0';
+
+      const serviceNum = service.num || String(idx + 1).padStart(2, '0');
+      const contactUrl = `contacts.html?service=${encodeURIComponent(service.name)}`;
+
       serviceRow.innerHTML = `
-        <div class="service-item-left">
-          <span class="service-num">${service.num || String(idx + 1).padStart(2, '0')}</span>
-          <div class="service-item-content">
+        <div class="service-row-header" tabindex="0" role="button" aria-label="${service.name}">
+          <div class="service-item-left">
+            <span class="service-num">${serviceNum}</span>
             <h3 class="service-name">${service.name}</h3>
+          </div>
+          <span class="service-arrow" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </span>
+        </div>
+        <div class="service-body-collapse">
+          <div class="service-body-inner">
             <p class="service-desc">${service.desc}</p>
+            <div class="service-action-wrap">
+              <a href="${contactUrl}" class="service-order-btn">
+                <span>Заказать услугу</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
-        <span class="service-arrow" aria-hidden="true">→</span>
       `;
 
-      // Allow clicking row to redirect to contacts with service pre-selected
-      serviceRow.addEventListener('click', () => {
-        window.location.href = `contacts.html?service=${encodeURIComponent(service.name)}`;
+      // Accordion toggle click handler
+      const rowHeader = serviceRow.querySelector('.service-row-header');
+      const toggleAccordion = (e) => {
+        if (e && e.target && e.target.closest('.service-order-btn')) return;
+
+        const isCurrentlyOpen = serviceRow.classList.contains('is-expanded');
+
+        // Close all other open rows in this list
+        servicesListContainer.querySelectorAll('.service-row-item.is-expanded').forEach((otherRow) => {
+          if (otherRow !== serviceRow) {
+            otherRow.classList.remove('is-expanded');
+            otherRow.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        // Toggle current row
+        if (isCurrentlyOpen) {
+          serviceRow.classList.remove('is-expanded');
+          serviceRow.setAttribute('aria-expanded', 'false');
+        } else {
+          serviceRow.classList.add('is-expanded');
+          serviceRow.setAttribute('aria-expanded', 'true');
+        }
+      };
+
+      rowHeader.addEventListener('click', toggleAccordion);
+      rowHeader.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleAccordion(e);
+        }
       });
+
+      // Prevent order button click from collapsing parent
+      const orderBtn = serviceRow.querySelector('.service-order-btn');
+      if (orderBtn) {
+        orderBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+        });
+      }
 
       servicesListContainer.appendChild(serviceRow);
     });
