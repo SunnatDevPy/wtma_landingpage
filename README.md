@@ -384,7 +384,8 @@ Nginx konfiguratsiyasida saytning chaqqon ishlashi va o'zgarishlar tez aks etish
 ## 📞 Ijtimoiy Tarmoqlar va Bog'lanish
 
 - 🏢 **Kompaniya:** WTMA (World Textile Marketing Agency)
-- 📍 **Manzil:** O'zbekiston, Toshkent sh., Tashkent City Biznes Markazi
+- 📍 **Manzil:** O'zbekiston, Toshkent sh., Ko'kcha Darvoza ko'chasi, 314
+- 📞 **Telefon:** [+998 90 925 62 35](tel:+998909256235)
 - 🌐 **Veb-sayt:** [landing.okaposai.uz](https://landing.okaposai.uz)
 - 📷 **Instagram:** [@wtma.uz](https://www.instagram.com/wtma.uz?stkn=Y2V6NHJ2a3Jkbnph)
 - 💼 **LinkedIn:** [WTMA Global](https://linkedin.com)
