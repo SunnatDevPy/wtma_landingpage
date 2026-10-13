@@ -68,8 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
       vol: 'VOL. 05',
       title: 'TEX AREA 05',
       theme: 'Podcast, Textile Atmosphere, Fabrics and Garments, Marketing Strategy',
-      cover: 'images/katalog/tex_area_05.webp',
-      fallbackCover: 'images/katalog/tex_area_05.png',
+      cover: 'images/katalog/tex_area_05_podcast_v2.webp',
+      fallbackCover: 'images/katalog/tex_area_05_podcast_v2.png',
       desc: 'Специальный выпуск медиа-проекта TEX AREA Podcast: откровенные дискуссии о создании текстильной атмосферы, аналитика рынка тканей и готовой одежды, кожевенного сектора и маркетинговых стратегиях масштабирования.',
       topics: [
         'TEX AREA Podcast: тренды текстильной атмосферы и инноваций',
@@ -82,8 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
       vol: 'VOL. 06',
       title: 'TEX AREA 06',
       theme: 'Тренды текстиля в 2026 году, Мода Формулы-1, Архитектура в одежде & Хлопок',
-      cover: 'images/katalog/tex_area_06.webp',
-      fallbackCover: 'images/katalog/tex_area_06.png',
+      cover: 'images/katalog/tex_area_06_trends_v2.webp',
+      fallbackCover: 'images/katalog/tex_area_06_trends_v2.png',
       desc: 'Аналитическое издание TEX AREA 2026–2027: прогноз ключевых направлений текстиля на 2026 год, технологическая эстетика униформы Формулы-1, архитектурные формы в одежде и глобальный отчёт по мировому производству хлопка.',
       topics: [
         'Тренды текстильной индустрии в 2026 году и прогноз спроса',
