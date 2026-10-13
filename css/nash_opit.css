@@ -1,0 +1,358 @@
+/* ==========================================================================
+   WTMA — Наш опыт (Our Experience) Stylesheet
+   Strict 1:1 match to Master Design Reference (Nash_opit)
+   ========================================================================== */
+
+/* Page Background & Layout */
+.exp-page-body {
+  background-color: #05080e;
+  color: #f3f4f6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+}
+
+/* Base Container */
+.exp-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   HERO / CATEGORIES SECTION
+   ========================================================================== */
+.exp-hero-section {
+  position: relative;
+  padding: 120px 0 60px;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* 3D Gyroscope Globe Background Environment (Right Side) */
+.exp-hero-bg-layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.exp-hero-bg-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center;
+  opacity: 0.85;
+}
+
+/* Gradient vignettes to blend smoothly into content */
+.exp-hero-left-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 75% 45%, rgba(5, 8, 14, 0.1) 0%, rgba(5, 8, 14, 0.75) 55%, #05080e 90%),
+              linear-gradient(90deg, #05080e 0%, rgba(5, 8, 14, 0.85) 40%, rgba(5, 8, 14, 0.1) 100%);
+  pointer-events: none;
+}
+
+.exp-hero-bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background: linear-gradient(180deg, transparent 0%, #05080e 100%);
+  pointer-events: none;
+}
+
+/* Content Container */
+.exp-hero-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Page Title "Наш опыт" */
+.exp-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3.2rem, 5.5vw, 4.6rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #ffffff;
+  margin: 0 0 36px 0;
+  letter-spacing: -0.01em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+/* ==========================================================================
+   EXPERIENCE CATEGORIES GRID (12 Cards: 4 Columns x 3 Rows)
+   ========================================================================== */
+.exp-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 70px;
+}
+
+/* Individual Experience Card */
+.exp-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 94px;
+  background: rgba(10, 15, 24, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 8px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              box-shadow 0.35s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.exp-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(229, 169, 60, 0.5);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 24px rgba(229, 169, 60, 0.18);
+}
+
+/* Left Body: Number & Label */
+.exp-card-body {
+  padding: 0 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+  min-width: 130px;
+}
+
+.exp-card-num {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #e5a93c;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.exp-card:hover .exp-card-num {
+  color: #f7c96e;
+}
+
+.exp-card-label {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+/* Right Media: Thumbnail Image */
+.exp-card-thumb-wrap {
+  position: relative;
+  width: 58%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.exp-card-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+  filter: brightness(0.92) contrast(1.05);
+}
+
+.exp-card:hover .exp-card-thumb-img {
+  transform: scale(1.1);
+  filter: brightness(1.05) contrast(1.08);
+}
+
+/* Smooth Fade Gradient from Card Background to Image */
+.exp-card-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 45%;
+  background: linear-gradient(90deg, rgba(10, 15, 24, 0.95) 0%, rgba(10, 15, 24, 0.65) 45%, transparent 100%);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   CLIENTS / PARTNERS SECTION ("Компании, с которыми мы работали")
+   ========================================================================== */
+.exp-clients-section {
+  position: relative;
+  padding: 40px 0 100px;
+  z-index: 2;
+}
+
+.exp-clients-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0 0 32px 0;
+  letter-spacing: -0.01em;
+}
+
+/* Dynamic Clients Cloud / Flow Grid */
+.exp-clients-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px 8px;
+  width: 100%;
+}
+
+/* Client Badge (Text-based pill) */
+.client-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 16px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 5px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  white-space: nowrap;
+  backdrop-filter: blur(4px);
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.client-badge-pill:hover {
+  background: rgba(229, 169, 60, 0.12);
+  border-color: rgba(229, 169, 60, 0.5);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(229, 169, 60, 0.15);
+}
+
+/* Featured White Logo Badges */
+.client-badge-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 34px;
+  padding: 3px 14px;
+  background: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.client-badge-logo img {
+  height: 24px;
+  width: auto;
+  max-width: 110px;
+  object-fit: contain;
+  display: block;
+}
+
+.client-badge-logo:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .exp-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+}
+
+@media (max-width: 991px) {
+  .exp-hero-section {
+    padding-top: 100px;
+  }
+
+  .exp-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .exp-card {
+    height: 90px;
+  }
+
+  .exp-clients-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .exp-container {
+    padding: 0 20px;
+  }
+
+  .exp-hero-title {
+    font-size: 2.6rem;
+    margin-bottom: 24px;
+  }
+
+  .exp-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .exp-card {
+    height: 84px;
+  }
+
+  .exp-card-body {
+    padding-left: 16px;
+    min-width: 110px;
+  }
+
+  .exp-card-num {
+    font-size: 1.15rem;
+  }
+
+  .exp-card-label {
+    font-size: 0.9rem;
+  }
+
+  .client-badge-pill {
+    padding: 6px 12px;
+    font-size: 0.76rem;
+  }
+
+  .client-badge-logo {
+    height: 30px;
+    padding: 2px 10px;
+  }
+
+  .client-badge-logo img {
+    height: 20px;
+  }
+}
