@@ -93,6 +93,50 @@ function initLanguageDropdown() {
   const langSelector = document.getElementById('langSelector');
   const langToggle = document.getElementById('langToggle');
   const langOptions = document.querySelectorAll('.lang-option');
+  const horizonSlogan = document.getElementById('horizonSlogan');
+
+  const slogans = {
+    RU: ['Текстиль. Мода.', 'Более сильное завтра.'],
+    EN: ['TEXTILE. FASHION.', 'A STRONGER TOMORROW.'],
+    UZ: ["To'qimachilik. Moda.", 'Kuchliroq ertangi kun.']
+  };
+
+  const updateSlogan = (langCode) => {
+    const code = (langCode || 'RU').trim().toUpperCase();
+    if (horizonSlogan && slogans[code]) {
+      const parts = slogans[code];
+      const p1 = horizonSlogan.querySelector('.slogan-part-1');
+      const p2 = horizonSlogan.querySelector('.slogan-part-2');
+      if (p1 && p2) {
+        p1.textContent = parts[0];
+        p2.textContent = parts[1];
+      }
+    }
+  };
+
+  // Check saved language or default to current toggle
+  try {
+    const saved = localStorage.getItem('wtma_lang');
+    if (saved && slogans[saved.toUpperCase()]) {
+      const code = saved.toUpperCase();
+      if (langToggle) {
+        const span = langToggle.querySelector('span');
+        if (span) span.textContent = code;
+      }
+      langOptions.forEach((o) => {
+        if (o.textContent.split(' ')[0].trim().toUpperCase() === code) {
+          o.classList.add('active');
+        } else {
+          o.classList.remove('active');
+        }
+      });
+      updateSlogan(code);
+    } else {
+      updateSlogan('RU');
+    }
+  } catch (_) {
+    updateSlogan('RU');
+  }
 
   if (!langSelector || !langToggle) return;
 
@@ -108,8 +152,12 @@ function initLanguageDropdown() {
       e.preventDefault();
       langOptions.forEach((o) => o.classList.remove('active'));
       opt.classList.add('active');
-      const text = opt.textContent.split(' ')[0];
+      const text = opt.textContent.split(' ')[0].trim().toUpperCase();
       langToggle.querySelector('span').textContent = text;
+      updateSlogan(text);
+      try {
+        localStorage.setItem('wtma_lang', text);
+      } catch (_) {}
       langSelector.classList.remove('open');
       langToggle.setAttribute('aria-expanded', 'false');
     });
