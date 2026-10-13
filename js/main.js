@@ -434,37 +434,78 @@ function initNumberCounters() {
 }
 
 /**
- * 9. Team Member Cards — Scroll Entrance & Interactive 3D Mouse Parallax
+ * 9. Team Member Cards — Horizontal Carousel, Drag Scroll & Interactive 3D Mouse Parallax
  */
 function initTeamInteractions() {
+  const track = document.getElementById('teamCardsTrack');
+  const prevBtn = document.getElementById('teamPrevBtn');
+  const nextBtn = document.getElementById('teamNextBtn');
   const teamCards = document.querySelectorAll('.team-member-card');
-  const teamRow = document.querySelector('.team-layout-row');
-  if (!teamCards.length) return;
+  if (!track || !teamCards.length) return;
 
-  // Clear transition delay once scroll entrance finishes so hover is instant
-  if (teamRow) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            teamCards.forEach((card) => {
-              card.style.transitionDelay = '0s';
-            });
-          }, 1000);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    observer.observe(teamRow);
+  // A. Slider Arrow Navigation
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      const cardWidth = teamCards[0]?.offsetWidth || 250;
+      track.scrollBy({ left: -(cardWidth + 22) * 1.5, behavior: 'smooth' });
+    });
   }
 
-  // Interactive 3D Mouse Parallax & Dynamic Light Sheen
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      const cardWidth = teamCards[0]?.offsetWidth || 250;
+      track.scrollBy({ left: (cardWidth + 22) * 1.5, behavior: 'smooth' });
+    });
+  }
+
+  // B. Mouse Drag-to-Scroll (Desktop grab and glide)
+  let isDown = false;
+  let startX = 0;
+  let scrollLeft = 0;
+  let hasDragged = false;
+
+  track.addEventListener('mousedown', (e) => {
+    isDown = true;
+    hasDragged = false;
+    track.classList.add('is-dragging');
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (isDown) {
+      isDown = false;
+      track.classList.remove('is-dragging');
+      setTimeout(() => { hasDragged = false; }, 50);
+    }
+  });
+
+  track.addEventListener('mouseleave', () => {
+    if (isDown) {
+      isDown = false;
+      track.classList.remove('is-dragging');
+      setTimeout(() => { hasDragged = false; }, 50);
+    }
+  });
+
+  track.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    const x = e.pageX - track.offsetLeft;
+    const walk = (x - startX);
+    if (Math.abs(walk) > 4) {
+      hasDragged = true;
+      e.preventDefault();
+      track.scrollLeft = scrollLeft - walk;
+    }
+  });
+
+  // C. Interactive 3D Mouse Parallax & Dynamic Light Sheen
   teamCards.forEach((card) => {
     let bounds = null;
     let isHovering = false;
 
     const onMouseEnter = () => {
+      if (isDown || hasDragged) return;
       bounds = card.getBoundingClientRect();
       isHovering = true;
       card.classList.add('is-hovered');
@@ -472,7 +513,7 @@ function initTeamInteractions() {
     };
 
     const onMouseMove = (e) => {
-      if (!isHovering) return;
+      if (!isHovering || isDown || hasDragged) return;
       if (!bounds) bounds = card.getBoundingClientRect();
 
       const x = e.clientX - bounds.left;
@@ -513,4 +554,5 @@ function initTeamInteractions() {
     card.addEventListener('mouseleave', onMouseLeave);
   });
 }
+
 

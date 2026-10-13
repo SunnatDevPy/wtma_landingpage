@@ -530,71 +530,126 @@
     <!-- ==================== 06 — НАША КОМАНДА ==================== -->
     <section class="block-section section-team dark-theme" id="team">
       <div class="site-container">
-        <!-- Team Header -->
+        <!-- Team Header with Nav Arrows -->
         <div class="team-header reveal-item">
-          <div class="section-badge-col">
-            <span class="section-idx text-gold">06 —</span>
-            <h2 class="section-title text-white">Наша команда</h2>
-            <div class="section-sub-kicker text-muted-gold">
-              ЛЮДИ, КОТОРЫЕ ДВИГАЮТ ИНДУСТРИЮ ВПЕРЕД.
+          <div class="team-header-main">
+            <div class="section-badge-col">
+              <span class="section-idx text-gold">06 —</span>
+              <h2 class="section-title text-white">Наша команда</h2>
+              <div class="section-sub-kicker text-muted-gold">
+                ЛЮДИ, КОТОРЫЕ ДВИГАЮТ ИНДУСТРИЮ ВПЕРЕД.
+              </div>
+            </div>
+            <!-- Slider navigation buttons -->
+            <div class="team-slider-nav">
+              <button class="team-nav-arrow team-nav-prev" id="teamPrevBtn" aria-label="Предыдущий слайд">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="19" y1="12" x2="5" y2="12"></line>
+                  <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+              </button>
+              <button class="team-nav-arrow team-nav-next" id="teamNextBtn" aria-label="Следующий слайд">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
             </div>
           </div>
         </div>
 
-        <!-- Team Row & CTA Button -->
-        <div class="team-layout-row reveal-item">
-          <div class="team-cards-grid">
-            <!-- Member 1: Стратегия (Founder / Key Leader) -->
+        <!-- Full Team Carousel Track (Horizontal Scroll & Drag) -->
+        <div class="team-carousel-wrapper reveal-item">
+          <div class="team-cards-track" id="teamCardsTrack">
+            <!-- 1. Requested member (hf_20260127_195347...) -->
             <div class="team-member-card" data-tilt>
               <div class="member-photo-wrap">
-                <img src="images/team_strategy.webp" decoding="async" alt="Эксперт по стратегии WTMA" loading="lazy">
+                <img src="images/team/member_01.webp" decoding="async" alt="Команда WTMA" loading="lazy">
                 <div class="member-gradient-overlay"></div>
-                <div class="member-role-watermark">СТРАТЕГИЯ</div>
-                <div class="member-role-tag">СТРАТЕГИЯ</div>
                 <div class="member-card-glare"></div>
               </div>
             </div>
 
-            <!-- Member 2: Маркетинг -->
+            <!-- 2. Member 02 -->
             <div class="team-member-card" data-tilt>
               <div class="member-photo-wrap">
-                <img src="images/team_marketing.webp" decoding="async" alt="Руководитель маркетинга WTMA" loading="lazy">
+                <img src="images/team/member_02.webp" decoding="async" alt="Команда WTMA" loading="lazy">
                 <div class="member-gradient-overlay"></div>
-                <div class="member-role-watermark">МАРКЕТИНГ</div>
-                <div class="member-role-tag">МАРКЕТИНГ</div>
                 <div class="member-card-glare"></div>
               </div>
             </div>
 
-            <!-- Member 3: Аналитика -->
+            <!-- 3. Member 03 -->
             <div class="team-member-card" data-tilt>
               <div class="member-photo-wrap">
-                <img src="images/team_analytics.webp" decoding="async" alt="Главный аналитик рынков WTMA" loading="lazy">
+                <img src="images/team/member_03.webp" decoding="async" alt="Команда WTMA" loading="lazy">
                 <div class="member-gradient-overlay"></div>
-                <div class="member-role-watermark">АНАЛИТИКА</div>
-                <div class="member-role-tag">АНАЛИТИКА</div>
                 <div class="member-card-glare"></div>
               </div>
             </div>
 
-            <!-- Member 4: Проекты -->
+            <!-- 4. Member 04 -->
             <div class="team-member-card" data-tilt>
               <div class="member-photo-wrap">
-                <img src="images/team_projects.webp" decoding="async" alt="Директор международных проектов WTMA" loading="lazy">
+                <img src="images/team/member_04.webp" decoding="async" alt="Команда WTMA" loading="lazy">
                 <div class="member-gradient-overlay"></div>
-                <div class="member-role-watermark">ПРОЕКТЫ</div>
-                <div class="member-role-tag">ПРОЕКТЫ</div>
                 <div class="member-card-glare"></div>
               </div>
             </div>
-          </div>
 
-          <!-- Team Link Button on Right -->
-          <div class="team-action-col">
-            <a href="#team" class="team-more-link open-contact-modal" data-subject="Знакомство с командой">
-              <span>Наша команда</span>
-              <span class="arrow">→</span>
-            </a>
+            <!-- 5. Strategist in the middle! (photo_2026-10-13_21-13-15.jpg) -->
+            <div class="team-member-card" data-tilt>
+              <div class="member-photo-wrap">
+                <img src="images/team/member_05.webp" decoding="async" alt="Эксперт по стратегии WTMA" loading="lazy">
+                <div class="member-gradient-overlay"></div>
+                <div class="member-card-glare"></div>
+              </div>
+            </div>
+
+            <!-- 6. Member 06 -->
+            <div class="team-member-card" data-tilt>
+              <div class="member-photo-wrap">
+                <img src="images/team/member_06.webp" decoding="async" alt="Команда WTMA" loading="lazy">
+                <div class="member-gradient-overlay"></div>
+                <div class="member-card-glare"></div>
+              </div>
+            </div>
+
+            <!-- 7. Member 07 -->
+            <div class="team-member-card" data-tilt>
+              <div class="member-photo-wrap">
+                <img src="images/team/member_07.webp" decoding="async" alt="Команда WTMA" loading="lazy">
+                <div class="member-gradient-overlay"></div>
+                <div class="member-card-glare"></div>
+              </div>
+            </div>
+
+            <!-- 8. Member 08 -->
+            <div class="team-member-card" data-tilt>
+              <div class="member-photo-wrap">
+                <img src="images/team/member_08.webp" decoding="async" alt="Команда WTMA" loading="lazy">
+                <div class="member-gradient-overlay"></div>
+                <div class="member-card-glare"></div>
+              </div>
+            </div>
+
+            <!-- 9. Member 09 -->
+            <div class="team-member-card" data-tilt>
+              <div class="member-photo-wrap">
+                <img src="images/team/member_09.webp" decoding="async" alt="Команда WTMA" loading="lazy">
+                <div class="member-gradient-overlay"></div>
+                <div class="member-card-glare"></div>
+              </div>
+            </div>
+
+            <!-- 10. Member 10 -->
+            <div class="team-member-card" data-tilt>
+              <div class="member-photo-wrap">
+                <img src="images/team/member_10.webp" decoding="async" alt="Команда WTMA" loading="lazy">
+                <div class="member-gradient-overlay"></div>
+                <div class="member-card-glare"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
