@@ -17,7 +17,7 @@
 
   <!-- Main Stylesheet & Nash Opit Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/nash_opit.css">
+  <link rel="stylesheet" href="css/nash_opit.css?v=20261013_v3">
 </head>
 <body class="exp-page-body">
 
@@ -125,6 +125,14 @@
 
       <!-- Header Actions -->
       <div class="header-actions">
+        <!-- Search Button -->
+        <button class="action-btn search-trigger" aria-label="Поиск по сайту" id="searchBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
         <!-- Language Selector -->
         <div class="lang-selector" id="langSelector">
           <button class="lang-btn" aria-haspopup="true" aria-expanded="false" id="langToggle">
@@ -141,7 +149,7 @@
         </div>
 
         <!-- Contact CTA Button -->
-        <a href="#discuss" class="btn-contact-pill open-contact-modal" data-subject="Обсудить проект — Наш опыт">
+        <a href="contacts.html" class="btn-contact-pill" id="headerContactBtn">
           <span>Обсудить проект</span>
           <span class="arrow">→</span>
         </a>
@@ -167,7 +175,7 @@
         <li><a href="contacts.html" class="mobile-nav-link">Контакты</a></li>
       </ul>
       <div class="mobile-drawer-footer">
-        <a href="#discuss" class="btn-contact-pill w-full open-contact-modal" data-subject="Обсудить проект">
+        <a href="contacts.html" class="btn-contact-pill w-full">
           <span>Обсудить проект</span>
           <span class="arrow">→</span>
         </a>
@@ -547,73 +555,7 @@
     </div>
   </footer>
 
-  <!-- ==================== CONTACT MODAL ==================== -->
-  <div class="contact-modal-overlay" id="contactModal" aria-hidden="true" role="dialog">
-    <div class="contact-modal-content">
-      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Закрыть модальное окно">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-
-      <div class="modal-header">
-        <h3 class="modal-title">Обсудить проект</h3>
-        <p class="modal-subtitle">Оставьте ваши контакты, и мы свяжемся с вами в течение рабочего дня.</p>
-      </div>
-
-      <form class="modal-form" id="contactForm">
-        <div class="form-group">
-          <label for="userName">Ваше имя *</label>
-          <input type="text" id="userName" name="name" placeholder="Как к вам обращаться" required>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="userEmail">Электронная почта *</label>
-            <input type="email" id="userEmail" name="email" placeholder="example@mail.com" required>
-          </div>
-          <div class="form-group">
-            <label for="userPhone">Номер телефона *</label>
-            <input type="tel" id="userPhone" name="phone" placeholder="+998 (__) ___-__-__" required>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="userDirection">Интересующее направление</label>
-          <select id="userDirection" name="direction">
-            <option value="Комплексный маркетинг">Комплексный маркетинг</option>
-            <option value="Отраслевая аналитика">Отраслевая аналитика</option>
-            <option value="Экспортное продвижение">Экспортное продвижение</option>
-            <option value="Брендинг и дизайн">Брендинг и дизайн</option>
-            <option value="Организация выставок">Организация выставок</option>
-            <option value="Другое">Другое</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="userMessage">Краткое описание задачи</label>
-          <textarea id="userMessage" name="message" rows="3" placeholder="Расскажите о вашей компании или целях..."></textarea>
-        </div>
-
-        <div class="form-submit-row">
-          <button type="submit" class="btn-submit-form" id="submitBtn">
-            <span>Отправить заявку</span>
-            <span class="arrow">→</span>
-          </button>
-        </div>
-
-        <div class="form-success-notice" id="formSuccess">
-          Спасибо! Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.
-        </div>
-        <div class="form-error-notice" id="formError" style="display: none; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.4); color: #f87171; padding: 12px; border-radius: 6px; font-size: 0.85rem; text-align: center; margin-top: 12px;">
-          Произошла ошибка при отправке. Пожалуйста, попробуйте снова или позвоните нам.
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- Main JavaScript File -->
-  <script src="js/main.js"></script>
+  <!-- Page Scripts -->
+  <script src="js/nash_opit.js?v=20261013_v3"></script>
 </body>
 </html>

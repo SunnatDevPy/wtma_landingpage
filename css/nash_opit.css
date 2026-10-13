@@ -12,6 +12,107 @@
   font-family: var(--font-sans);
 }
 
+/* ==========================================================================
+   HEADER / NAVIGATION — Dark theme identical to other pages (Proyekty, Katalog)
+   ========================================================================== */
+.exp-page-body .site-header,
+.exp-page-body .site-header.header-hero,
+.exp-page-body .site-header.header-scrolled-dark,
+.exp-page-body .site-header.header-scrolled-light {
+  background: rgba(6, 9, 14, 0.88) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4) !important;
+}
+
+.exp-page-body .site-header .brand-logo .logo-mark {
+  color: #ffffff !important;
+}
+
+.exp-page-body .site-header .brand-logo .logo-details {
+  border-left-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.exp-page-body .site-header .brand-logo .logo-line {
+  color: #cbd5e1 !important;
+}
+
+.exp-page-body .site-header .nav-link {
+  color: #cbd5e1 !important;
+  text-shadow: none !important;
+}
+
+.exp-page-body .site-header .nav-link:hover {
+  color: var(--brand-accent-red) !important;
+}
+
+.exp-page-body .site-header .nav-link.active {
+  color: var(--brand-accent-red) !important;
+  font-weight: 700 !important;
+}
+
+.exp-page-body .site-header .action-btn {
+  color: #ffffff !important;
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+}
+
+.exp-page-body .site-header .action-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--brand-accent-red) !important;
+}
+
+.exp-page-body .site-header .lang-btn {
+  color: #ffffff !important;
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+}
+
+.exp-page-body .site-header .lang-btn:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: var(--brand-accent-red) !important;
+}
+
+.exp-page-body .site-header .btn-contact-pill {
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  background-color: transparent !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.exp-page-body .site-header .btn-contact-pill:hover {
+  background-color: var(--brand-accent-red) !important;
+  color: #ffffff !important;
+  border-color: var(--brand-accent-red) !important;
+  transform: translateY(-1px);
+}
+
+.exp-page-body .site-header .burger-toggle .bar {
+  background-color: #ffffff !important;
+}
+
+.exp-page-body .site-header .lang-dropdown {
+  background: #101622 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+.exp-page-body .site-header .lang-option {
+  color: #cbd5e1 !important;
+}
+
+.exp-page-body .site-header .lang-option:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: var(--brand-accent-red) !important;
+}
+
+/* Hide on scroll down */
+.exp-page-body .site-header.header-hidden {
+  transform: translateY(-100%);
+}
+
 /* Base Container */
 .exp-container {
   width: 100%;
