@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactModal();
   initScrollReveal();
   initNumberCounters();
+  initTeamInteractions();
 });
 
 /**
@@ -430,5 +431,86 @@ function initNumberCounters() {
 
     observer.observe(heroMetrics);
   }
+}
+
+/**
+ * 9. Team Member Cards — Scroll Entrance & Interactive 3D Mouse Parallax
+ */
+function initTeamInteractions() {
+  const teamCards = document.querySelectorAll('.team-member-card');
+  const teamRow = document.querySelector('.team-layout-row');
+  if (!teamCards.length) return;
+
+  // Clear transition delay once scroll entrance finishes so hover is instant
+  if (teamRow) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            teamCards.forEach((card) => {
+              card.style.transitionDelay = '0s';
+            });
+          }, 1000);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    observer.observe(teamRow);
+  }
+
+  // Interactive 3D Mouse Parallax & Dynamic Light Sheen
+  teamCards.forEach((card) => {
+    let bounds = null;
+    let isHovering = false;
+
+    const onMouseEnter = () => {
+      bounds = card.getBoundingClientRect();
+      isHovering = true;
+      card.classList.add('is-hovered');
+      card.style.transition = 'transform 0.12s ease-out, box-shadow 0.3s ease, border-color 0.3s ease';
+    };
+
+    const onMouseMove = (e) => {
+      if (!isHovering) return;
+      if (!bounds) bounds = card.getBoundingClientRect();
+
+      const x = e.clientX - bounds.left;
+      const y = e.clientY - bounds.top;
+      const centerX = bounds.width / 2;
+      const centerY = bounds.height / 2;
+
+      // Calculate tilt angles (degrees)
+      const rotateX = ((centerY - y) / centerY) * 11;
+      const rotateY = ((x - centerX) / centerX) * 11;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-8px) scale3d(1.03, 1.03, 1.03)`;
+
+      // Dynamic Glare Spotlight
+      const glare = card.querySelector('.member-card-glare');
+      if (glare) {
+        const glareX = (x / bounds.width) * 100;
+        const glareY = (y / bounds.height) * 100;
+        glare.style.background = `radial-gradient(circle at ${glareX}% ${glareY}%, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.06) 45%, transparent 70%)`;
+      }
+    };
+
+    const onMouseLeave = () => {
+      isHovering = false;
+      bounds = null;
+      card.classList.remove('is-hovered');
+      card.style.transition = 'transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease, border-color 0.4s ease';
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0) scale3d(1, 1, 1)';
+
+      const glare = card.querySelector('.member-card-glare');
+      if (glare) {
+        glare.style.background = 'none';
+      }
+    };
+
+    card.addEventListener('mouseenter', onMouseEnter);
+    card.addEventListener('mousemove', onMouseMove);
+    card.addEventListener('mouseleave', onMouseLeave);
+  });
 }
 

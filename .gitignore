@@ -20,5 +20,8 @@ __pycache__/
 *.pyc
 *.docx
 
+# Source personal images
+personal_images/
+
 
 
