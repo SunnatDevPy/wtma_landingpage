@@ -39,6 +39,7 @@
 
   /* Spacing */
   --container-max: 1340px;
+  --container-pad: 28px;
   --header-height: 80px;
   --section-padding: 100px 0;
   --section-padding-sm: 64px 0;

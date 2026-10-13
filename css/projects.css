@@ -129,8 +129,8 @@
   width: 100%;
   max-width: var(--container-max);
   margin: 0 auto;
-  padding-left: var(--container-pad);
-  padding-right: var(--container-pad);
+  padding-left: var(--container-pad, 28px);
+  padding-right: var(--container-pad, 28px);
   flex: 1;
   display: flex;
   justify-content: space-between;
@@ -169,7 +169,7 @@
   letter-spacing: -0.02em;
   color: #ffffff;
   text-transform: uppercase;
-  margin: 0 0 20px 0;
+  margin: 0 0 24px 0;
   text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
 }
 
@@ -184,10 +184,7 @@
 }
 
 .projects-hero-divider {
-  width: 50px;
-  height: 2.5px;
-  background: var(--brand-accent-red);
-  margin-bottom: 22px;
+  display: none;
 }
 
 .projects-hero-desc {
@@ -199,19 +196,9 @@
   font-weight: 400;
 }
 
-/* Right Kickers */
+/* Right Kickers (Removed per request) */
 .projects-hero-kickers {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
-  text-align: right;
-  margin-bottom: 30px;
+  display: none;
 }
 
 /* ==========================================================================
