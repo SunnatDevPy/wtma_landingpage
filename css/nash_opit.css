@@ -1,125 +1,42 @@
 /* ==========================================================================
    WTMA — Наш опыт (Our Experience) Stylesheet
-   Strict 1:1 match to Master Design Reference (Nash_opit)
+   Strict 1:1 match to Master Design Reference (file_0000000023d881f4bdbf142f078b8037.png)
+   Header is unified and inherits completely from css/style.css (identical to all other pages)
    ========================================================================== */
 
 /* Page Background & Layout */
 .exp-page-body {
-  background-color: #05080e;
+  background-color: #06090f;
   color: #f3f4f6;
   min-height: 100vh;
   overflow-x: hidden;
-  font-family: var(--font-sans);
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
 }
 
-/* ==========================================================================
-   HEADER / NAVIGATION — Dark theme identical to other pages (Proyekty, Katalog)
-   ========================================================================== */
-.exp-page-body .site-header,
-.exp-page-body .site-header.header-hero,
-.exp-page-body .site-header.header-scrolled-dark,
-.exp-page-body .site-header.header-scrolled-light {
-  background: rgba(6, 9, 14, 0.88) !important;
-  backdrop-filter: blur(14px) !important;
-  -webkit-backdrop-filter: blur(14px) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4) !important;
-}
-
-.exp-page-body .site-header .brand-logo .logo-mark {
-  color: #ffffff !important;
-}
-
-.exp-page-body .site-header .brand-logo .logo-details {
-  border-left-color: rgba(255, 255, 255, 0.2) !important;
-}
-
-.exp-page-body .site-header .brand-logo .logo-line {
-  color: #cbd5e1 !important;
-}
-
-.exp-page-body .site-header .nav-link {
-  color: #cbd5e1 !important;
-  text-shadow: none !important;
-}
-
-.exp-page-body .site-header .nav-link:hover {
-  color: var(--brand-accent-red) !important;
-}
-
-.exp-page-body .site-header .nav-link.active {
-  color: var(--brand-accent-red) !important;
-  font-weight: 700 !important;
-}
-
-.exp-page-body .site-header .action-btn {
-  color: #ffffff !important;
-  background-color: transparent !important;
-  border: 1px solid transparent !important;
-}
-
-.exp-page-body .site-header .action-btn:hover {
-  background-color: rgba(255, 255, 255, 0.1) !important;
-  color: var(--brand-accent-red) !important;
-}
-
-.exp-page-body .site-header .lang-btn {
-  color: #ffffff !important;
-  background-color: transparent !important;
-  border: 1px solid transparent !important;
-}
-
-.exp-page-body .site-header .lang-btn:hover {
-  background-color: rgba(255, 255, 255, 0.08) !important;
-  color: var(--brand-accent-red) !important;
-}
-
-.exp-page-body .site-header .btn-contact-pill {
-  color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.4) !important;
-  background-color: transparent !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-}
-
-.exp-page-body .site-header .btn-contact-pill:hover {
-  background-color: var(--brand-accent-red) !important;
-  color: #ffffff !important;
-  border-color: var(--brand-accent-red) !important;
-  transform: translateY(-1px);
-}
-
-.exp-page-body .site-header .burger-toggle .bar {
-  background-color: #ffffff !important;
-}
-
-.exp-page-body .site-header .lang-dropdown {
-  background: #101622 !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
-}
-
-.exp-page-body .site-header .lang-option {
-  color: #cbd5e1 !important;
-}
-
-.exp-page-body .site-header .lang-option:hover {
-  background-color: rgba(255, 255, 255, 0.08) !important;
-  color: var(--brand-accent-red) !important;
-}
-
-/* Hide on scroll down */
-.exp-page-body .site-header.header-hidden {
-  transform: translateY(-100%);
+/* Ensure nothing is hidden by reveal-item */
+.exp-page-body .reveal-item {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
 }
 
 /* Base Container */
 .exp-container {
   width: 100%;
-  max-width: 1440px;
+  max-width: 1540px;
   margin: 0 auto;
   padding: 0 32px;
   box-sizing: border-box;
+}
+
+/* ==========================================================================
+   MAIN CONTENT & BACKGROUND ENVIRONMENT
+   ========================================================================== */
+.exp-main-content {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  background-color: #06090f;
 }
 
 /* ==========================================================================
@@ -127,12 +44,13 @@
    ========================================================================== */
 .exp-hero-section {
   position: relative;
-  padding: 120px 0 60px;
-  min-height: 80vh;
+  padding: 125px 0 25px;
+  min-height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  overflow: hidden;
+  justify-content: flex-start;
+  overflow: visible;
+  z-index: 2;
 }
 
 /* 3D Gyroscope Globe Background Environment (Right Side) */
@@ -142,6 +60,7 @@
   right: 0;
   width: 100%;
   height: 100%;
+  min-height: 850px;
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
@@ -154,26 +73,30 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: right center;
-  opacity: 0.85;
+  object-position: right top;
+  opacity: 1 !important; /* Fully clear and crisp */
+  filter: contrast(1.03) brightness(1.02);
 }
 
-/* Gradient vignettes to blend smoothly into content */
+/* Subtle left vignette for title readability without darkening the globe */
 .exp-hero-left-vignette {
   position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 75% 45%, rgba(5, 8, 14, 0.1) 0%, rgba(5, 8, 14, 0.75) 55%, #05080e 90%),
-              linear-gradient(90deg, #05080e 0%, rgba(5, 8, 14, 0.85) 40%, rgba(5, 8, 14, 0.1) 100%);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 52%;
+  background: linear-gradient(90deg, rgba(6, 9, 15, 0.82) 0%, rgba(6, 9, 15, 0.35) 42%, transparent 100%);
   pointer-events: none;
 }
 
+/* Smooth bottom fade into client logos section */
 .exp-hero-bottom-fade {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 180px;
-  background: linear-gradient(180deg, transparent 0%, #05080e 100%);
+  height: 120px;
+  background: linear-gradient(180deg, transparent 0%, rgba(6, 9, 15, 0.5) 60%, #06090f 100%);
   pointer-events: none;
 }
 
@@ -185,14 +108,16 @@
 
 /* Page Title "Наш опыт" */
 .exp-hero-title {
-  font-family: var(--font-serif);
-  font-size: clamp(3.2rem, 5.5vw, 4.6rem);
-  font-weight: 400;
-  line-height: 1.1;
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(3.2rem, 5.2vw, 4.75rem);
+  font-weight: 500;
+  line-height: 1.05;
   color: #ffffff;
-  margin: 0 0 36px 0;
-  letter-spacing: -0.01em;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  margin: 0 0 32px 0;
+  letter-spacing: -0.015em;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.85);
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 /* ==========================================================================
@@ -201,8 +126,12 @@
 .exp-cards-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-bottom: 70px;
+  gap: 12px;
+  margin-bottom: 40px;
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: relative;
+  z-index: 2;
 }
 
 /* Individual Experience Card */
@@ -211,82 +140,95 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 94px;
-  background: rgba(10, 15, 24, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.11);
-  border-radius: 8px;
+  height: 96px;
+  background: rgba(9, 14, 23, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
   overflow: hidden;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.35s ease,
-              box-shadow 0.35s ease;
+              box-shadow 0.35s ease,
+              background 0.35s ease;
   cursor: pointer;
   text-decoration: none;
 }
 
 .exp-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(229, 169, 60, 0.5);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 24px rgba(229, 169, 60, 0.18);
+  background: rgba(14, 20, 32, 0.88);
+  border-color: rgba(197, 168, 128, 0.55);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 24px rgba(197, 168, 128, 0.2);
 }
 
 /* Left Body: Number & Label */
 .exp-card-body {
+  position: relative;
   padding: 0 0 0 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  z-index: 2;
-  min-width: 130px;
+  z-index: 3;
+  min-width: 125px;
+  flex-shrink: 0;
 }
 
 .exp-card-num {
-  font-family: var(--font-sans);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #e5a93c;
-  line-height: 1.1;
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: #c5a880;
+  line-height: 1;
   letter-spacing: 0.02em;
   margin-bottom: 4px;
   transition: color 0.3s ease;
 }
 
 .exp-card:hover .exp-card-num {
-  color: #f7c96e;
+  color: #e5c397;
 }
 
 .exp-card-label {
-  font-family: var(--font-sans);
-  font-size: 0.95rem;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.96rem;
   font-weight: 500;
   color: #ffffff;
   line-height: 1.25;
   white-space: nowrap;
 }
 
-/* Right Media: Thumbnail Image */
+/* Right Media: Thumbnail Image (Expanded 72% width for cinema clarity) */
 .exp-card-thumb-wrap {
-  position: relative;
-  width: 58%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 72%;
   height: 100%;
   overflow: hidden;
+  border-radius: 0 9px 9px 0;
+  z-index: 1;
 }
 
 .exp-card-thumb-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: right center;
   display: block;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
-  filter: brightness(0.92) contrast(1.05);
+  filter: brightness(0.96) contrast(1.05);
+}
+
+.exp-card:first-child .exp-card-thumb-img {
+  object-position: center center;
 }
 
 .exp-card:hover .exp-card-thumb-img {
-  transform: scale(1.1);
-  filter: brightness(1.05) contrast(1.08);
+  transform: scale(1.08);
+  filter: brightness(1.06) contrast(1.08);
 }
 
 /* Smooth Fade Gradient from Card Background to Image */
@@ -295,9 +237,10 @@
   top: 0;
   left: 0;
   bottom: 0;
-  width: 45%;
-  background: linear-gradient(90deg, rgba(10, 15, 24, 0.95) 0%, rgba(10, 15, 24, 0.65) 45%, transparent 100%);
+  width: 58%;
+  background: linear-gradient(90deg, #090e17 0%, rgba(9, 14, 23, 0.96) 25%, rgba(9, 14, 23, 0.45) 65%, transparent 100%);
   pointer-events: none;
+  z-index: 2;
 }
 
 /* ==========================================================================
@@ -305,101 +248,134 @@
    ========================================================================== */
 .exp-clients-section {
   position: relative;
-  padding: 40px 0 100px;
+  padding: 10px 0 90px;
   z-index: 2;
+  background: transparent;
 }
 
 .exp-clients-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 3.4vw, 2.75rem);
-  font-weight: 400;
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(2.2rem, 3.4vw, 2.9rem);
+  font-weight: 500;
   color: #ffffff;
-  margin: 0 0 32px 0;
+  text-align: center;
+  margin: 0 0 28px 0;
   letter-spacing: -0.01em;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.8);
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
-/* Dynamic Clients Cloud / Flow Grid */
+/* Client Rows Container (Centered Inverted Pyramid) */
 .exp-clients-cloud {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Individual Row: Centered across all 7 rows */
+.exp-clients-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-start;
-  gap: 10px 8px;
+  justify-content: center;
+  gap: 6px;
   width: 100%;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
-/* Client Badge (Text-based pill) */
+/* Client Badge (Text-based pill, sleek & calibrated) */
 .client-badge-pill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 7px 16px;
-  background: rgba(255, 255, 255, 0.035);
+  height: 35px;
+  padding: 0 13px;
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 5px;
-  font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 500;
+  border-radius: 6px;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.83rem;
+  font-weight: 400;
   color: #cbd5e1;
   white-space: nowrap;
-  backdrop-filter: blur(4px);
-  transition: all 0.25s ease;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
   cursor: default;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .client-badge-pill:hover {
-  background: rgba(229, 169, 60, 0.12);
-  border-color: rgba(229, 169, 60, 0.5);
+  background: rgba(197, 168, 128, 0.14);
+  border-color: rgba(197, 168, 128, 0.5);
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(229, 169, 60, 0.15);
+  box-shadow: 0 4px 14px rgba(197, 168, 128, 0.18);
 }
 
-/* Featured White Logo Badges */
+/* Featured White Logo Badges (Uniform 35px Height, High Contrast) */
 .client-badge-logo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 34px;
-  padding: 3px 14px;
-  background: #ffffff;
-  border-radius: 5px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  height: 35px;
+  min-width: 104px;
+  padding: 3px 13px;
+  background: #ffffff !important;
+  border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
   cursor: pointer;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .client-badge-logo img {
   height: 24px;
   width: auto;
-  max-width: 110px;
+  max-width: 105px;
   object-fit: contain;
   display: block;
 }
 
 .client-badge-logo:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.35);
 }
 
 /* ==========================================================================
    RESPONSIVE DESIGN BREAKPOINTS
    ========================================================================== */
-@media (max-width: 1200px) {
-  .exp-cards-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
+@media (max-width: 1300px) {
+  .exp-clients-row {
+    justify-content: center;
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1100px) {
+  .exp-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 900px) {
   .exp-hero-section {
-    padding-top: 100px;
+    padding-top: 105px;
   }
 
   .exp-cards-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+    gap: 10px;
   }
 
   .exp-card {
@@ -413,21 +389,21 @@
 
 @media (max-width: 640px) {
   .exp-container {
-    padding: 0 20px;
+    padding: 0 16px;
   }
 
   .exp-hero-title {
     font-size: 2.6rem;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   .exp-cards-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 10px;
   }
 
   .exp-card {
-    height: 84px;
+    height: 86px;
   }
 
   .exp-card-body {
@@ -436,7 +412,7 @@
   }
 
   .exp-card-num {
-    font-size: 1.15rem;
+    font-size: 1.5rem;
   }
 
   .exp-card-label {
@@ -444,16 +420,19 @@
   }
 
   .client-badge-pill {
-    padding: 6px 12px;
-    font-size: 0.76rem;
+    padding: 0 10px;
+    font-size: 0.78rem;
+    height: 32px;
   }
 
   .client-badge-logo {
-    height: 30px;
+    height: 32px;
     padding: 2px 10px;
+    min-width: 90px;
   }
 
   .client-badge-logo img {
     height: 20px;
+    max-width: 90px;
   }
 }

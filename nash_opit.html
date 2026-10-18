@@ -6,6 +6,19 @@
   <title>Наш опыт — WTMA | Отраслевая экспертиза и партнёры</title>
   <meta name="description" content="Опыт и портфолио агентства WTMA в ключевых секторах текстильной, производственной и международной индустрии, а также компании, с которыми мы работали.">
   <meta name="keywords" content="WTMA, Наш опыт, Текстиль, Оборудование, Косметика, Кожаные изделия, Логистика, IT, Партнёры, Кейсы">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <script>
+    // Failsafe link sanitizer for cached elements
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('a').forEach(function(a) {
+        var h = a.getAttribute('href') || '';
+        if (h.includes('#mission')) a.setAttribute('href', 'katalog.html');
+        if (h === 'index.html#about') a.setAttribute('href', 'index.html');
+      });
+    });
+  </script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-weight='bold' fill='%23111827'>W</text></svg>">
@@ -17,7 +30,7 @@
 
   <!-- Main Stylesheet & Nash Opit Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/nash_opit.css?v=20261013_v3">
+  <link rel="stylesheet" href="css/nash_opit.css?v=20261018_v9">
 </head>
 <body class="exp-page-body">
 
@@ -123,7 +136,7 @@
         </ul>
       </nav>
 
-      <!-- Header Actions -->
+      <!-- Right Header Actions -->
       <div class="header-actions">
         <!-- Search Button -->
         <button class="action-btn search-trigger" aria-label="Поиск по сайту" id="searchBtn">
@@ -150,7 +163,7 @@
 
         <!-- Contact CTA Button -->
         <a href="contacts.html" class="btn-contact-pill" id="headerContactBtn">
-          <span>Обсудить проект</span>
+          <span>Связаться</span>
           <span class="arrow">→</span>
         </a>
 
@@ -176,7 +189,7 @@
       </ul>
       <div class="mobile-drawer-footer">
         <a href="contacts.html" class="btn-contact-pill w-full">
-          <span>Обсудить проект</span>
+          <span>Связаться с WTMA</span>
           <span class="arrow">→</span>
         </a>
       </div>
@@ -200,10 +213,10 @@
 
       <div class="exp-container exp-hero-container">
         <!-- Title -->
-        <h1 class="exp-hero-title reveal-item">Наш опыт</h1>
+        <h1 class="exp-hero-title">Наш опыт</h1>
 
         <!-- 12 Experience Categories Grid (Exact 4x3 Grid matching mockup) -->
-        <div class="exp-cards-grid reveal-item">
+        <div class="exp-cards-grid">
 
           <!-- 01 Текстиль -->
           <div class="exp-card">
@@ -393,110 +406,122 @@
     <section class="exp-clients-section">
       <div class="exp-container">
         <!-- Title -->
-        <h2 class="exp-clients-title reveal-item">Компании, с которыми мы работали</h2>
+        <h2 class="exp-clients-title">Компании, с которыми мы работали</h2>
 
-        <!-- Clients Cloud Grid (Exact elements from mockup) -->
-        <div class="exp-clients-cloud reveal-item">
+        <!-- Clients Rows Grid (Exact 1:1 match to Master Design Reference) -->
+        <div class="exp-clients-cloud">
+          <!-- Row 1 (12 items) -->
+          <div class="exp-clients-row">
+            <span class="client-badge-pill">Ahsan Apparel</span>
+            <span class="client-badge-pill">Ajab Etiketka</span>
+            <span class="client-badge-pill">Aksarteks Industry</span>
+            <span class="client-badge-pill">Ariya Teks</span>
+            <span class="client-badge-pill">Artatex</span>
+            <span class="client-badge-pill">Atles Textile</span>
+            <span class="client-badge-pill">Azalium</span>
+            <span class="client-badge-pill">Azia Premium Textile</span>
+            <span class="client-badge-pill">Bahmal Group</span>
+            <span class="client-badge-pill">Xorazm Ipgi</span>
+            <span class="client-badge-pill">Baht Textile</span>
+            <span class="client-badge-logo" title="BAKAN Future of Yarn">
+              <img src="images/nash_opit/logo_bakan.png" alt="BAKAN" loading="lazy">
+            </span>
+          </div>
 
-          <!-- Row 1 -->
-          <span class="client-badge-pill">Ahsan Apparel</span>
-          <span class="client-badge-pill">Ajab Etiketka</span>
-          <span class="client-badge-pill">Aksarteks Industry</span>
-          <span class="client-badge-pill">Ariya Teks</span>
-          <span class="client-badge-pill">Artatex</span>
-          <span class="client-badge-pill">Atles Textile</span>
-          <span class="client-badge-pill">Azalium</span>
-          <span class="client-badge-pill">Azia Premium Textile</span>
-          <span class="client-badge-pill">Bahmal Group</span>
-          <span class="client-badge-pill">Xorazm Ipagi</span>
-          <span class="client-badge-pill">Baht Textile</span>
+          <!-- Row 2 (12 items) -->
+          <div class="exp-clients-row">
+            <span class="client-badge-pill">Bayzel Teks</span>
+            <span class="client-badge-pill">Charogon Tex</span>
+            <span class="client-badge-logo" title="CHUST Textile">
+              <img src="images/nash_opit/logo_chust.png" alt="CHUST TEXTILE" loading="lazy">
+            </span>
+            <span class="client-badge-pill">Deniz Teks</span>
+            <span class="client-badge-pill">Jazzax Eco Textile</span>
+            <span class="client-badge-pill">Elegant Garment Textile</span>
+            <span class="client-badge-pill">Fandi Teks</span>
+            <span class="client-badge-pill">FT Textile</span>
+            <span class="client-badge-pill">Global Textile</span>
+            <span class="client-badge-pill">Great Kokand</span>
+            <span class="client-badge-pill">Group Impex Textile</span>
+            <span class="client-badge-pill">Haj Tex</span>
+          </div>
 
-          <!-- Row 2 (with BAKAN & CHUST logos) -->
-          <span class="client-badge-logo">
-            <img src="images/nash_opit/logo_bakan.png" alt="BAKAN">
-          </span>
-          <span class="client-badge-pill">Bayzel Teks</span>
-          <span class="client-badge-pill">Charogon Tex</span>
-          <span class="client-badge-logo">
-            <img src="images/nash_opit/logo_chust.png" alt="CHUST TEXTILE">
-          </span>
-          <span class="client-badge-pill">Deniz Teks</span>
-          <span class="client-badge-pill">Jazzax Eco Textile</span>
-          <span class="client-badge-pill">Elegant Garment Textile</span>
-          <span class="client-badge-pill">Fandi Teks</span>
-          <span class="client-badge-pill">FT Textile</span>
-          <span class="client-badge-pill">Global Textile</span>
+          <!-- Row 3 (12 items) -->
+          <div class="exp-clients-row">
+            <span class="client-badge-pill">Hamkor Nur</span>
+            <span class="client-badge-pill">Home Textile NT</span>
+            <span class="client-badge-pill">Impex Textile</span>
+            <span class="client-badge-logo" title="JACK">
+              <img src="images/nash_opit/logo_jack.png" alt="JACK" loading="lazy">
+            </span>
+            <span class="client-badge-pill">Jasmin Chay Invest</span>
+            <span class="client-badge-pill">Jizzax Salamat O'ichk</span>
+            <span class="client-badge-pill">Max Textile Style</span>
+            <span class="client-badge-pill">Merganteks</span>
+            <span class="client-badge-pill">OFS</span>
+            <span class="client-badge-pill">Omad Kumushkent</span>
+            <span class="client-badge-pill">Qqsaroy</span>
+            <span class="client-badge-pill">Orange Textile</span>
+          </div>
 
-          <!-- Row 3 (with JACK logo) -->
-          <span class="client-badge-pill">Great Kokand</span>
-          <span class="client-badge-pill">Group Impex Textile</span>
-          <span class="client-badge-pill">Haj Tex</span>
-          <span class="client-badge-pill">Hamkor Nur</span>
-          <span class="client-badge-pill">Home Textile NT</span>
-          <span class="client-badge-pill">Impex Textile</span>
-          <span class="client-badge-logo">
-            <img src="images/nash_opit/logo_jack.png" alt="JACK">
-          </span>
-          <span class="client-badge-pill">Jasmin Chay Invest</span>
-          <span class="client-badge-pill">Jizzax Salamat O'ichk</span>
-          <span class="client-badge-pill">Max Textile Style</span>
+          <!-- Row 4 (11 items) -->
+          <div class="exp-clients-row">
+            <span class="client-badge-pill">Orient Technology</span>
+            <span class="client-badge-logo" title="OSBORN Textile">
+              <img src="images/nash_opit/logo_osborn.png" alt="OSBORN Textile" loading="lazy">
+            </span>
+            <span class="client-badge-pill">Papfen</span>
+            <span class="client-badge-pill">Paxtakor Teks</span>
+            <span class="client-badge-pill">Pahtamash</span>
+            <span class="client-badge-pill">Plasteks</span>
+            <span class="client-badge-pill">Posco International</span>
+            <span class="client-badge-pill">Pulsanteks</span>
+            <span class="client-badge-pill">Qorako'l Kumush Kalava</span>
+            <span class="client-badge-pill">Rainbow Teks</span>
+            <span class="client-badge-pill">Royal Garments</span>
+          </div>
 
-          <!-- Row 4 (with OSBORN logo) -->
-          <span class="client-badge-pill">Merganteks</span>
-          <span class="client-badge-pill">OFS</span>
-          <span class="client-badge-pill">Omad Kumushkent</span>
-          <span class="client-badge-pill">Qqsaroy</span>
-          <span class="client-badge-pill">Orange Textile</span>
-          <span class="client-badge-pill">Orient Technology</span>
-          <span class="client-badge-logo">
-            <img src="images/nash_opit/logo_osborn.png" alt="OSBORN Textile">
-          </span>
-          <span class="client-badge-pill">Papfen</span>
-          <span class="client-badge-pill">Paxtakor Teks</span>
-          <span class="client-badge-pill">Pahtamash</span>
-          <span class="client-badge-pill">Plasteks</span>
+          <!-- Row 5 (9 items) -->
+          <div class="exp-clients-row">
+            <span class="client-badge-pill">SAAS</span>
+            <span class="client-badge-pill">Shabnam Elegant</span>
+            <span class="client-badge-pill">Sharq Alo Tex</span>
+            <span class="client-badge-pill">Simex Progress</span>
+            <span class="client-badge-pill">Sof Mega Textile</span>
+            <span class="client-badge-pill">South Development Holding</span>
+            <span class="client-badge-pill">Surxon Teks</span>
+            <span class="client-badge-pill">Nortex Style</span>
+            <span class="client-badge-pill">Amudar Textile</span>
+          </div>
 
-          <!-- Row 5 -->
-          <span class="client-badge-pill">Posco International</span>
-          <span class="client-badge-pill">Pulsanteks</span>
-          <span class="client-badge-pill">Qorako'l Kumush Kalava</span>
-          <span class="client-badge-pill">Rainbow Teks</span>
-          <span class="client-badge-pill">Royal Garments</span>
-          <span class="client-badge-pill">SAAS</span>
-          <span class="client-badge-pill">Shabnam Elegant</span>
-          <span class="client-badge-pill">Sharq Alo Tex</span>
-          <span class="client-badge-pill">Simex Progress</span>
-          <span class="client-badge-pill">Sof Mega Textile</span>
-          <span class="client-badge-pill">South Development Holding</span>
+          <!-- Row 6 (9 items) -->
+          <div class="exp-clients-row">
+            <span class="client-badge-pill">Sherobod Textile Invest</span>
+            <span class="client-badge-pill">Stampa Textile</span>
+            <span class="client-badge-pill">TMT</span>
+            <span class="client-badge-logo" title="Trend Tex">
+              <img src="images/nash_opit/logo_trendtex.png" alt="Trend Tex" loading="lazy">
+            </span>
+            <span class="client-badge-pill">TST</span>
+            <span class="client-badge-pill">Twin Bussines</span>
+            <span class="client-badge-logo" title="YUSTEX">
+              <img src="images/nash_opit/logo_yustex.png" alt="YUSTEX" loading="lazy">
+            </span>
+            <span class="client-badge-pill">Zarhal Group</span>
+            <span class="client-badge-pill">Olot Spinner</span>
+          </div>
 
-          <!-- Row 6 (with Trend Tex & YUSTEX logos) -->
-          <span class="client-badge-pill">Surxon Teks</span>
-          <span class="client-badge-pill">Nortex Style</span>
-          <span class="client-badge-pill">Amudar Textile</span>
-          <span class="client-badge-pill">Sherobod Textile Invest</span>
-          <span class="client-badge-pill">Stampa Textile</span>
-          <span class="client-badge-pill">TMT</span>
-          <span class="client-badge-logo">
-            <img src="images/nash_opit/logo_trendtex.png" alt="Trend Tex">
-          </span>
-          <span class="client-badge-pill">TST</span>
-          <span class="client-badge-pill">Twin Bussines</span>
-          <span class="client-badge-logo">
-            <img src="images/nash_opit/logo_yustex.png" alt="YUSTEX">
-          </span>
-          <span class="client-badge-pill">Zarhal Group</span>
-          <span class="client-badge-pill">Olot Spinner</span>
-          <span class="client-badge-pill">Bodimax</span>
-
-          <!-- Row 7 (with ZELAL logo) -->
-          <span class="client-badge-pill">Bosso Teks</span>
-          <span class="client-badge-pill">Kamalak Shabnam Teks</span>
-          <span class="client-badge-pill">Buxoro Zarhal Teks</span>
-          <span class="client-badge-pill">Leichter Kamalak Textilien</span>
-          <span class="client-badge-logo">
-            <img src="images/nash_opit/logo_zelal.png" alt="ZELAL">
-          </span>
-
+          <!-- Row 7 (6 items) -->
+          <div class="exp-clients-row">
+            <span class="client-badge-pill">Bodimax</span>
+            <span class="client-badge-pill">Bosso Teks</span>
+            <span class="client-badge-pill">Kamalak Shabnam Teks</span>
+            <span class="client-badge-pill">Buxoro Zarhal Teks</span>
+            <span class="client-badge-pill">Leichter Kamalak Textilien</span>
+            <span class="client-badge-logo" title="ZELAL Tekstil">
+              <img src="images/nash_opit/logo_zelal.png" alt="ZELAL" loading="lazy">
+            </span>
+          </div>
         </div>
       </div>
     </section>
@@ -556,6 +581,6 @@
   </footer>
 
   <!-- Page Scripts -->
-  <script src="js/nash_opit.js?v=20261013_v3"></script>
+  <script src="js/nash_opit.js?v=20261018_v8"></script>
 </body>
 </html>

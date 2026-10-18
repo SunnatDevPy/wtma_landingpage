@@ -443,20 +443,43 @@ function initTeamInteractions() {
   const teamCards = document.querySelectorAll('.team-member-card');
   if (!track || !teamCards.length) return;
 
-  // A. Slider Arrow Navigation
+  // A. Slider Arrow Navigation & Disabled States
+  function updateArrowStates() {
+    if (!prevBtn || !nextBtn) return;
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    if (track.scrollLeft <= 10) {
+      prevBtn.classList.add('is-disabled');
+    } else {
+      prevBtn.classList.remove('is-disabled');
+    }
+
+    if (track.scrollLeft >= maxScroll - 10) {
+      nextBtn.classList.add('is-disabled');
+    } else {
+      nextBtn.classList.remove('is-disabled');
+    }
+  }
+
   if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       const cardWidth = teamCards[0]?.offsetWidth || 250;
       track.scrollBy({ left: -(cardWidth + 22) * 1.5, behavior: 'smooth' });
     });
   }
 
   if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       const cardWidth = teamCards[0]?.offsetWidth || 250;
       track.scrollBy({ left: (cardWidth + 22) * 1.5, behavior: 'smooth' });
     });
   }
+
+  track.addEventListener('scroll', updateArrowStates, { passive: true });
+  window.addEventListener('resize', updateArrowStates);
+  // Initial check after layout
+  setTimeout(updateArrowStates, 100);
 
   // B. Mouse Drag-to-Scroll (Desktop grab and glide)
   let isDown = false;

@@ -417,6 +417,26 @@ const server = http.createServer(async (req, res) => {
   }
 
   // --- Statik fayllarni uzatish (Lokal rejim uchun) ---
+  const ROUTE_ALIASES = {
+    '/catalog': '/katalog.html',
+    '/catalog.html': '/katalog.html',
+    '/kontakt': '/contacts.html',
+    '/kontakt.html': '/contacts.html',
+    '/nash-opit': '/nash_opit.html',
+    '/nash-opit.html': '/nash_opit.html',
+    '/proekty': '/proyekty.html',
+    '/proekty.html': '/proyekty.html',
+    '/projects': '/proyekty.html',
+    '/projects.html': '/proyekty.html',
+  };
+
+  const normalizedKey = pathname.toLowerCase();
+  if (ROUTE_ALIASES[normalizedKey]) {
+    res.writeHead(301, { 'Location': ROUTE_ALIASES[normalizedKey] });
+    res.end();
+    return;
+  }
+
   let safePath = path.normalize(decodeURIComponent(pathname)).replace(/^(\.\.[\/\\])+/, '');
   if (safePath === '/' || safePath === '\\') {
     safePath = '/index.html';
@@ -438,8 +458,15 @@ const server = http.createServer(async (req, res) => {
 
     const ext = path.extname(filePath).toLowerCase();
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+    const headers = { 'Content-Type': contentType };
 
-    res.writeHead(200, { 'Content-Type': contentType });
+    if (ext === '.html' || ext === '.css' || ext === '.js') {
+      headers['Cache-Control'] = 'no-cache, no-store, must-revalidate';
+      headers['Pragma'] = 'no-cache';
+      headers['Expires'] = '0';
+    }
+
+    res.writeHead(200, headers);
     fs.createReadStream(filePath).pipe(res);
   });
 });
