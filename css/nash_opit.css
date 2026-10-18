@@ -339,8 +339,15 @@
   visibility: visible !important;
 }
 
+.client-badge-logo picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
 .client-badge-logo img {
-  height: 24px;
+  height: 22px;
   width: auto;
   max-width: 105px;
   object-fit: contain;
