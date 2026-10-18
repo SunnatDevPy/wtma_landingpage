@@ -277,13 +277,13 @@
   visibility: visible !important;
 }
 
-/* Individual Row: Centered across all 7 rows */
+/* Individual Row: Inverted Pyramid on Desktop */
 .exp-clients-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: clamp(4px, 0.4vw, 6px);
   width: 100%;
   opacity: 1 !important;
   visibility: visible !important;
@@ -294,16 +294,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 35px;
-  padding: 0 13px;
+  height: clamp(31px, 2.2vw, 35px);
+  padding: 0 clamp(8px, 0.7vw, 13px);
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 6px;
   font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
-  font-size: 0.83rem;
+  font-size: clamp(0.72rem, 0.74vw, 0.83rem);
   font-weight: 400;
   color: #cbd5e1;
   white-space: nowrap;
+  flex-shrink: 0;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -326,14 +327,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 35px;
-  min-width: 104px;
-  padding: 3px 13px;
+  height: clamp(31px, 2.2vw, 35px);
+  min-width: clamp(80px, 6vw, 104px);
+  padding: 2px clamp(6px, 0.6vw, 12px);
   background: #ffffff !important;
   border-radius: 6px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   box-sizing: border-box;
+  flex-shrink: 0;
   cursor: pointer;
   opacity: 1 !important;
   visibility: visible !important;
@@ -347,9 +349,9 @@
 }
 
 .client-badge-logo img {
-  height: 22px;
+  height: clamp(19px, 1.4vw, 22px);
   width: auto;
-  max-width: 105px;
+  max-width: clamp(80px, 6vw, 105px);
   object-fit: contain;
   display: block;
 }
@@ -362,9 +364,42 @@
 /* ==========================================================================
    RESPONSIVE DESIGN BREAKPOINTS
    ========================================================================== */
-@media (max-width: 1300px) {
-  .exp-clients-row {
+
+/* Laptop & Tablet Adaptive: Seamless continuous cloud layout */
+@media (max-width: 1260px) {
+  .exp-clients-cloud {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    gap: 7px 5px;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+
+  .exp-clients-row {
+    display: contents;
+  }
+
+  .client-badge-pill {
+    height: 33px;
+    padding: 0 10px;
+    font-size: 0.77rem;
+    flex-shrink: 0;
+  }
+
+  .client-badge-logo {
+    height: 33px;
+    min-width: 86px;
+    padding: 2px 9px;
+    flex-shrink: 0;
+  }
+
+  .client-badge-logo img {
+    height: 20px;
+    max-width: 86px;
   }
 }
 
@@ -390,56 +425,112 @@
   }
 
   .exp-clients-title {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
+    margin-bottom: 26px;
+  }
+
+  .exp-clients-cloud {
+    max-width: 720px;
+    gap: 7px 5px;
   }
 }
 
 @media (max-width: 640px) {
   .exp-container {
-    padding: 0 16px;
+    padding: 0 14px;
   }
 
   .exp-hero-title {
-    font-size: 2.6rem;
+    font-size: 2.4rem;
     margin-bottom: 20px;
+    text-align: center;
   }
 
   .exp-cards-grid {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 8px;
   }
 
   .exp-card {
-    height: 86px;
+    height: 82px;
   }
 
   .exp-card-body {
-    padding-left: 16px;
-    min-width: 110px;
+    padding-left: 14px;
+    min-width: 100px;
   }
 
   .exp-card-num {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
   }
 
   .exp-card-label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .exp-clients-section {
+    padding: 30px 0 50px;
+  }
+
+  .exp-clients-title {
+    font-size: 1.6rem;
+    line-height: 1.25;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .exp-clients-cloud {
+    gap: 6px 4px;
+    padding: 0 2px;
   }
 
   .client-badge-pill {
-    padding: 0 10px;
-    font-size: 0.78rem;
-    height: 32px;
+    height: 29px;
+    padding: 0 8px;
+    font-size: 0.72rem;
+    border-radius: 5px;
   }
 
   .client-badge-logo {
-    height: 32px;
-    padding: 2px 10px;
-    min-width: 90px;
+    height: 29px;
+    padding: 2px 7px;
+    min-width: 72px;
+    border-radius: 5px;
   }
 
   .client-badge-logo img {
-    height: 20px;
-    max-width: 90px;
+    height: 17px;
+    max-width: 70px;
+  }
+}
+
+@media (max-width: 380px) {
+  .exp-hero-title {
+    font-size: 2rem;
+  }
+
+  .exp-clients-title {
+    font-size: 1.4rem;
+  }
+
+  .client-badge-pill {
+    height: 27px;
+    padding: 0 6px;
+    font-size: 0.68rem;
+  }
+
+  .client-badge-logo {
+    height: 27px;
+    padding: 1px 6px;
+    min-width: 66px;
+  }
+
+  .client-badge-logo img {
+    height: 15px;
+    max-width: 64px;
+  }
+
+  .exp-clients-cloud {
+    gap: 5px 3px;
   }
 }
