@@ -20,12 +20,14 @@
   visibility: visible !important;
 }
 
-/* Base Container */
+/* Base Container - Aligned precisely with Master Header & Site Grid */
 .exp-container {
   width: 100%;
-  max-width: 1540px;
-  margin: 0 auto;
-  padding: 0 32px;
+  max-width: var(--container-max, 1340px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 28px;
+  padding-right: 28px;
   box-sizing: border-box;
 }
 
@@ -436,8 +438,10 @@
 }
 
 @media (max-width: 640px) {
+  .header-container,
   .exp-container {
-    padding: 0 14px;
+    padding-left: 18px;
+    padding-right: 18px;
   }
 
   .exp-hero-title {
