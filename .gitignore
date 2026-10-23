@@ -22,6 +22,9 @@ __pycache__/
 
 # Source personal images
 personal_images/
+images/team_backup/
+images/team_v2_raw/
+scripts/*.png
 
 
 
