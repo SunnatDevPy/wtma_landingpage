@@ -140,4 +140,33 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // 5. Interactive 3D Tilt Effect on Experience Cards
+  const expCards = document.querySelectorAll('.exp-card');
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    expCards.forEach((card) => {
+      let rect = null;
+
+      card.addEventListener('mouseenter', () => {
+        rect = card.getBoundingClientRect();
+      });
+
+      card.addEventListener('mousemove', (e) => {
+        if (!rect) rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+        // Subtle 3D tilt angles (max ~5 deg)
+        const tiltX = (-y * 7).toFixed(2);
+        const tiltY = (x * 7).toFixed(2);
+
+        card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-7px) translateZ(8px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+        rect = null;
+      });
+    });
+  }
 });
