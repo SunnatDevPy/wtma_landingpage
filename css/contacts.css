@@ -224,7 +224,7 @@
 
 /* Column 1: Info */
 .contacts-info-col {
-  padding-right: 36px;
+  padding: 36px 36px 36px 0;
   border-right: 1px solid #e5e7eb;
   min-width: 0;
 }
@@ -314,7 +314,71 @@
   transform: translateY(-2px);
 }
 
-/* Column 2: Editorial Statement */
+/* Column 2: Core Services / Направления (4 Rows with Golden Icons) */
+.contacts-services-col {
+  padding: 88px 36px 36px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+}
+
+.contact-service-row {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  align-items: stretch;
+  min-height: 68px;
+  border-bottom: 1px solid #e5e7eb;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.contact-service-row:last-child {
+  border-bottom: none;
+}
+
+.contact-service-row:hover {
+  background-color: rgba(199, 168, 119, 0.05);
+  border-radius: 4px;
+}
+
+.service-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--brand-gold);
+  border-right: 1px solid #e5e7eb;
+  padding-right: 16px;
+  transition: transform 0.25s ease;
+}
+
+.contact-service-row:hover .service-icon-box {
+  transform: scale(1.08);
+}
+
+.service-title-box {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #0b1118;
+  line-height: 1.32;
+  transition: color 0.25s ease;
+}
+
+.contact-service-row:hover .service-title-box {
+  color: #000000;
+}
+
+/* Column 2: Editorial Statement (Preserved fallback) */
 .contacts-statement-col {
   padding: 0 36px;
   border-right: 1px solid #e5e7eb;
@@ -352,11 +416,17 @@
   max-width: 320px;
 }
 
-/* Column 3: Form */
+/* Column 3: Form Card */
 .contacts-form-col {
-  padding-left: 36px;
-  background: #ffffff;
+  padding: 36px 32px;
+  background: #f4f5f7;
+  border-radius: 8px;
   min-width: 0;
+  margin-left: 16px;
+}
+
+.contacts-form-col .section-subheading {
+  margin: 0 0 26px 0;
 }
 
 .main-contact-form {
@@ -389,7 +459,7 @@
   width: 100%;
   box-sizing: border-box;
   background: #ffffff;
-  border: 1px solid #d1d5db;
+  border: 1px solid #e2e8f0;
   border-radius: 4px;
   padding: 11px 14px;
   font-family: var(--font-sans);
@@ -1034,15 +1104,20 @@
   }
 
   .contacts-info-col {
-    padding-right: 22px;
+    padding: 24px 20px 24px 0;
+  }
+
+  .contacts-services-col {
+    padding: 76px 20px 24px 20px;
   }
 
   .contacts-statement-col {
-    padding: 0 22px;
+    padding: 0 20px;
   }
 
   .contacts-form-col {
-    padding-left: 22px;
+    padding: 28px 24px;
+    margin-left: 10px;
   }
 
   .statement-kicker {
@@ -1091,10 +1166,15 @@
   }
 
   .contacts-info-col {
-    padding-right: 0;
+    padding: 0 0 32px 0;
     border-right: none;
     border-bottom: 1px solid #e5e7eb;
-    padding-bottom: 32px;
+  }
+
+  .contacts-services-col {
+    padding: 0 0 32px 0;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
   }
 
   .contacts-statement-col {
@@ -1105,7 +1185,8 @@
   }
 
   .contacts-form-col {
-    padding-left: 0;
+    padding: 28px 20px;
+    margin-left: 0;
   }
 
   .contacts-hero {
