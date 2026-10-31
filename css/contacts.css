@@ -329,19 +329,12 @@
   align-items: stretch;
   min-height: 68px;
   border-bottom: 1px solid #e5e7eb;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.25s ease;
   position: relative;
+  cursor: default;
 }
 
 .contact-service-row:last-child {
   border-bottom: none;
-}
-
-.contact-service-row:hover {
-  background-color: rgba(199, 168, 119, 0.05);
-  border-radius: 4px;
 }
 
 .service-icon-box {
@@ -351,11 +344,6 @@
   color: var(--brand-gold);
   border-right: 1px solid #e5e7eb;
   padding-right: 16px;
-  transition: transform 0.25s ease;
-}
-
-.contact-service-row:hover .service-icon-box {
-  transform: scale(1.08);
 }
 
 .service-title-box {
@@ -371,11 +359,6 @@
   text-transform: uppercase;
   color: #0b1118;
   line-height: 1.32;
-  transition: color 0.25s ease;
-}
-
-.contact-service-row:hover .service-title-box {
-  color: #000000;
 }
 
 /* Column 2: Editorial Statement (Preserved fallback) */
