@@ -206,6 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initHeaderScroll();
   checkHashOnLoad();
+  window.addEventListener('hashchange', checkHashOnLoad);
 });
 
 /**
@@ -455,12 +456,18 @@ function updateActiveTab(activeIdx) {
  * 6. Check URL Hash on Load
  */
 function checkHashOnLoad() {
-  const hash = window.location.hash.replace('#', '').toLowerCase();
-  if (!hash) return;
+  const hash = window.location.hash.replace('#', '').trim().toLowerCase();
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramDir = (urlParams.get('dir') || urlParams.get('direction') || '').trim().toLowerCase();
+  const target = hash || paramDir;
+  if (!target) return;
 
   for (const [idxStr, data] of Object.entries(DIRECTIONS_DATA)) {
-    if (data.id === hash) {
-      openDirectionBook(parseInt(idxStr, 10));
+    if (data.id === target || idxStr === target) {
+      setTimeout(() => {
+        openDirectionBook(parseInt(idxStr, 10));
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 50);
       break;
     }
   }

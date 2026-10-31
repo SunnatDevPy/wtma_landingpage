@@ -1473,6 +1473,8 @@ ul {
   box-shadow: var(--shadow-sm);
   transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 .expertise-card:hover {
