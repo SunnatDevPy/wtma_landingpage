@@ -1115,97 +1115,164 @@ ul {
   margin-bottom: 70px;
 }
 
-/* Timeline Layout */
+/* Timeline Layout — Alternating Staggered Zigzag Timeline */
 .timeline-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 40px;
+  padding: 30px 0;
 }
 
 .timeline-track-line {
   position: absolute;
-  top: 76px;
+  top: 50%;
   left: 0;
   width: 100%;
-  height: 1px;
+  height: 1.5px;
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.15) 0%,
-    rgba(255, 255, 255, 0.45) 50%,
-    rgba(255, 255, 255, 0.15) 100%
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(199, 168, 119, 0.45) 20%,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(199, 168, 119, 0.45) 80%,
+    rgba(255, 255, 255, 0.08) 100%
   );
+  transform: translateY(-50%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .timeline-points-row {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 16px;
+  gap: 20px;
   position: relative;
+  min-height: 400px;
+  z-index: 2;
 }
 
 .timeline-node {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   position: relative;
+  height: 100%;
   cursor: pointer;
-  padding: 10px 8px;
+  padding: 0 4px;
   border-radius: 8px;
   transition: all var(--transition-fast);
 }
 
 .timeline-node:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.02);
 }
 
-.node-year {
-  font-family: var(--font-sans);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #e2e8f0;
-  margin-bottom: 18px;
-  transition: color var(--transition-fast);
-}
-
+/* Bullets on Timeline Axis */
 .node-bullet-wrap {
-  width: 18px;
-  height: 18px;
+  position: absolute;
+  top: 50%;
+  left: 6px;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
+  z-index: 3;
 }
 
 .node-bullet {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 0 3px #080d14;
   transition: all var(--transition-fast);
-  box-shadow: 0 0 0 2px rgba(8, 13, 20, 1);
 }
 
 .timeline-node:hover .node-bullet,
 .timeline-node.active .node-bullet {
   background-color: var(--brand-gold);
-  transform: scale(1.4);
-  box-shadow: 0 0 12px var(--brand-gold);
+  transform: scale(1.45);
+  box-shadow: 0 0 0 3px #080d14, 0 0 16px var(--brand-gold);
 }
 
+/* Stems connecting bullets to content */
+.timeline-node.node-top::before {
+  content: '';
+  position: absolute;
+  bottom: 50%;
+  left: 16px;
+  width: 1px;
+  height: 24px;
+  background: linear-gradient(to top, rgba(199, 168, 119, 0.6), rgba(199, 168, 119, 0.05));
+  transition: all var(--transition-fast);
+  pointer-events: none;
+}
+
+.timeline-node.node-bottom::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  width: 1px;
+  height: 24px;
+  background: linear-gradient(to bottom, rgba(199, 168, 119, 0.6), rgba(199, 168, 119, 0.05));
+  transition: all var(--transition-fast);
+  pointer-events: none;
+}
+
+.timeline-node:hover::before,
+.timeline-node.active::before {
+  background: var(--brand-gold);
+  box-shadow: 0 0 8px rgba(199, 168, 119, 0.7);
+}
+
+/* Content Blocks: Alternating Top and Bottom */
+.timeline-node.node-top .node-content {
+  position: absolute;
+  bottom: calc(50% + 28px);
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-node.node-bottom .node-content {
+  position: absolute;
+  top: calc(50% + 28px);
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography — Significantly Upgraded & Editorial Scale */
+.node-year {
+  font-family: var(--font-sans);
+  font-size: clamp(1.45rem, 1.85vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #f8fafc;
+  margin-bottom: 8px;
+  line-height: 1.15;
+  transition: all var(--transition-fast);
+}
+
+.timeline-node:hover .node-year,
 .timeline-node.active .node-year {
   color: var(--brand-gold);
+  text-shadow: 0 0 16px rgba(199, 168, 119, 0.35);
 }
 
 .node-desc {
-  font-size: 0.8rem;
-  line-height: 1.5;
+  font-family: var(--font-sans);
+  font-size: clamp(0.92rem, 1.05vw, 1.04rem);
+  font-weight: 450;
+  line-height: 1.55;
   color: #94a3b8;
   transition: color var(--transition-fast);
 }
 
 .timeline-node:hover .node-desc,
 .timeline-node.active .node-desc {
-  color: #f1f5f9;
+  color: #ffffff;
 }
 
 /* ==========================================================================
@@ -1971,12 +2038,48 @@ ul {
   }
 
   .timeline-points-row {
-    grid-template-columns: repeat(4, 1fr);
-    row-gap: 32px;
+    grid-template-columns: repeat(2, 1fr);
+    min-height: auto;
+    height: auto;
+    gap: 20px;
   }
 
   .timeline-track-line {
     display: none;
+  }
+
+  .timeline-node {
+    height: auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .timeline-node.node-top::before,
+  .timeline-node.node-bottom::before {
+    display: none;
+  }
+
+  .timeline-node.node-top .node-content,
+  .timeline-node.node-bottom .node-content {
+    position: static;
+  }
+
+  .node-bullet-wrap {
+    position: static;
+    transform: none;
+    margin-bottom: 12px;
+  }
+
+  .node-year {
+    font-size: 1.45rem;
+  }
+
+  .node-desc {
+    font-size: 0.96rem;
   }
 
   .mission-grid {
