@@ -111,4 +111,7 @@ personal_images/
 images/team_backup/
 images/team_v2_raw/
 images/katalog/Katalog_PDF/
+# Large PDF publications stored directly on production web server (exceeds GitHub 100MB limit)
+files/catalog/*.pdf
+!files/catalog/.gitkeep
 scripts/*.png
