@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
       cover: 'images/katalog/tex_area_01.webp',
       fallbackCover: 'images/katalog/tex_area_01.png',
       desc: 'Комплексный стратегический обзор новых экспортных направлений, цепочек поставок, таможенных преференций и новейших технологических внедрений в текстильном кластере Центральной Азии и Европы.',
+      pdfUrl: 'files/catalog/TEX_AREA_01.pdf',
+      pdfName: 'TEX_AREA_01.pdf',
       topics: [
         'Новые глобальные рынки сбыта: ЕС, Великобритания, Ближний Восток',
         'Оптимизация мультимодальной логистики текстильной продукции',
@@ -29,6 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
       cover: 'images/katalog/tex_area_02.webp',
       fallbackCover: 'images/katalog/tex_area_02.png',
       desc: 'Глубокий отраслевой анализ цепочки переработки натурального хлопка, тренды окрашивания, экологическая сертификация и интеграция традиционного текстиля в мировой high-fashion.',
+      pdfUrl: 'files/catalog/TEX_AREA_02.pdf',
+      pdfName: 'TEX_AREA_02.pdf',
       topics: [
         'Глобальный баланс спроса и предложения на длинноволокнистый хлопок',
         'Цветовые тренды и палитры сезона от ведущих мировых тренд-бюро',
@@ -43,6 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
       cover: 'images/katalog/tex_area_03.webp',
       fallbackCover: 'images/katalog/tex_area_03.png',
       desc: 'Рейтинг топ-50 производителей готовой одежды, прогноз развития прядильного сегмента, налогообложение VAT в ЕС и эксклюзивное интервью с дизайнером Saida Amir.',
+      pdfUrl: 'files/catalog/TEX_AREA_03.pdf',
+      pdfName: 'TEX_AREA_03.pdf',
       topics: [
         'Рейтинг «Apparel 50»: ключевые игроки и бенчмарки эффективности',
         'Future of Yarn: смесовые инновационные пряжи и функциональные волокна',
@@ -57,6 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
       cover: 'images/katalog/tex_area_04.webp',
       fallbackCover: 'images/katalog/tex_area_04.png',
       desc: 'Специальный выпуск, посвящённый развитию сегментов окрашенной пряжи, денима, кожевенного производства и готовых капсульных линеек.',
+      pdfUrl: 'files/catalog/TEX_AREA_04.pdf',
+      pdfName: 'TEX_AREA_04.pdf',
       topics: [
         'Технологии устойчивого крашения пряжи без водопотерь',
         'Мировой рынок денима: тренды посадок, стирок и плотностей',
@@ -71,6 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
       cover: 'images/katalog/tex_area_05_podcast_v2.webp',
       fallbackCover: 'images/katalog/tex_area_05_podcast_v2.png',
       desc: 'Специальный выпуск медиа-проекта TEX AREA Podcast: откровенные дискуссии о создании текстильной атмосферы, аналитика рынка тканей и готовой одежды, кожевенного сектора и маркетинговых стратегиях масштабирования.',
+      pdfUrl: 'files/catalog/TEX_AREA_05.pdf',
+      pdfName: 'TEX_AREA_05.pdf',
       topics: [
         'TEX AREA Podcast: тренды текстильной атмосферы и инноваций',
         'Fabrics and Garments: глубокий анализ сегментов тканей и готовой одежды',
@@ -85,6 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
       cover: 'images/katalog/tex_area_06_trends_v2.webp',
       fallbackCover: 'images/katalog/tex_area_06_trends_v2.png',
       desc: 'Аналитическое издание TEX AREA 2026–2027: прогноз ключевых направлений текстиля на 2026 год, технологическая эстетика униформы Формулы-1, архитектурные формы в одежде и глобальный отчёт по мировому производству хлопка.',
+      pdfUrl: 'files/catalog/TEX_AREA_06.pdf',
+      pdfName: 'TEX_AREA_06.pdf',
       topics: [
         'Тренды текстильной индустрии в 2026 году и прогноз спроса',
         'Мода Формулы-1: высокотехнологичные спортивные материалы и стиль',
@@ -276,6 +288,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalEditionTheme = document.getElementById('modalEditionTheme');
   const modalEditionDesc = document.getElementById('modalEditionDesc');
   const modalTopicsList = document.getElementById('modalTopicsList');
+  const modalRequestBtn = document.getElementById('modalRequestBtn');
+  const modalRequestBtnText = document.getElementById('modalRequestBtnText');
 
   function openEditionModal(editionNum) {
     const data = EDITIONS_DATA[editionNum];
@@ -295,6 +309,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (modalTopicsList) {
       modalTopicsList.innerHTML = data.topics.map(t => `<li>${t}</li>`).join('');
+    }
+
+    if (modalRequestBtn) {
+      const pdfUrl = data.pdfUrl || `files/catalog/TEX_AREA_${editionNum}.pdf`;
+      const pdfName = data.pdfName || `TEX_AREA_${editionNum}.pdf`;
+      modalRequestBtn.setAttribute('href', pdfUrl);
+      modalRequestBtn.setAttribute('download', pdfName);
+      modalRequestBtn.setAttribute('target', '_blank');
+    }
+
+    if (modalRequestBtnText) {
+      modalRequestBtnText.textContent = 'СКАЧАТЬ ВЫПУСК (PDF)';
     }
 
     editionModal?.classList.add('is-open');
