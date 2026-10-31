@@ -1093,7 +1093,8 @@ ul {
   height: 100%;
   object-fit: cover;
   object-position: center right;
-  opacity: 0.75;
+  opacity: 0.96;
+  filter: contrast(1.08) brightness(1.04);
 }
 
 .history-glow-radial {
