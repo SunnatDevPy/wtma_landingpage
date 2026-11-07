@@ -1856,6 +1856,7 @@ ul {
   align-items: center;
   justify-content: center;
   padding: 20px;
+  overflow-y: auto;
   opacity: 0;
   visibility: hidden;
   transition: all var(--transition-smooth);
@@ -1878,6 +1879,7 @@ ul {
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
   transform: scale(0.94);
   transition: transform var(--transition-smooth);
+  margin: auto;
 }
 
 .modal-backdrop.open .modal-card {
@@ -2039,6 +2041,19 @@ ul {
   }
 }
 
+/* Header only: the inline desktop nav gets squeezed just above the 992px
+   breakpoint on some narrow laptops/tablets, so extend the burger-menu
+   switch a bit further without touching any other layout rules. */
+@media (max-width: 1180px) and (min-width: 993px) {
+  .main-nav {
+    display: none;
+  }
+
+  .burger-toggle {
+    display: flex;
+  }
+}
+
 @media (max-width: 992px) {
   :root {
     --section-padding: 70px 0;
@@ -2143,6 +2158,27 @@ ul {
 @media (max-width: 640px) {
   :root {
     --section-padding: 50px 0;
+  }
+
+  /* Header: keep logo, search and burger visible. The language switcher and
+     the header CTA are dropped on phones — the mobile drawer already has a
+     full-width contact button, so the bar no longer overflows. */
+  .header-container {
+    padding: 0 18px;
+    gap: 14px;
+  }
+
+  .header-actions {
+    gap: 14px;
+  }
+
+  .lang-selector,
+  .header-actions > .btn-contact-pill {
+    display: none;
+  }
+
+  .modal-card {
+    padding: 28px 22px;
   }
 
   .hero-metrics-grid {
